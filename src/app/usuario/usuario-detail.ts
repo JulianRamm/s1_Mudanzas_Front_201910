@@ -1,5 +1,5 @@
 import { Usuario } from './usuario';
-import { Tarjeta } from './tarjeta';
+/*import { Tarjeta } from './tarjeta';*/
 
 /**
  * Esta clase representa UsuarioDetail de moveasy.
@@ -10,5 +10,5 @@ export class UsuarioDetail extends Usuario {
     /**
      * Las tarjetas del usuario.
      */
-    tarjetas: Tarjeta[];
+    /*tarjetas: Tarjeta[];*/
 }
