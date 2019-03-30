@@ -29,14 +29,14 @@
         <div class="card__front card__part">
           <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
           <img class="card__front-logo card__logo" src="../../../../logomoveasy.png">
-          <p class="card_numer">{{tarjeta.numeroSerial}}</p>
+          <p class="card_numer">**** **** **** {{tarjeta.numeroSerial.substr(-4)}}</p>
           <div class="card__space-75">
             <span class="card__label">Card holder</span>
             <p class="card__info">{{tarjeta.nombreTarjeta}}</p>
           </div>
           <div class="card__space-25">
             <span class="card__label">Expires</span>
-            <p class="card__info">{{tarjeta.fechaVencimiento}}</p>
+            <p class="card__info">{{tarjeta.fechaVencimiento.split("-", 2)[1]}}/{{tarjeta.fechaVencimiento.split("-", 2)[0].substr(-2)}}</p>
           </div>
         </div>
 
