@@ -2,7 +2,7 @@
  * Esta clase representa a un usuario de moveasy/
  * Contiene toda la informacion relevante para un usuario
  */
-export class Usuario {
+export interface Usuario {
 
     /**
      * El id del usuario

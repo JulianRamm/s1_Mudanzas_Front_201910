@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <!--
+      ESTA TARJETA FUE TOMADO DE CODEPEN, POR LUIS MIGUEL GOMEZ LONDOÑO
+      Copyright (c) 2019 - VERONICA - https://codepen.io/veronicadev/pen/VXqZgR
+
+      Permission is hereby granted, free of charge, to any person 
+      obtaining a copy of this software and associated documentation 
+      files (the "Software"), to deal in the Software without restriction,
+      including without limitation the rights to use, copy, modify, 
+      merge, publish, distribute, sublicense, and/or sell copies of 
+      the Software, and to permit persons to whom the Software is 
+      furnished to do so, subject to the following conditions:
+
+      The above copyright notice and this permission notice shall 
+      be included in all copies or substantial portions of the Software.
+
+      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+      EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+      OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+      NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+      HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+      WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+      DEALINGS IN THE SOFTWARE.
+
+      -->
+      <div class="card">
+        <div class="card__front card__part">
+          <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
+          <img class="card__front-logo card__logo" src="../../../../logomoveasy.png">
+          <p class="card_numer">**** **** **** {{ numeroSerial.substr(id.length - 4) }}</p>
+          <div class="card__space-75">
+            <span class="card__label">Card holder</span>
+            <p class="card__info">{{nombreTarjeta}}</p>
+          </div>
+          <div class="card__space-25">
+            <span class="card__label">Expires</span>
+            <p class="card__info">{{fechaVencimiento}}</p>
+          </div>
+        </div>
+
+        <div class="card__back card__part">
+          <div class="card__black-line"></div>
+          <div class="card__back-content">
+            <div class="card__secret">
+              <p class="card__secret--last">{{codigoSeguridad}}</p>
+            </div>
+            <img class="card__back-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
+            <img class="card__back-logo card__logo" src="../../../../logomoveasy.png">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
