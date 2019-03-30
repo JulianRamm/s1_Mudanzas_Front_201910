@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#titular {
+    background-color: #ff2955;
+    color: white;
+}
+
+td {
+    color: #6b6b6b;
+}
+tbody tr:hover {
+    background-color: #FFF5FF;
+}
