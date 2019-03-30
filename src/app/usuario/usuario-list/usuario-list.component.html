@@ -3,6 +3,7 @@
         <table class='table'>
             <thead id="titular" class="thead">
                 <tr>
+                    <th>id</th>
                     <th>Nombre Completo</th>
                     <th>Login</th>
                     <th>Ciudad</th>
@@ -10,31 +11,12 @@
                 </tr>
             </thead>
             <tbody>
-                <!--
                 <tr *ngFor = "let usuario of usuarios">
-                    <td><span>{ { usuario.nombre } } { { usuario.apellido } }</span></td>
-                    <td><span>{ { usuario.login } }</span></td>
-                    <td><span>{ { usuario.ciudadDeOrigen} }</span></td>
-                    <td><span>{ { usuario.correoElectronico } }</span></td>
-                </tr>
-                -->
-                <tr>
-                    <td><span>Luis Miguel Gómez Londoño</span></td>
-                    <td><span>luismigolondo</span></td>
-                    <td><span>Manizales</span></td>
-                    <td><span>lm.gomezl@uniandes.edu.co</span></td>
-                </tr>
-                <tr>
-                    <td><span>Julian Osorio</span></td>
-                    <td><span>josorio</span></td>
-                    <td><span>Bogota</span></td>
-                    <td><span>je.osorio@uniandes.edu.co</span></td>
-                </tr>
-                <tr>
-                    <td><span>Andres Gonzalez</span></td>
-                    <td><span>agonzalez</span></td>
-                    <td><span>Bogota</span></td>
-                    <td><span>af.gonzalez@uniandes.edu.co</span></td>
+                    <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.login }}</td>
+                    <td>{{ usuario.ciudadDeOrigen }}</td>
+                    <td>{{ usuario.correoElectronico }}</td>
                 </tr>
             </tbody>
         </table>

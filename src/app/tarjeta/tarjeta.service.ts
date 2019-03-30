@@ -6,7 +6,7 @@ import { Tarjeta} from './tarjeta';
 import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
-const tarjetas = '/tarjetas';
+const tarjetas = '/usuarios/luismigolondo/tarjetas';
 
 /**
 * The service provider for everything related to usuarios
