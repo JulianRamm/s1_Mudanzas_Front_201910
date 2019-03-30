@@ -1,9 +1,10 @@
-import { Usuario } from '../usuario/usuario';
+import {Usuario} from '../usuario/usuario';
+
 /**
- * Esta clase representa a una tarjeta de un usuario de moveasy
- * Contiene toda la informacion relevante para un usuario de una tarjeta
+ * Esta clase representa a una tarjeta de un usuario de moveasy/
+ * Contiene toda la informacion relevante de una tarjeta de un usuario.
  */
-export class Tarjeta {
+export interface Tarjeta {
 
     /**
      * El id de la tarjeta
@@ -11,7 +12,7 @@ export class Tarjeta {
     id: number;
 
     /**
-     * El nombre personalizado de la tarjeta
+     * El nombre del propietario de la tarjeta
      */
     nombreTarjeta: string;
 
@@ -31,7 +32,7 @@ export class Tarjeta {
     fechaVencimiento: any;
 
     /**
-     * El usuario de la tarjeta
+     * El propietario de la tarjeta
      */
     usuario: Usuario;
 
