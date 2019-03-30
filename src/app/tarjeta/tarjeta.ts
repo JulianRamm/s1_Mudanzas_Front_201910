@@ -1,5 +1,3 @@
-import {Usuario} from '../usuario/usuario';
-
 /**
  * Esta clase representa a una tarjeta de un usuario de moveasy/
  * Contiene toda la informacion relevante de una tarjeta de un usuario.
@@ -30,10 +28,5 @@ export interface Tarjeta {
      * La fecha de vencimiento de la tarjeta
      */
     fechaVencimiento: any;
-
-    /**
-     * El propietario de la tarjeta
-     */
-    usuario: Usuario;
 
 }
