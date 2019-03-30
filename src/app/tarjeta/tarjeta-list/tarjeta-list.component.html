@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col" *ngFor = "let tarjeta of tarjetas">
+    <div class="col" *ngFor="let tarjeta of tarjetas">
       <!--
       ESTA TARJETA FUE TOMADO DE CODEPEN, POR LUIS MIGUEL GOMEZ LONDOÑO
       Copyright (c) 2019 - VERONICA - https://codepen.io/veronicadev/pen/VXqZgR
@@ -25,7 +25,6 @@
       OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
       DEALINGS IN THE SOFTWARE.
     -->
-
       <div class="card">
         <div class="card__front card__part">
           <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
@@ -40,7 +39,7 @@
             <p class="card__info">{{tarjeta.fechaVencimiento}}</p>
           </div>
         </div>
-        
+
         <div class="card__back card__part">
           <div class="card__black-line"></div>
           <div class="card__back-content">
@@ -49,7 +48,7 @@
             </div>
             <img class="card__back-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
             <img class="card__back-logo card__logo" src="../../../../logomoveasy.png">
-            
+
           </div>
         </div>
       </div>

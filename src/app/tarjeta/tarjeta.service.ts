@@ -18,7 +18,7 @@ export class TarjetaService {
     * Constructor of the service
     * @param http The HttpClient - This is necessary in order to perform requests
     */
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {}
 
     /**
     * Returns the Observable object containing the list of tarjetas retrieved from the API
