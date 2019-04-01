@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
      * Assigns a title to the web page
      */
     ngOnInit(): void {
-        this.title = "sXXX_ZZZ-Front";
+        this.title = "moveasy";
         this.authService.start();
     }
 
