@@ -1,14 +1,12 @@
 import { Usuario } from './usuario';
-import { Tarjeta } from './tarjeta';
+import { Tarjeta } from '../tarjeta/tarjeta';
 
 /**
- * Esta clase representa UsuarioDetail de moveasy.
- * Contiene toda la informacion relevante para el usuario.
- */
+* This class represents a usuario of the moveasy. 
+* It contains all the information relevant to the user.
+*/
 export class UsuarioDetail extends Usuario {
 
-    /**
-     * Las tarjetas del usuario.
-     */
     tarjetas: Tarjeta[];
+
 }

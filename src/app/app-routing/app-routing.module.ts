@@ -1,14 +1,16 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterModule, Routes} from '@angular/router';
-import {NgxPermissionsGuard} from 'ngx-permissions';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { NgxPermissionsGuard } from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
+import { TarjetaListComponent } from '../tarjeta/tarjeta-list/tarjeta-list.component';
 
 const routes: Routes = [
 
-     {
+    {
         path: 'auth',
         children: [
             {
@@ -33,20 +35,39 @@ const routes: Routes = [
             }
         ]
     },
-    {
+    /**{
         path: 'home',
-        component: AuthLoginComponent
-    },
+        component: UsuarioListComponent
+        //AuthLoginComponent
+    },**/
     {
         path: '**',
         redirectTo: 'home',
+    },
+    {
+        path: 'usuarios',
+        children: [
+            {
+                path: 'list',
+                component: UsuarioListComponent
+            }
+        ]
+    },
+    {
+        path: 'tarjetas',
+        children: [
+            {
+                path: 'list',
+                component: TarjetaListComponent
+            }
+        ]
     }
 ];
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
+        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
     ],
     exports: [RouterModule],
     declarations: []
