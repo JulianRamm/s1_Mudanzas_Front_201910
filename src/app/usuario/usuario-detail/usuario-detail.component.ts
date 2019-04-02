@@ -28,7 +28,7 @@ export class UsuarioDetailComponent implements OnInit, OnDestroy {
   }
 
   /**
-    * The usuario's id retrieved from the path
+    * The usuario's login retrieved from the path
     */
   usuario_login: string;
 
@@ -76,7 +76,7 @@ export class UsuarioDetailComponent implements OnInit, OnDestroy {
   * they are never considered undefined
   */
   ngOnInit() {
-    this.usuario_login = + this.route.snapshot.paramMap.get('login');
+    this.usuario_login = this.route.snapshot.paramMap.get('login');
     this.usuarioDetail = new UsuarioDetail();
     this.getUsuarioDetail();
     this.getOtherUsuarios();

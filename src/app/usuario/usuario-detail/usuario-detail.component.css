@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i');
+* {
+    font-family: 'Space Mono', monospace;
+}
+
+#caja-fondo {
+    background-color: #FEFEFE;
+}
+
+#username {
+    color: #939393;
+}
