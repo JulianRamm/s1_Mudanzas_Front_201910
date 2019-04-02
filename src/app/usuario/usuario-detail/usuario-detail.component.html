@@ -1,0 +1,24 @@
+<div class='container-fluid row' id="caja-fondo">
+    <img class='col-3' src="../../../userprofile.png">
+    <div class='row col-8'>
+        <table class='table'>
+            <tbody>
+                <br>
+              <br>
+            <br>
+                <tr>
+                    <h2>{{ usuarioDetail.nombre + " " + usuarioDetail.apellido}}</h2>
+                </tr>
+                <tr id="username"> {{ "@" + usuarioDetail.login }} </tr>
+                <tr> <a href="mailto:{{usuarioDetail.correoElectronico}}"> {{ usuarioDetail.correoElectronico }} </a></tr>
+                <tr> {{ "Ubicacion: " + usuarioDetail.ciudadDeOrigen + ", Colombia" }} </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row" id = "Cargas:">
+        <h3>Cargas: </h3>
+    </div>
+    <div class="row" id = "Tarjetas">
+      <h3>Tarjetas: </h3>
+    </div>
+</div>

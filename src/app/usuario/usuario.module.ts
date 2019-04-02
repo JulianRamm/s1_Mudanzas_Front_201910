@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {UsuarioListComponent} from './usuario-list/usuario-list.component';
 import {UsuarioService} from './usuario.service';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
+import { UsuarioDetailComponent } from './usuario-detail/usuario-detail.component';
 
 @NgModule({
     imports: [
@@ -16,7 +17,7 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
         CommonModule,
         FormsModule
     ],
-    declarations: [UsuarioListComponent],
+    declarations: [UsuarioListComponent, UsuarioDetailComponent],
     providers: [UsuarioService]
 })
 export class UsuarioModule {}
