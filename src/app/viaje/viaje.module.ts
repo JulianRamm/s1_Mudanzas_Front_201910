@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ViajeListComponent } from './viaje-list/viaje-list.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
-import { TarjetaService } from './tarjeta.service';
-import { TarjetaListComponent } from './tarjeta-list/tarjeta-list.component';
+import { ViajeService } from './viaje.service';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 
 @NgModule({
@@ -16,9 +15,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
     CommonModule,
     FormsModule
   ],
-  declarations: [TarjetaListComponent],
-  providers: [TarjetaService],
-  bootstrap: [TarjetaListComponent],
-  exports: [TarjetaListComponent]
+  declarations: [ViajeListComponent],
+  providers: [ViajeService]
 })
-export class TarjetaModule { }
+export class ViajeModule { }
