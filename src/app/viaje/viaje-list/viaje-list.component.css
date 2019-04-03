@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i');
+
+#titular {
+    background-color: #ff2955;
+    color: white;
+}
+
+td {
+    color: #6b6b6b;
+    font-family: 'Space Mono', monospace;
+}
+tbody tr:hover {
+    background-color: #FFF5FF;
+}
