@@ -21,14 +21,31 @@ export class UsuarioListComponent implements OnInit {
     constructor(private usuarioService: UsuarioService) { }
 
     /**
+    * Shows or hides the usuairo-create-component
+    */
+    showCreate: boolean;
+
+    /**
      * The list of usuarios which belong to the BookStore
      */
     usuarios: Usuario[];
 
     onSelected(login: string): void {
+        this.showCreate = false;
         this.usuario_login = login;
         this.selectedUsuario = new UsuarioDetail();
         this.getUsuarioDetail();
+    }
+
+    /**
+    * Shows or hides the create component
+    */
+    showHideCreate(): void {
+        if (this.selectedUsuario) {
+            this.selectedUsuario = undefined;
+            this.usuario_login = undefined;
+        }
+        this.showCreate = !this.showCreate;
     }
 
     getUsuarioDetail(): void {
@@ -51,6 +68,9 @@ export class UsuarioListComponent implements OnInit {
      * This method will be called when the component is created
      */
     ngOnInit() {
+        this.showCreate = false;
+        this.selectedUsuario = undefined;
+        this.usuario_login = undefined;
         this.getUsuarios();
     }
 }

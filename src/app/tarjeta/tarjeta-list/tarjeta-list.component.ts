@@ -2,7 +2,6 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Tarjeta } from '../tarjeta';
 import { TarjetaService } from '../tarjeta.service';
 import { SELECT_VALUE_ACCESSOR } from '@angular/forms/src/directives/select_control_value_accessor';
-import { UsuarioListComponent } from 'src/app/usuario/usuario-list/usuario-list.component';
 import { ActivatedRoute } from '@angular/router';
 
 @Component ({

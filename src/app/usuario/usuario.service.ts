@@ -38,4 +38,8 @@ export class UsuarioService {
         return this.http.get<UsuarioDetail>(API_URL + usuarios + '/' + usuarioLogin);
     }
 
+    createUsuario(usuario: Usuario): any {
+        throw new Error("Method not implemented.");
+    }
+
 }
