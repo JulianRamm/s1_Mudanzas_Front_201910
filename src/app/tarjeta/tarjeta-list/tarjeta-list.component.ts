@@ -1,8 +1,9 @@
-
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Tarjeta } from '../tarjeta';
 import { TarjetaService } from '../tarjeta.service';
 import { SELECT_VALUE_ACCESSOR } from '@angular/forms/src/directives/select_control_value_accessor';
+import { UsuarioListComponent } from 'src/app/usuario/usuario-list/usuario-list.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component ({
     selector: 'app-tarjeta',
@@ -15,19 +16,20 @@ export class TarjetaListComponent implements OnInit {
      * Constructor for the component
      * @param tarjetaoService The author's services provider
      */
-    constructor(private tarjetaService: TarjetaService) {}
+    constructor(private tarjetaService: TarjetaService, private route: ActivatedRoute) {}
+
+    @Input() login: string;
 
     /**
      * The list of tarjetas which belong to the BookStore
      */
     tarjetas: Tarjeta[];
 
-    /**
-     * Asks the service to update the list of tarjetas
-     */
-    getTarjetas(): void {
-        this.tarjetaService.getTarjetas()
-            .subscribe(tarjeta => this.tarjetas = tarjeta);
+    getTarjetas(l:string): void {
+        this.tarjetaService.getTarjetas(l)
+        .subscribe(tarjetas => {
+            this.tarjetas = tarjetas;
+        });
     }
 
     /**
@@ -35,6 +37,7 @@ export class TarjetaListComponent implements OnInit {
      * This method will be called when the component is created
      */
     ngOnInit() {
-        this.getTarjetas();
+        this.login = this.route.snapshot.paramMap.get('login');
+        this.getTarjetas(this.login);
     }
 }
