@@ -8,6 +8,7 @@ import {UsuarioListComponent} from './usuario-list/usuario-list.component';
 import {UsuarioService} from './usuario.service';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { UsuarioDetailComponent } from './usuario-detail/usuario-detail.component';
+import { TarjetaModule } from '../tarjeta/tarjeta.module';
 
 @NgModule({
     imports: [
@@ -15,9 +16,11 @@ import { UsuarioDetailComponent } from './usuario-detail/usuario-detail.componen
         AppRoutingModule,
         HttpClientModule,
         CommonModule,
-        FormsModule
+        FormsModule,
+        TarjetaModule
     ],
     declarations: [UsuarioListComponent, UsuarioDetailComponent],
-    providers: [UsuarioService]
+    providers: [UsuarioService],
+    bootstrap: [UsuarioListComponent]
 })
 export class UsuarioModule {}
