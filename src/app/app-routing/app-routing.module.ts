@@ -6,7 +6,6 @@ import { NgxPermissionsGuard } from 'ngx-permissions';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
-import { TarjetaListComponent } from '../tarjeta/tarjeta-list/tarjeta-list.component';
 import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail.component';
 
 const routes: Routes = [

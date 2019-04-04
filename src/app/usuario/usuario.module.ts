@@ -9,6 +9,7 @@ import {UsuarioService} from './usuario.service';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { UsuarioDetailComponent } from './usuario-detail/usuario-detail.component';
 import { TarjetaModule } from '../tarjeta/tarjeta.module';
+import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
 
 @NgModule({
     imports: [
@@ -19,7 +20,7 @@ import { TarjetaModule } from '../tarjeta/tarjeta.module';
         FormsModule,
         TarjetaModule
     ],
-    declarations: [UsuarioListComponent, UsuarioDetailComponent],
+    declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent],
     providers: [UsuarioService],
     bootstrap: [UsuarioListComponent]
 })

@@ -38,4 +38,8 @@ export class UsuarioService {
         return this.http.get<UsuarioDetail>(API_URL + usuarios + '/' + usuarioLogin);
     }
 
+    createUsuario(usuario): Observable<Usuario> {
+        return this.http.post<Usuario>(API_URL + usuarios, usuario);
+    }
+
 }
