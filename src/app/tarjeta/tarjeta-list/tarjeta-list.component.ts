@@ -24,8 +24,8 @@ export class TarjetaListComponent implements OnInit {
      */
     tarjetas: Tarjeta[];
 
-    getTarjetas(l:string): void {
-        this.tarjetaService.getTarjetas(l)
+    getTarjetas(): void {
+        this.tarjetaService.getTarjetas(this.login)
         .subscribe(tarjetas => {
             this.tarjetas = tarjetas;
         });
@@ -36,7 +36,6 @@ export class TarjetaListComponent implements OnInit {
      * This method will be called when the component is created
      */
     ngOnInit() {
-        this.login = this.route.snapshot.paramMap.get('login');
-        this.getTarjetas(this.login);
+        this.getTarjetas();
     }
 }

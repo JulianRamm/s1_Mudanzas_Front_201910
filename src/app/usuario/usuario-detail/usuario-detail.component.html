@@ -23,11 +23,13 @@
             <p id="tituloSub"><b>Cargas: </b></p>
             <hr>
         </div>
-        <div class="col" >
+        <div class="col">
             <p id="tituloSub"><b>Tarjetas De Credito: </b></p>
             <hr>
             <br>
-            <app-tarjeta></app-tarjeta>
+            <div *ngIf="usuarioDetail.login">
+                <app-tarjeta [login]="usuarioDetail.login"></app-tarjeta>
+            </div>
         </div>
     </div>
     <hr>
