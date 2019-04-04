@@ -29,4 +29,8 @@ export class TarjetaService {
         return this.http.get<Tarjeta[]>(API_URL + usuarios + '/' + login + tarjetas);
     }
 
+    createTarjeta(login, tarjeta): Observable<Tarjeta> {
+        return this.http.post<Tarjeta>(API_URL + usuarios + '/' + login + tarjetas, tarjeta);
+    }
+
 }

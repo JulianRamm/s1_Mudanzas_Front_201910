@@ -1,72 +1,40 @@
+.btn {
+    width: 50%;
+    margin-top: 10px;
+}
+
+input {
+    border-radius: 50px;
+    background: transparent;
+    color: white;
+}
+
 /*
  ESTE ESTILO DE TARJETA FUE TOMADO DE CODEPEN, POR LUIS MIGUEL GOMEZ LONDOÑO
 */
-
-@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i');
-#but {
-    background-image: linear-gradient(45deg, #0ba360, #3cba92, #30dd8a, #2bb673);
-    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75); 
-    background-size: 300% 100%;
-    moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-    color: white;
-    margin-top: 2px;
-    margin-left: 15px;
-    margin-right: 110px;
-    box-shadow: 1px 1px #aaa3a3;
-    top: 0;
-    z-index: 1000;
-    left: 0;
-    display: inline-block;
-    width: 320px;
-    height: 190px;
-    border-radius: 8px;
-    -webkit-perspective: 600px;
-    -moz-perspective: 600px;
-    perspective: 600px;
-    font-size: 80px;
-}
-#but:hover {
-    background-position: 100% 0;
-    moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-}
-
-#crear {
-    margin-top: 50px;
-}
-
-#tituloSub {
-    font-size: 20px;
-}
-
 .card {
-    width: 320px;
-    height: 190px;
-    -webkit-perspective: 600px;
-    -moz-perspective: 600px;
-    perspective: 600px;
+    width: 640px;
+    height: 380px;
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    perspective: 1200px;
 }
 
 .card__part {
-    box-shadow: 1px 1px #aaa3a3;
+    box-shadow: 2px 2px #aaa3a3;
     top: 0;
     position: absolute;
     z-index: 1000;
     left: 0;
     display: inline-block;
-    width: 320px;
-    height: 190px;
+    width: 640px;
+    height: 380px;
     background-image: url('https://image.ibb.co/bVnMrc/g3095.png'), linear-gradient(to right bottom, #fd696b, #fa616e, #f65871, #f15075, #ec4879);
     /*linear-gradient(to right bottom, #fd8369, #fc7870, #f96e78, #f56581, #ee5d8a)*/
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    border-radius: 8px;
+    border-radius: 16px;
     -webkit-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     -moz-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     -ms-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -79,48 +47,48 @@
 }
 
 .card__front {
-    padding: 18px;
+    padding: 36px;
     -webkit-transform: rotateY(0);
     -moz-transform: rotateY(0);
 }
 
 .card__back {
-    padding: 18px 0;
+    padding: 36px 0;
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
 }
 
 .card__black-line {
-    margin-top: 5px;
-    height: 38px;
+    margin-top: 10px;
+    height: 46px;
     background-color: #303030;
 }
 
 .card__logo {
-    height: 40px;
+    height: 80px;
 }
 
 .card__front-logo {
     position: absolute;
-    top: 18px;
-    right: 18px;
+    top: 36px;
+    right: 36px;
 }
 
 .card__square {
-    border-radius: 5px;
-    height: 30px;
+    border-radius: 10px;
+    height: 60px;
 }
 
 .card_numer {
     display: block;
     width: 100%;
-    word-spacing: 4px;
-    font-size: 20px;
-    letter-spacing: 2px;
+    word-spacing: 8px;
+    font-size: 40px;
+    letter-spacing: 4px;
     color: #fff;
     text-align: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 .card__space-75 {
@@ -137,32 +105,32 @@
     font-size: 10px;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.8);
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .card__info {
     margin-bottom: 0;
-    margin-top: 5px;
-    font-size: 16px;
-    line-height: 18px;
+    margin-top: 10px;
+    font-size: 32px;
+    line-height: 36px;
     color: #fff;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
 
 .card__back-content {
-    padding: 15px 15px 0;
+    padding: 30px 30px 0;
 }
 
 .card__secret--last {
     color: #303030;
     text-align: right;
     margin: 0;
-    font-size: 14px;
+    font-size: 28px;
 }
 
 .card__secret {
-    padding: 5px 12px;
+    padding: 10px 24px;
     background-color: #fff;
     position: relative;
 }
@@ -170,32 +138,34 @@
 .card__secret:before {
     content: '';
     position: absolute;
-    top: -3px;
-    left: -3px;
-    height: calc(100% + 6px);
-    width: calc(100% - 42px);
-    border-radius: 4px;
+    top: -6px;
+    left: -6px;
+    height: calc(100% + 12px);
+    width: calc(100% - 84px);
+    border-radius: 8px;
     background: repeating-linear-gradient(45deg, #ededed, #ededed 5px, #f9f9f9 5px, #f9f9f9 10px);
 }
 
 .card__back-logo {
     position: absolute;
-    bottom: 15px;
-    right: 15px;
+    bottom: 30px;
+    right: 30px;
 }
 
 .card__back-square {
     position: absolute;
-    bottom: 15px;
-    left: 15px;
+    bottom: 30px;
+    left: 30px;
 }
 
 .card:hover .card__front {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
+    transition-delay: 1s;
 }
 
 .card:hover .card__back {
     -webkit-transform: rotateY(0deg);
     -moz-transform: rotateY(0deg);
+    transition-delay: 1s;
 }
