@@ -1,24 +1,36 @@
 <div class='container-fluid'>
-    <div class='col'>
-        <table class='table'>
-            <thead id="titular" class="thead">
-                <tr>
-                    <th>ID</th>
-                    <th>Login</th>
-                    <th>Nombre Completo</th>
-                    <th>Ciudad</th>
-                    <th>Correo Electronico</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let usuario of usuarios" style="cursor: pointer;" routerLink="/usuarios/{{usuario.login}}">
-                    <td>{{ usuario.id }}</td>
-                    <td>{{ usuario.login }}</td>
-                    <td>{{ usuario.nombre }}</td>
-                    <td>{{ usuario.ciudadDeOrigen }}</td>
-                    <td>{{ usuario.correoElectronico }}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="col-8">
+        <div class='col'>
+            <table class='table'>
+                <thead id="titular" class="thead">
+                    <tr>
+                        <th>ID</th>
+                        <th>Login</th>
+                        <th>Nombre Completo</th>
+                        <th>Ciudad</th>
+                        <th>Correo Electronico</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usuario of usuarios" style="cursor: pointer;"
+                        routerLink="/usuarios/{{usuario.login}}">
+                        <td>{{ usuario.id }}</td>
+                        <td>{{ usuario.login }}</td>
+                        <td>{{ usuario.nombre }}</td>
+                        <td>{{ usuario.ciudadDeOrigen }}</td>
+                        <td>{{ usuario.correoElectronico }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear un usuario</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div *ngIf="showCreate">
+            <app-usuario-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-usuario-create>
+        </div>
     </div>
 </div>

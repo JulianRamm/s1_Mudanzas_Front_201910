@@ -2,7 +2,6 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Tarjeta } from '../tarjeta';
 import { TarjetaService } from '../tarjeta.service';
 import { SELECT_VALUE_ACCESSOR } from '@angular/forms/src/directives/select_control_value_accessor';
-import { UsuarioListComponent } from 'src/app/usuario/usuario-list/usuario-list.component';
 import { ActivatedRoute } from '@angular/router';
 
 @Component ({
@@ -25,8 +24,8 @@ export class TarjetaListComponent implements OnInit {
      */
     tarjetas: Tarjeta[];
 
-    getTarjetas(l:string): void {
-        this.tarjetaService.getTarjetas(l)
+    getTarjetas(): void {
+        this.tarjetaService.getTarjetas(this.login)
         .subscribe(tarjetas => {
             this.tarjetas = tarjetas;
         });
@@ -37,7 +36,6 @@ export class TarjetaListComponent implements OnInit {
      * This method will be called when the component is created
      */
     ngOnInit() {
-        this.login = this.route.snapshot.paramMap.get('login');
-        this.getTarjetas(this.login);
+        this.getTarjetas();
     }
 }
