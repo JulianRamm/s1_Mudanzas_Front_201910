@@ -4,7 +4,7 @@ export class Carga{
     volumen:number;
     lugarSalida: string;
     lugarLlegada: string;
-    fechaEstimadaLlegada:Date;
-    fechaEnvio:Date;
+    fechaEstimadaLlegada:any;
+    fechaEnvio:any;
     observaciones:string;
 }
