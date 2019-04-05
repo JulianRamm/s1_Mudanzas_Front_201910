@@ -11,6 +11,7 @@ import { UsuarioDetailComponent } from './usuario-detail/usuario-detail.componen
 import { TarjetaModule } from '../tarjeta/tarjeta.module';
 import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
+import { CargaModule } from '../carga/carga.module';
 
 @NgModule({
     imports: [
@@ -19,7 +20,8 @@ import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        TarjetaModule
+        TarjetaModule,
+        CargaModule
     ],
     declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioEditComponent],
     providers: [UsuarioService],
