@@ -10,6 +10,7 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { UsuarioDetailComponent } from './usuario-detail/usuario-detail.component';
 import { TarjetaModule } from '../tarjeta/tarjeta.module';
 import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
+import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
 
 @NgModule({
     imports: [
@@ -20,7 +21,7 @@ import { UsuarioCreateComponent } from './usuario-create/usuario-create.componen
         FormsModule,
         TarjetaModule
     ],
-    declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent],
+    declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioEditComponent],
     providers: [UsuarioService],
     bootstrap: [UsuarioListComponent]
 })
