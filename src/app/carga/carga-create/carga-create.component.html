@@ -18,44 +18,51 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><b>Volumen: </b>
-          <input type="number" name="cargaVolumen" class="form-control" id="cargaVolumen"
-          [(ngModel)]="carga.volumen" #cargaVolumen="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && cargaVolumen.invalid }" maxlength="3" required>
-        <div class="invalid-feedback">
-          <div>Debes ingresar un volumen</div>
-        </div>
+          <input type="number" name="cargaVolumen" class="form-control" id="cargaVolumen" [(ngModel)]="carga.volumen"
+            #cargaVolumen="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cargaVolumen.invalid }" maxlength="3"
+            required>
+          <div class="invalid-feedback">
+            <div>Debes ingresar un volumen</div>
+          </div>
         </li>
         <li class="list-group-item"><b>Lugar de salida: </b>
           <input type="text" name="cargaLugarSalida" class="form-control" id="cargaLugarSalida"
-          [(ngModel)]="carga.lugarSalida" #cargaLugarSalida="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && cargaLugarSalida.invalid }" maxlength="20" required>
-        <div class="invalid-feedback">
-          <div>Debes ingresar lugar de salida</div>
-        </div>
+            [(ngModel)]="carga.lugarSalida" #cargaLugarSalida="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && cargaLugarSalida.invalid }" maxlength="20" required>
+          <div class="invalid-feedback">
+            <div>Debes ingresar lugar de salida</div>
+          </div>
         </li>
         <li class="list-group-item"><b>Lugar de llegada: </b>
           <input type="text" name="cargaLugarLlegada" class="form-control" id="cargaLugarLlegada"
-          [(ngModel)]="carga.lugarLlegada" #cargaLugarLlegada="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && cargaLugarLlegada.invalid }" maxlength="20" required>
-        <div class="invalid-feedback">
-          <div>Debes ingresar lugar de llegada</div>
-        </div>
+            [(ngModel)]="carga.lugarLlegada" #cargaLugarLlegada="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && cargaLugarLlegada.invalid }" maxlength="20" required>
+          <div class="invalid-feedback">
+            <div>Debes ingresar lugar de llegada</div>
+          </div>
         </li>
         <li class="list-group-item"><b>Fecha de envío: </b>
           <input type="datetime-local" name="cargaFechaEnvio" class="form-control" id="cargaFechaEnvio"
-          [(ngModel)]="carga.fechaEnvio" #cargaFechaEnvio="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && cargaFechaEnvio.invalid }">
-        <div class="invalid-feedback">
-          <div>Debes ingresar una fecha de envío</div>
-        </div>
+            [(ngModel)]="carga.fechaEnvio" #cargaFechaEnvio="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && cargaFechaEnvio.invalid }">
+          <div class="invalid-feedback">
+            <div>Debes ingresar una fecha de envío</div>
+          </div>
         </li>
         <li class="list-group-item"><b>Entrega estimada: </b>
-          <input type="datetime-local" name="cargaFechaEstimadaLlegada" class="form-control" id="cargaFechaEstimadaLlegada"
-          [(ngModel)]="carga.fechaEstimadaLlegada" #cargaFechaEstimadaLlegada="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && cargaFechaEstimadaLlegada.invalid }">
-        <div class="invalid-feedback">
-          <div>Debes ingresar una fecha estimada de llegada</div>
-        </div>
+          <input type="datetime-local" name="cargaFechaEstimadaLlegada" class="form-control"
+            id="cargaFechaEstimadaLlegada" [(ngModel)]="carga.fechaEstimadaLlegada" #cargaFechaEstimadaLlegada="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && cargaFechaEstimadaLlegada.invalid }">
+          <div class="invalid-feedback">
+            <div>Debes ingresar una fecha estimada de llegada</div>
+          </div>
+        </li>
+        <li>
+          <div class="row form-inline justify-content-center align-self-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="divider"></div>
+            <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+          </div>
         </li>
       </ul>
     </div>

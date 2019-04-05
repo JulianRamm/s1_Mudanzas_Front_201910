@@ -39,7 +39,6 @@ export class TarjetaCreateComponent implements OnInit {
         this.create.emit();
         this.toastrService.success("La tarjeta fue creada", "Creacion de Tarjeta");
       });
-      console.log(this.tarjeta);
     return this.tarjeta;
   }
 

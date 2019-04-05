@@ -24,6 +24,7 @@
     <div *ngIf="showEdit">
         <app-usuario-edit [usuario]="this.usuarioDetail" (cancel)="showHideEdit()" (update)="ngOnInit()">
         </app-usuario-edit>
+        <hr>
     </div>
     <div class=" table row" id="perfil">
         <div class="col">
