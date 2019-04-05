@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="card-body">
+    <br>
+    <h2 class="text-center">Crear un Usuario</h2>
+    <br>
+    <form name="usuario" (ngSubmit)="f.form.valid && createUsuario()" #f="ngForm" novalidate>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">@</span>
+        </div>
+        <input type="text" placeholder="Username" name="usuarioLogin" class="form-control" id="usuarioLogin"
+          [(ngModel)]="usuario.login" #usuarioLogin="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && usuarioLogin.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Debes ingresar un username</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Contraseña</span>
+          </div>
+          <input type="password" name="usuarioPassword" class="form-control" id="usuarioPassword"
+            [(ngModel)]="usuario.password" #usuarioPassword="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && usuarioPassword.invalid }" required>
+          <div class="invalid-feedback">
+            <div>Debes ingresar una contraseña</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Nombre</span>
+          </div>
+          <input type="text" name="usuarioName" class="form-control" id="usuarioName" [(ngModel)]="usuario.nombre"
+            #usuarioName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && usuarioName.invalid }" required>
+          <div class="invalid-feedback">
+            <div>Debes ingresar tu nombre</div>
+          </div>
+        </div>
+        <div class="col input-group mb-3">
+          <input type="text" placeholder="Apellido" name="usuarioApellido" class="form-control" id="usuarioApellido"
+            [(ngModel)]="usuario.apellido" #usuarioApellido="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && usuarioApellido.invalid }" required>
+          <div class="invalid-feedback">
+            <div>Debes ingresar tu apellido</div>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Correo Electonico:</span>
+        </div>
+        <input type="email " placeholder="example@email.com" name="usuarioCorreo" class="form-control"
+          id="usuarioCorreo" [(ngModel)]="usuario.correoElectronico" #usuarioCorreo="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && usuarioCorreo.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Debes ingresar un correo electronico valido</div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Ciudad</span>
+        </div>
+        <input type="text" name="usuarioCiudad" class="form-control" id="usuarioCiudad"
+          [(ngModel)]="usuario.ciudadDeOrigen" #usuarioCiudad="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && usuarioCiudad.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Debes ingresar una ciudad</div>
+        </div>
+      </div>
+      <div class="row form-inline justify-content-center align-self-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="divider"></div>
+        <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-3"></div>
+</div>

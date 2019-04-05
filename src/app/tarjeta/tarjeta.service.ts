@@ -6,7 +6,8 @@ import { Tarjeta} from './tarjeta';
 import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
-const tarjetas = '/usuarios/luismigolondo/tarjetas';
+const usuarios = '/usuarios'
+const tarjetas = '/tarjetas';
 
 /**
 * The service provider for everything related to usuarios
@@ -24,8 +25,8 @@ export class TarjetaService {
     * Returns the Observable object containing the list of tarjetas retrieved from the API
     * @returns The list of books in real time
     */
-    getTarjetas(): Observable<Tarjeta[]> {
-        return this.http.get<Tarjeta[]>(API_URL + tarjetas);
+    getTarjetas(login: string): Observable<Tarjeta[]> {
+        return this.http.get<Tarjeta[]>(API_URL + usuarios + '/' + login + tarjetas);
     }
 
 }
