@@ -7,6 +7,7 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
 import { TarjetaListComponent } from '../tarjeta/tarjeta-list/tarjeta-list.component';
+import { ViajeListComponent } from '../viaje/viaje-list/viaje-list.component';
 
 const routes: Routes = [
 
@@ -59,6 +60,15 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: TarjetaListComponent
+            }
+        ]
+    },
+    {
+        path: 'viajes',
+        children: [
+            {
+                path: 'list',
+                component: ViajeListComponent
             }
         ]
     }

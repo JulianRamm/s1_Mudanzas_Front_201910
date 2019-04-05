@@ -16,10 +16,12 @@ import {AuthModule} from './auth/auth.module';
 
 import {UsuarioModule} from "./usuario/usuario.module";
 import {TarjetaModule} from "./tarjeta/tarjeta.module";
+import { ViajeModule } from './viaje/viaje.module';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        
     ],
     imports: [
         BrowserModule,
@@ -38,7 +40,8 @@ import {TarjetaModule} from "./tarjeta/tarjeta.module";
         NgxPermissionsModule.forRoot(),
         NgbModule,
         UsuarioModule,
-        TarjetaModule
+        TarjetaModule,
+        ViajeModule
     ],
     bootstrap: [AppComponent],
     providers: [
