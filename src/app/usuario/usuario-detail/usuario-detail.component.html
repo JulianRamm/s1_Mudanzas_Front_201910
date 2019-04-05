@@ -21,7 +21,7 @@
     </div>
     <hr>
     <div *ngIf="showEdit">
-        <app-usuario-edit [usuario]="this.usuarioDetail" (cancel)="showHideEdit()" (update) = "ngOnInit()"></app-usuario-edit>
+        <app-usuario-edit [usuario]="this.usuarioDetail"></app-usuario-edit>
     </div>
     <div class=" table row" id="perfil">
         <div class="col">
@@ -33,7 +33,7 @@
             <hr>
             <br>
             <div *ngIf="usuarioDetail.login">
-                <app-tarjeta [login]="usuarioDetail.login" ></app-tarjeta>
+                <app-tarjeta [login]="usuarioDetail.login"></app-tarjeta>
             </div>
         </div>
     </div>
