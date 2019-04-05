@@ -154,15 +154,3 @@ input {
     bottom: 30px;
     left: 30px;
 }
-
-.card:hover .card__front {
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    transition-delay: 1s;
-}
-
-.card:hover .card__back {
-    -webkit-transform: rotateY(0deg);
-    -moz-transform: rotateY(0deg);
-    transition-delay: 1s;
-}

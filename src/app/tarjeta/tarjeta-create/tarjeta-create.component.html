@@ -56,26 +56,14 @@
             <div class="invalid-feedback">
               <div>Debes ingresar una fecha valida</div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card__back card__part">
-        <div class="card__black-line"></div>
-        <div class="card__back-content">
-          <div class="card__secret">
-            <div class="card__secret--last">
-              <input type="text" placeholder="XXX" name="tarjetaCodigo" class="form-control" id="tarjetaCodigo"
-                [(ngModel)]="tarjeta.codigoSeguridad" #tarjetaCodigo="ngModel"
-                [ngClass]="{ 'is-invalid': f.submitted && tarjetaCodigo.invalid }" maxlength="3" size="3" required>
-              <div class="invalid-feedback">
-                <div>Debes ingresar un CVV valido.</div>
-              </div>
+            <br>
+            <input type="text" placeholder="CVV XXX" name="tarjetaCodigo" class="form-control" id="tarjetaCodigo"
+              [(ngModel)]="tarjeta.codigoSeguridad" #tarjetaCodigo="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && tarjetaCodigo.invalid }" maxlength="3" size="3" required>
+            <div class="invalid-feedback">
+              <div>Debes ingresar un CVV valido.</div>
             </div>
           </div>
-          <img class="card__back-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
-          <img class="card__back-logo card__logo" src="../../../../logomoveasy.png">
-
         </div>
       </div>
     </div>
