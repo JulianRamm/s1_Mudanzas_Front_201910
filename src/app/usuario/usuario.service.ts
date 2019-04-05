@@ -42,4 +42,14 @@ export class UsuarioService {
         return this.http.post<Usuario>(API_URL + usuarios, usuario);
     }
 
+    /**
+    * Updates an usuario
+    * @param usuario The usuario's information updated
+    * @returns The confirmation that the usuario was updated
+    */
+   updateUsuario(usuario:UsuarioDetail): Observable<UsuarioDetail> {
+    return this.http.put<UsuarioDetail>(API_URL + usuarios + '/' + usuario.login, usuario);
+}
+
+
 }
