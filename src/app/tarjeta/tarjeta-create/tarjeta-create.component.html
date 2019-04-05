@@ -1,5 +1,6 @@
-<div class='container-fluid'>
-  <!--
+<div class='container-fluid' *ngIf="loginUsuario">
+  <form name="tarjeta" (ngSubmit)="f.form.valid && createTarjeta()" #f="ngForm" novalidate>
+    <!--
       ESTA TARJETA FUE TOMADO DE CODEPEN, POR LUIS MIGUEL GOMEZ LONDOÑO
       Copyright (c) 2019 - VERONICA - https://codepen.io/veronicadev/pen/VXqZgR
 
@@ -23,64 +24,53 @@
       OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
       DEALINGS IN THE SOFTWARE.
     -->
-  <div class="card">
-    <div class="card__front card__part">
-      <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
-      <img class="card__front-logo card__logo" src="../../../../logomoveasy.png">
-      <div class="card_numer">
-        <input type="text" placeholder="XXXX XXXX XXXX XXXX" name="tarjetaNumero" class="form-control"
-          id="tarjetaNumero" [(ngModel)]="tarjeta.numeroSerial" #tarjetaNumero="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && tarjetaNumero.invalid }" required>
-        <div class="invalid-feedback">
-          <div>Debes ingresar un numero serial valido</div>
-        </div>
-      </div>
-      <div class="card__space-75">
-        <span class="card__label">Card holder</span>
-        <div class="card__info">
-          <input type="text" placeholder="NOMBRE PERSONALIZADO" name="tarjetaNombre" class="form-control"
-            id="tarjetaNombre" [(ngModel)]="tarjeta.nombreTarjeta" #tarjetaNombre="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && tarjetaNombre.invalid }" required>
+    <div class="card">
+      <div class="card__front card__part">
+        <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
+        <img class="card__front-logo card__logo" src="../../../../logomoveasy.png">
+        <div class="card_numer">
+          <input type="text" placeholder="XXXX XXXX XXXX XXXX" name="tarjetaNumero" class="form-control"
+            id="tarjetaNumero" [(ngModel)]="tarjeta.numeroSerial" #tarjetaNumero="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && tarjetaNumero.invalid }" maxlength="12" size="12" required>
           <div class="invalid-feedback">
-            <div>Debes ingresar un nombre personalizado</div>
+            <div>Debes ingresar un numero serial valido</div>
           </div>
         </div>
-      </div>
-      <div class="card__space-25">
-        <span class="card__label">Expires</span>
-        <div class="card__info">
-          <input type="text" placeholder="MM/YY" name="tarjetaFecha" class="form-control" id="tarjetaFecha"
-            [(ngModel)]="tarjeta.fechaVencimiento" #tarjetaFecha="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && tarjetaFecha.invalid }" required>
-          <div class="invalid-feedback">
-            <div>Debes ingresar una fecha valida</div>
+        <div class="card__space-75">
+          <span class="card__label">Card holder</span>
+          <div class="card__info">
+            <input type="text" placeholder="NOMBRE PERSONALIZADO" name="tarjetaNombre" class="form-control"
+              id="tarjetaNombre" [(ngModel)]="tarjeta.nombreTarjeta" #tarjetaNombre="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && tarjetaNombre.invalid }" required>
+            <div class="invalid-feedback">
+              <div>Debes ingresar un nombre personalizado</div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="card__back card__part">
-      <div class="card__black-line"></div>
-      <div class="card__back-content">
-        <div class="card__secret">
-          <div class="card__secret--last">
-            <input type="text" placeholder="XXX" name="tarjetaCodigo" class="form-control" id="tarjetaCodigo"
+        <div class="card__space-25">
+          <span class="card__label">Expires</span>
+          <div class="card__info">
+            <input type="text" placeholder="MM/YY" name="tarjetaFecha" class="form-control" id="tarjetaFecha"
+              [(ngModel)]="tarjeta.fechaVencimiento" #tarjetaFecha="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && tarjetaFecha.invalid }" required>
+            <div class="invalid-feedback">
+              <div>Debes ingresar una fecha valida</div>
+            </div>
+            <br>
+            <input type="text" placeholder="CVV XXX" name="tarjetaCodigo" class="form-control" id="tarjetaCodigo"
               [(ngModel)]="tarjeta.codigoSeguridad" #tarjetaCodigo="ngModel"
-              [ngClass]="{ 'is-invalid': f.submitted && tarjetaCodigo.invalid }" required>
+              [ngClass]="{ 'is-invalid': f.submitted && tarjetaCodigo.invalid }" maxlength="3" size="3" required>
             <div class="invalid-feedback">
               <div>Debes ingresar un CVV valido.</div>
             </div>
           </div>
         </div>
-        <img class="card__back-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
-        <img class="card__back-logo card__logo" src="../../../../logomoveasy.png">
-
       </div>
     </div>
-  </div>
-  <div class="row form-inline justify-content-center align-self-center">
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <div class="divider"></div>
-    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
-  </div>
+    <div class="row form-inline justify-content-center align-self-center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="divider"></div>
+      <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+    </div>
+  </form>
 </div>

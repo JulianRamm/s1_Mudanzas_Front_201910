@@ -32,12 +32,14 @@ export class TarjetaCreateComponent implements OnInit {
   @Output() create = new EventEmitter();
 
   createTarjeta(): Tarjeta {
+    this.tarjeta.formatDate();
     this.tarjetaService.createTarjeta(this.loginUsuario, this.tarjeta)
       .subscribe(tarjeta => {
         this.tarjeta = tarjeta;
         this.create.emit();
         this.toastrService.success("La tarjeta fue creada", "Creacion de Tarjeta");
       });
+      console.log(this.tarjeta);
     return this.tarjeta;
   }
 
