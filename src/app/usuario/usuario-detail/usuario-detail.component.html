@@ -1,24 +1,37 @@
-<div class='container-fluid row' id="caja-fondo">
-    <img class='col-3' src="../../../userprofile.png">
-    <div class='row col-8'>
-        <table class='table'>
+<div class='container-fluid' id="caja-fondo">
+    <div class="row" id="perfil">
+        <img class="img-fluid" alt="Responsive image" src="../../../userprofile.png">
+        <table class='table col'>
             <tbody>
                 <br>
-              <br>
-            <br>
+                <br>
+                <br>
                 <tr>
                     <h2>{{ usuarioDetail.nombre + " " + usuarioDetail.apellido}}</h2>
+                    <hr>
                 </tr>
                 <tr id="username"> {{ "@" + usuarioDetail.login }} </tr>
-                <tr> <a href="mailto:{{usuarioDetail.correoElectronico}}"> {{ usuarioDetail.correoElectronico }} </a></tr>
+                <tr> <a href="mailto:{{usuarioDetail.correoElectronico}}"> {{ usuarioDetail.correoElectronico }}
+                    </a></tr>
                 <tr> {{ "Ubicacion: " + usuarioDetail.ciudadDeOrigen + ", Colombia" }} </tr>
             </tbody>
         </table>
     </div>
-    <div class="row" id = "Cargas:">
-        <h3>Cargas: </h3>
+    <hr>
+    <div class=" table row" id="perfil">
+        <div class="col">
+            <p id="tituloSub"><b>Cargas: </b></p>
+            <hr>
+        </div>
+        <div class="col">
+            <p id="tituloSub"><b>Tarjetas De Credito: </b></p>
+            <hr>
+            <br>
+            <div *ngIf="usuarioDetail.login">
+                <app-tarjeta [login]="usuarioDetail.login"></app-tarjeta>
+            </div>
+        </div>
     </div>
-    <div class="row" id = "Tarjetas">
-      <h3>Tarjetas: </h3>
-    </div>
+    <hr>
+    <hr>
 </div>

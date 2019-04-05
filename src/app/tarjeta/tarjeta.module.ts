@@ -18,6 +18,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
   ],
   declarations: [TarjetaListComponent],
   providers: [TarjetaService],
-  bootstrap: [TarjetaListComponent]
+  bootstrap: [TarjetaListComponent],
+  exports: [TarjetaListComponent]
 })
 export class TarjetaModule { }
