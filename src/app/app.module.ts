@@ -17,11 +17,11 @@ import {AuthModule} from './auth/auth.module';
 import {UsuarioModule} from "./usuario/usuario.module";
 import {TarjetaModule} from "./tarjeta/tarjeta.module";
 import { ViajeModule } from './viaje/viaje.module';
+import { CargaModule } from './carga/carga.module';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        
+        AppComponent
     ],
     imports: [
         BrowserModule,
@@ -41,7 +41,8 @@ import { ViajeModule } from './viaje/viaje.module';
         NgbModule,
         UsuarioModule,
         TarjetaModule,
-        ViajeModule
+        ViajeModule,
+        CargaModule
     ],
     bootstrap: [AppComponent],
     providers: [
