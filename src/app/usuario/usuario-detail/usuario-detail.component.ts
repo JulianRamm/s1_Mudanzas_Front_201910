@@ -30,6 +30,8 @@ export class UsuarioDetailComponent implements OnInit {
   */
   usuarioDetail: UsuarioDetail;
 
+  showEdit: boolean;
+
   /**
   * The method which retrieves the details of the usuario that
   * we want to show
@@ -41,6 +43,10 @@ export class UsuarioDetailComponent implements OnInit {
       });
   }
 
+  showHideEdit(): void {
+    this.showEdit = !this.showEdit;
+  }
+
   /**
   * The method which initilizes the component
   * We need to initialize the usuario and its tarjetas so that
@@ -48,6 +54,7 @@ export class UsuarioDetailComponent implements OnInit {
   */
   ngOnInit() {
     this.usuario_login = this.route.snapshot.paramMap.get('login');
+    this.showEdit = false;
     this.usuarioDetail = new UsuarioDetail();
     this.getUsuarioDetail();
   }
