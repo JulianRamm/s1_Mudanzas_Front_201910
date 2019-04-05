@@ -14,19 +14,25 @@
                 <tr> <a href="mailto:{{usuarioDetail.correoElectronico}}"> {{ usuarioDetail.correoElectronico }}
                     </a></tr>
                 <tr> {{ "Ubicacion: " + usuarioDetail.ciudadDeOrigen + ", Colombia" }} </tr>
-                <tr><button type="button" class="btn btn-light" [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
-                    (click)="showHideEdit()">Cambiar mi perfil</button></tr>
+                <tr><button type="button" class="btn btn-light"
+                        [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
+                        (click)="showHideEdit()">Cambiar mi perfil</button></tr>
             </tbody>
         </table>
     </div>
     <hr>
     <div *ngIf="showEdit">
-        <app-usuario-edit [usuario]="this.usuarioDetail"></app-usuario-edit>
+        <app-usuario-edit [usuario]="this.usuarioDetail" (cancel)="showHideEdit()" (update)="ngOnInit()">
+        </app-usuario-edit>
     </div>
     <div class=" table row" id="perfil">
         <div class="col">
             <p id="tituloSub"><b>Cargas: </b></p>
             <hr>
+            <br>
+            <div *ngIf="usuarioDetail.login">
+                <app-carga [login] = "usuarioDetail.login"></app-carga>
+            </div>
         </div>
         <div class="col">
             <p id="tituloSub"><b>Tarjetas De Credito: </b></p>
