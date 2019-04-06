@@ -36,25 +36,25 @@
             </div>
         </div>
         <div class="col">
-            <p id="tituloSub"><b>Tarjetas De Credito: </b></p>
-            <hr>
-            <br>
-            <div *ngIf="usuarioDetail.login">
-                <app-tarjeta [login]="usuarioDetail.login"></app-tarjeta>
-            </div>
-        </div>
-    </div>
-    <div class="table row" id="perfil">
-        <div class="col">
             <p id="tituloSub"><b>Subastas activas: </b></p>
             <hr>
             <br>
             <div *ngIf="usuarioDetail.login">
                 <!--AQUI SERIA EL NOMBRE DEL SELECTOR JUNTO CON LOS PARAMETROS QUE LE ENTRARIAN
-                POR EJ: <app-NOMBREDELSELECTOR [login]="usuarioDetail.login"></app-NOMBREDELSELECTOR>
-                EL NOMBRE DEL SELECTOR APARECE EN EL .component.ts del componente que te corresponde.
-                Ese parametro que dice [login] es para pasarle a tu componente por parametro el login del usuario
-                para buscarle su debida subasta.-->
+                    POR EJ: <app-NOMBREDELSELECTOR [login]="usuarioDetail.login"></app-NOMBREDELSELECTOR>
+                    EL NOMBRE DEL SELECTOR APARECE EN EL .component.ts del componente que te corresponde.
+                    Ese parametro que dice [login] es para pasarle a tu componente por parametro el login del usuario
+                    para buscarle su debida subasta.-->
+            </div>
+        </div>
+    </div>
+    <div class="table row" id="perfil">
+        <div class="col">
+            <p id="tituloSub"><b>Tarjetas De Credito: </b></p>
+            <hr>
+            <br>
+            <div *ngIf="usuarioDetail.login">
+                <app-tarjeta [login]="usuarioDetail.login"></app-tarjeta>
             </div>
         </div>
     </div>
