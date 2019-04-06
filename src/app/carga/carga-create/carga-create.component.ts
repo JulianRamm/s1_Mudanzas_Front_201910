@@ -1,23 +1,23 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { TarjetaService } from '../tarjeta.service';
+import { CargaService } from '../carga.service';
 import { ToastrService } from 'ngx-toastr';
-import { Tarjeta } from '../tarjeta';
+import { Carga } from '../carga';
 
 @Component({
-  selector: 'app-tarjeta-create',
-  templateUrl: './tarjeta-create.component.html',
-  styleUrls: ['./tarjeta-create.component.css']
+  selector: 'app-carga-create',
+  templateUrl: './carga-create.component.html',
+  styleUrls: ['./carga-create.component.css']
 })
-export class TarjetaCreateComponent implements OnInit {
+export class CargaCreateComponent implements OnInit {
 
   constructor(
-    private tarjetaService: TarjetaService,
+    private cargaService: CargaService,
     private toastrService: ToastrService
   ) { }
 
   @Input() loginUsuario: string;
 
-  tarjeta: Tarjeta;
+  carga: Carga;
 
   /**
     * The output which tells the parent component
@@ -31,27 +31,27 @@ export class TarjetaCreateComponent implements OnInit {
   */
   @Output() create = new EventEmitter();
 
-  createTarjeta(): Tarjeta {
-    this.tarjeta.formatDate();
-    this.tarjetaService.createTarjeta(this.loginUsuario, this.tarjeta)
-      .subscribe(tarjeta => {
-        this.tarjeta = tarjeta;
+  createCarga(): Carga {
+    this.cargaService.createCarga(this.loginUsuario, this.carga)
+      .subscribe(carga => {
+        this.carga = carga;
         this.create.emit();
-        this.toastrService.success("La tarjeta fue creada", "Creacion de Tarjeta");
+        this.toastrService.success("La carga fue creada", "Creacion de carga");
       });
-    return this.tarjeta;
+      console.log(this.carga);
+    return this.carga;
   }
 
   /**
       * Emits the signal to tell the parent component that the
-      * user no longer wants to create an user
+      * user no longer wants to create a carga
       */
   cancelCreation(): void {
     this.cancel.emit();
   }
 
   ngOnInit() {
-    this.tarjeta = new Tarjeta();
+    this.carga = new Carga();
   }
 
 }
