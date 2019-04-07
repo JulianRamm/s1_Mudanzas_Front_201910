@@ -29,4 +29,9 @@ export class Tarjeta {
      */
     fechaVencimiento: any;
 
+    formatDate(): void {
+        let primero = this.fechaVencimiento.split('/');
+        this.fechaVencimiento = "20"+ primero[1] + "-" + primero[0] + "-02T00:00:00-00:01";
+    }
+
 }

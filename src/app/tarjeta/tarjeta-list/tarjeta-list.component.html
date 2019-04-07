@@ -36,7 +36,8 @@
           </div>
           <div class="card__space-25">
             <span class="card__label">Expires</span>
-            <p class="card__info">{{tarjeta.fechaVencimiento.split("-", 2)[1]}}/{{tarjeta.fechaVencimiento.split("-", 2)[0].substr(-2)}}</p>
+            <p class="card__info">
+              {{tarjeta.fechaVencimiento.split("-", 2)[1]}}/{{tarjeta.fechaVencimiento.split("-", 2)[0].substr(-2)}}</p>
           </div>
         </div>
 
@@ -53,4 +54,13 @@
         </div>
       </div>
     </div>
+    <button type="col button" id="but" class="btn" [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }"
+      (click)="showHideCreate()">+</button>
   </div>
+  <div id="crear" *ngIf="showCreate">
+      <p id="tituloSub"><b>Agregar una nueva tarjeta: </b></p>
+      <hr>
+      <br>
+    <app-tarjeta-create [loginUsuario] = "this.login" (cancel)="showHideCreate()" (create)="ngOnInit()"></app-tarjeta-create>
+  </div>
+</div>

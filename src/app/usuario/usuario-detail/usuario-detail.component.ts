@@ -6,6 +6,7 @@ import { UsuarioService } from '../usuario.service';
 import { Usuario } from '../usuario';
 import { UsuarioDetail } from '../usuario-detail';
 import { TarjetaService } from '../../tarjeta/tarjeta.service';
+import { Carga } from 'src/app/carga/carga';
 @Component({
   selector: 'app-usuario-detail',
   templateUrl: './usuario-detail.component.html',
@@ -30,6 +31,12 @@ export class UsuarioDetailComponent implements OnInit {
   */
   usuarioDetail: UsuarioDetail;
 
+  carga: Carga;
+
+  showEdit: boolean;
+
+  showMap: boolean;
+
   /**
   * The method which retrieves the details of the usuario that
   * we want to show
@@ -41,6 +48,23 @@ export class UsuarioDetailComponent implements OnInit {
       });
   }
 
+  showHideEdit(): void {
+    this.showEdit = !this.showEdit;
+  }
+
+  showHideMap(): void {
+    this.showMap = !this.showMap;
+  }
+
+  mostrarMapa(mostrar): void {
+    this.showMap = mostrar;
+  }
+
+  setCarga(carg: Carga): void {
+    console.log(this.carga);
+    this.carga = carg;
+  }
+
   /**
   * The method which initilizes the component
   * We need to initialize the usuario and its tarjetas so that
@@ -48,6 +72,8 @@ export class UsuarioDetailComponent implements OnInit {
   */
   ngOnInit() {
     this.usuario_login = this.route.snapshot.paramMap.get('login');
+    this.showEdit = false;
+    this.showMap = false;
     this.usuarioDetail = new UsuarioDetail();
     this.getUsuarioDetail();
   }

@@ -10,6 +10,11 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { UsuarioDetailComponent } from './usuario-detail/usuario-detail.component';
 import { TarjetaModule } from '../tarjeta/tarjeta.module';
 import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
+import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
+import { CargaModule } from '../carga/carga.module';
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule} from 'agm-direction';
+import { UsuarioMapComponent } from '../usuario/usuario-map/usuario-map.component';
 
 @NgModule({
     imports: [
@@ -18,9 +23,14 @@ import { UsuarioCreateComponent } from './usuario-create/usuario-create.componen
         HttpClientModule,
         CommonModule,
         FormsModule,
-        TarjetaModule
+        TarjetaModule,
+        CargaModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyB46hhGR-5V8I80sTmWPmHztp9buXoCCPE'
+        }),
+        AgmDirectionModule
     ],
-    declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent],
+    declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioEditComponent, UsuarioMapComponent],
     providers: [UsuarioService],
     bootstrap: [UsuarioListComponent]
 })
