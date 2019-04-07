@@ -12,6 +12,9 @@ import { TarjetaModule } from '../tarjeta/tarjeta.module';
 import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
 import { CargaModule } from '../carga/carga.module';
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule} from 'agm-direction';
+import { UsuarioMapComponent } from '../usuario/usuario-map/usuario-map.component';
 
 @NgModule({
     imports: [
@@ -21,9 +24,13 @@ import { CargaModule } from '../carga/carga.module';
         CommonModule,
         FormsModule,
         TarjetaModule,
-        CargaModule
+        CargaModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyB46hhGR-5V8I80sTmWPmHztp9buXoCCPE'
+        }),
+        AgmDirectionModule
     ],
-    declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioEditComponent],
+    declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioEditComponent, UsuarioMapComponent],
     providers: [UsuarioService],
     bootstrap: [UsuarioListComponent]
 })
