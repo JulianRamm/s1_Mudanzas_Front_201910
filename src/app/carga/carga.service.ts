@@ -20,5 +20,4 @@ export class CargaService {
   createCarga(login: string, carga:Carga ){
     return this.http.post<Carga>(API_URL + usuarios + '/' + login + '/' + cargas, carga);
   }
-
 }
