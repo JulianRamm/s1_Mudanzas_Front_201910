@@ -1,5 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import {
+    transition,
+    trigger,
+    query,
+    style,
+    animate,
+    group,
+    animateChild
+  } from '@angular/animations';
 
 /**
  * The app component. This component is the base of sXXX_ZZZ-Front

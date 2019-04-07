@@ -1,0 +1,6 @@
+<button type="button" class="btn btn-danger" (click)="this.cerrarMapa()">Cerrar</button>
+<!--<h1>{{this.carga.lugarSalida}} - {{this.carga.lugarLlegada}}</h1>-->
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  <agm-direction *ngIf="origin && destination" [origin]="origin" [destination]="destination"></agm-direction>
+</agm-map>
