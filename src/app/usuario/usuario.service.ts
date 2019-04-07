@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { HttpClientModule} from "@angular/common/http";
 
 import { Usuario } from './usuario';
 import { UsuarioDetail } from './usuario-detail';
 
 import { environment } from '../../environments/environment';
+import { Ciudad } from './ciudad';
 
 const API_URL = environment.apiURL;
 const usuarios = '/usuarios';
@@ -51,5 +53,8 @@ export class UsuarioService {
         return this.http.put<UsuarioDetail>(API_URL + usuarios + '/' + usuario.login, usuario);
     }
 
+    getLatLongGeocoder(ciudad: string) : Observable<Ciudad> {
+        return this.http.get<Ciudad>('https://maps.googleapis.com/maps/api/geocode/json?address='+ ciudad +'&key=AIzaSyB46hhGR-5V8I80sTmWPmHztp9buXoCCPE');
+    }
 
 }

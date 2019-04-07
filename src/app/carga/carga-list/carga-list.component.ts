@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { CargaService } from '../carga.service';
 import { ActivatedRoute } from '@angular/router';
 import { Carga } from '../carga';
@@ -9,6 +9,13 @@ import { Carga } from '../carga';
   styleUrls: ['./carga-list.component.css']
 })
 export class CargaListComponent implements OnInit {
+
+  @Output() selectedCarga:  EventEmitter<Carga> = new EventEmitter();
+  
+  @Output() showMap = new EventEmitter<boolean>();
+  showMapActual: boolean;
+
+  idCarga: number;
 
   showCreate: boolean;
   /**
@@ -46,12 +53,36 @@ export class CargaListComponent implements OnInit {
     return dia + "/" + mes + "/" + anio + " " + hora + ":" + min;
   }
 
+  onSelectedClick(idCarga: number): void {
+    if(this.selectedCarga) {
+      this.selectedCarga = null;
+    }
+    this.idCarga = idCarga;
+    this.getCarga();
+    this.showMapActual = !this.showMapActual;
+    this.showMap.emit(this.showMapActual);
+    window.scrollTo({
+      top: 250,
+      behavior: 'smooth',
+    });
+  }
+
+  getCarga(): void {
+    this.cargaService.getCargaDetail(this.idCarga, this.login)
+    .subscribe(seleccionado => {
+      console.log(seleccionado);
+      this.selectedCarga.emit(seleccionado);
+    });
+  }
+
   /**
    * This will initialize the component by retrieving the list of cargas from the service
    * This method will be called when the component is created
    */
   ngOnInit() {
     this.showCreate = false;
+    this.showMapActual = false;
+    this.showMap.emit(this.showMapActual);
     this.getCargas();
 
   }

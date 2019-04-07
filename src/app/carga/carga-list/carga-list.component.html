@@ -18,6 +18,10 @@
           <li class="list-group-item"><b>Entrega estimada: </b>{{convertirFechaChevere(carga.fechaEstimadaLlegada)}}
           </li>
         </ul>
+        <div class="row justify-content-center align-self-center">
+          <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+            (click)="onSelectedClick(carga.id)">Ver mapa</button>
+        </div>
       </div>
     </div>
     <div class="card" id="add" style="width: 18rem;">
@@ -29,7 +33,7 @@
     <p id="tituloSub"><b>Agregar una nueva carga: </b></p>
     <hr>
     <br>
-    <app-carga-create [loginUsuario] = "this.login" (cancel)="showHideCreate()" (create)="ngOnInit()">
+    <app-carga-create [loginUsuario]="this.login" (cancel)="showHideCreate()" (create)="ngOnInit()">
     </app-carga-create>
   </div>
 </div>
