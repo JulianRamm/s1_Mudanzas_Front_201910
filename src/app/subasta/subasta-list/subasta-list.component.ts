@@ -1,17 +1,15 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Subasta } from '../subasta';
 import { SubastaService } from '../subasta.service';
-import { SELECT_VALUE_ACCESSOR } from '@angular/forms/src/directives/select_control_value_accessor';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'app-subasta',
-    templateUrl: './subasta-list.component.html',
-    styleUrls: ['./subasta-list.component.css']
+  selector: 'app-subasta',
+  templateUrl: './subasta-list.component.html',
+  styleUrls: ['./subasta-list.component.css']
 })
 export class SubastaListComponent implements OnInit {
-
-    /**
+ /**
      * Constructor for the component
      * @param subastaService The author's services provider
      */
@@ -49,3 +47,4 @@ export class SubastaListComponent implements OnInit {
         this.getSubastas();
     }
 }
+

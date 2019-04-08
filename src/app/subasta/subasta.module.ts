@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 
+
 import { SubastaService } from './subasta.service';
 import { SubastaListComponent } from './subasta-list/subasta-list.component';
 
