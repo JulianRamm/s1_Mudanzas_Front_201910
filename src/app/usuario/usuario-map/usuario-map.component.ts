@@ -10,7 +10,7 @@ import { Ciudad } from '../ciudad';
 })
 export class UsuarioMapComponent implements OnInit {
 
-  @Output() cerrar = new EventEmitter();
+  @Output() cerrar: EventEmitter<any> = new EventEmitter();
 
   @Input() carga: Carga;
 
@@ -29,7 +29,7 @@ export class UsuarioMapComponent implements OnInit {
   ) { }
 
   getCiudades(): void {
-      this.usuarioService.getLatLongGeocoder('Manizales')
+    this.usuarioService.getLatLongGeocoder(this.carga.lugarSalida)
       .subscribe(c => {
         this.ciudad1 = c;
         this.origin = {
@@ -37,7 +37,7 @@ export class UsuarioMapComponent implements OnInit {
           lng: this.ciudad1.results[0].geometry.location.lng
         }
       });
-      this.usuarioService.getLatLongGeocoder('Pereira')
+    this.usuarioService.getLatLongGeocoder(this.carga.lugarLlegada + ", Colombia")
       .subscribe(c2 => {
         this.ciudad2 = c2;
         this.destination = {
@@ -45,16 +45,20 @@ export class UsuarioMapComponent implements OnInit {
           lng: this.ciudad2.results[0].geometry.location.lng
         }
       });
+      console.log(this.carga);
   }
 
   cerrarMapa(): void {
+    this.ciudad1 = null;
+    this.ciudad2 = null;
+    this.carga = null;
     this.cerrar.emit();
     window.scrollTo({
       top: 300,
       behavior: 'smooth',
     });
   }
-  
+
   ngOnInit() {
     this.getCiudades();
   }

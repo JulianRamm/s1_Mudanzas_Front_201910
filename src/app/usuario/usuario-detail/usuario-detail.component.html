@@ -26,8 +26,8 @@
         </app-usuario-edit>
         <hr>
     </div>
-    <div *ngIf="showMap">
-            <app-usuario-map (cerrar)="showHideMap()" [carga] = "carga"></app-usuario-map>
+    <div *ngIf="showMap && carga">
+            <app-usuario-map (cerrar)="showHideMap()" [carga] = "this.carga"></app-usuario-map>
             <hr>
         </div>
     <div class=" table row" id="perfil">
@@ -36,7 +36,7 @@
             <hr>
             <br>
             <div *ngIf="usuarioDetail.login">
-                <app-carga [login]="usuarioDetail.login" (showMap)="mostrarMapa($event)" (selectedCarga)="setCarga($event)"></app-carga>
+                <app-carga [login]="usuarioDetail.login" (selectedCarga)="setCarga($event)" (showMap)="mostrarMapa($event)"></app-carga>
             </div>
         </div>
         <div class="col">

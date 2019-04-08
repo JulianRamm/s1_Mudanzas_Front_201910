@@ -10,9 +10,10 @@ import { Carga } from '../carga';
 })
 export class CargaListComponent implements OnInit {
 
-  @Output() selectedCarga:  EventEmitter<Carga> = new EventEmitter();
+  @Output() selectedCarga:  EventEmitter<Carga> = new EventEmitter<Carga>();
+  cargaSeleccionada: Carga;
   
-  @Output() showMap = new EventEmitter<boolean>();
+  @Output() showMap: EventEmitter<boolean> = new EventEmitter<boolean>();
   showMapActual: boolean;
 
   idCarga: number;
@@ -54,8 +55,8 @@ export class CargaListComponent implements OnInit {
   }
 
   onSelectedClick(idCarga: number): void {
-    if(this.selectedCarga) {
-      this.selectedCarga = null;
+    if(this.cargaSeleccionada) {
+      this.cargaSeleccionada = null;
     }
     this.idCarga = idCarga;
     this.getCarga();
@@ -70,8 +71,8 @@ export class CargaListComponent implements OnInit {
   getCarga(): void {
     this.cargaService.getCargaDetail(this.idCarga, this.login)
     .subscribe(seleccionado => {
-      console.log(seleccionado);
-      this.selectedCarga.emit(seleccionado);
+      this.cargaSeleccionada = seleccionado;
+      this.selectedCarga.emit(this.cargaSeleccionada);
     });
   }
 
@@ -82,6 +83,7 @@ export class CargaListComponent implements OnInit {
   ngOnInit() {
     this.showCreate = false;
     this.showMapActual = false;
+    this.cargaSeleccionada = new Carga();
     this.showMap.emit(this.showMapActual);
     this.getCargas();
 
