@@ -1,0 +1,43 @@
+<div class='container-fluid'>
+    <div class="col-8">
+        <div class='col'>
+            <table class='table'>
+                <thead id="titular" class="thead">
+                    <tr>
+                        <th>ID</th>
+                        <th>Login</th>
+                        <th>Nombre</th>
+                        <th>Ciudad</th>
+                        <th>Correo Electronico</th>
+                        <th>Telefono</th>
+                        <th>Numero de Vehiculos</th>
+                        <th>Calificacion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let proveedor of proveedores" style="cursor: pointer;"
+                        routerLink="/proveedor/{{proveedor.login}}">
+                        <td>{{ proveedor.id }}</td>
+                        <td>{{ proveedor.login }}</td>
+                        <td>{{ proveedor.nombre }}</td>
+                        <td>{{ proveedor.ciudadDeOrigen }}</td>
+                        <td>{{ proveedor.correoElectronico }}</td>
+                        <td>{{ proveedor.telefono }}</td>
+                        <td>{{ proveedor.numeroVehiculos }}</td>
+                        <td>{{ proveedor.calificacion }}</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear un Proveedor</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div *ngIf="showCreate">
+            <app-usuario-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
+        </div>
+    </div>
+</div>
