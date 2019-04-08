@@ -40,11 +40,7 @@
             <hr>
             <br>
             <div *ngIf="usuarioDetail.login">
-                <!--AQUI SERIA EL NOMBRE DEL SELECTOR JUNTO CON LOS PARAMETROS QUE LE ENTRARIAN
-                    POR EJ: <app-NOMBREDELSELECTOR [login]="usuarioDetail.login"></app-NOMBREDELSELECTOR>
-                    EL NOMBRE DEL SELECTOR APARECE EN EL .component.ts del componente que te corresponde.
-                    Ese parametro que dice [login] es para pasarle a tu componente por parametro el login del usuario
-                    para buscarle su debida subasta.-->
+                <app-subasta [login]="usuarioDetail.login"></app-subasta>
             </div>
         </div>
     </div>

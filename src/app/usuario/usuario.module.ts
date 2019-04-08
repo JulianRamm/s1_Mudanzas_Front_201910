@@ -12,6 +12,7 @@ import { TarjetaModule } from '../tarjeta/tarjeta.module';
 import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
 import { CargaModule } from '../carga/carga.module';
+import { SubastaModule } from '../subasta/subasta.module';
 
 @NgModule({
     imports: [
@@ -21,7 +22,8 @@ import { CargaModule } from '../carga/carga.module';
         CommonModule,
         FormsModule,
         TarjetaModule,
-        CargaModule
+        CargaModule,
+        SubastaModule
     ],
     declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioEditComponent],
     providers: [UsuarioService],
