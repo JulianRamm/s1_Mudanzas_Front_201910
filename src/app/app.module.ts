@@ -18,6 +18,8 @@ import {UsuarioModule} from "./usuario/usuario.module";
 import {TarjetaModule} from "./tarjeta/tarjeta.module";
 import { ViajeModule } from './viaje/viaje.module';
 import { CargaModule } from './carga/carga.module';
+import { SubastaModule } from './subasta/subasta.module';
+
 
 @NgModule({
     declarations: [
@@ -42,7 +44,8 @@ import { CargaModule } from './carga/carga.module';
         UsuarioModule,
         TarjetaModule,
         ViajeModule,
-        CargaModule
+        CargaModule,
+        SubastaModule
     ],
     bootstrap: [AppComponent],
     providers: [

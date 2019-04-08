@@ -12,6 +12,7 @@ import { TarjetaModule } from '../tarjeta/tarjeta.module';
 import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
 import { CargaModule } from '../carga/carga.module';
+import { SubastaModule } from '../subasta/subasta.module';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule} from 'agm-direction';
 import { UsuarioMapComponent } from '../usuario/usuario-map/usuario-map.component';
@@ -25,6 +26,7 @@ import { UsuarioMapComponent } from '../usuario/usuario-map/usuario-map.componen
         FormsModule,
         TarjetaModule,
         CargaModule,
+        SubastaModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyB46hhGR-5V8I80sTmWPmHztp9buXoCCPE'
         }),
