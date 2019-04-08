@@ -31,6 +31,7 @@ export class UsuarioMapComponent implements OnInit {
   getCiudades(): void {
     this.usuarioService.getLatLongGeocoder(this.carga.lugarSalida)
       .subscribe(c => {
+        console.log(c);
         this.ciudad1 = c;
         this.origin = {
           lat: this.ciudad1.results[0].geometry.location.lat,
