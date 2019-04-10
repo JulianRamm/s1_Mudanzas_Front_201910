@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class='container-fluid'>
+    <div class='col'>
+        <table class='table'>
+            <thead id="titular" class="thead">
+                <tr>
+                    <th>ID</th>
+                    <th>Id Conductor Actual</th>
+                    <th>Numero de Conductores</th>
+                    <th>Marca</th>
+                    <th>Placa</th>
+                    <th>Color</th>
+                    <th>Dimensiones</th>
+                    <th>Rendimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let vehiculo of vehiculos">
+                    <td>{{ vehiculo.id }}</td>
+                    <td>{{ vehiculo.idConductorActual }}</td>
+                    <td>{{ vehiculo.numeroConductores }}</td>
+                    <td>{{ vehiculo.marca }}</td>
+                    <td>{{ vehiculo.placa }}</td>
+                    <td>{{ vehiculo.color }}</td>
+                    <td>{{ vehiculo.dimensiones }}</td>
+                    <td>{{ vehiculo.rendimiento }}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+    </body>
+</html>
