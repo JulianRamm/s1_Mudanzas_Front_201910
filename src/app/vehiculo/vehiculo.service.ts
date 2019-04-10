@@ -33,6 +33,19 @@ export class VehiculoService {
     getVehiculos(): Observable<Vehiculo[]> {
         return this.http.get<Vehiculo[]>(API_URL + vehiculos);
     }
+    
+    createVehiculo(vehiculo): Observable<Vehiculo> {
+        return this.http.post<Vehiculo>(API_URL + vehiculos, vehiculo);
+    }
+
+//    /**
+//    * Updates an usuario
+//    * @param usuario The usuario's information updated
+//    * @returns The confirmation that the usuario was updated
+//    */
+//    updateVehiculo(vehiculo: VehiculoDetail): Observable<VehiculoDetail> {
+//        return this.http.put<VehiculoDetail>(API_URL + vehiculos + '/' + vehiculo.placa, vehiculo);
+//    }
 
 }
 
