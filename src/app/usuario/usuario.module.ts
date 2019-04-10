@@ -17,6 +17,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule} from 'agm-direction';
 import { UsuarioMapComponent } from '../usuario/usuario-map/usuario-map.component';
 import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widget';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
     imports: [
@@ -36,7 +37,8 @@ import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widg
             key: 'bdb2a3495b71f3ab4d369649f0876669',
             name: WeatherApiName.OPEN_WEATHER_MAP,
             baseUrl: 'http://api.openweathermap.org/data/2.5'
-          })
+          }),
+          MDBBootstrapModule
     ],
     schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
     declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioEditComponent, UsuarioMapComponent],
