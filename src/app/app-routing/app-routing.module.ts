@@ -6,6 +6,9 @@ import { NgxPermissionsGuard } from 'ngx-permissions';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
+import { ProveedorListComponent } from '../proveedor/proveedor-list/proveedor-list.component';
+import { ProveedorDetailComponent } from '../proveedor/proveedor-detail/proveedor-detail.component';
+
 
 import { ViajeListComponent } from '../viaje/viaje-list/viaje-list.component';
 import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail.component';
@@ -57,6 +60,19 @@ const routes: Routes = [
             {
                 path: ':login',
                 component: UsuarioDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'proveedores',
+        children: [
+            {
+                path: 'list',
+                component: ProveedorListComponent
+            },
+            {
+                path: ':login',
+                component: ProveedorDetailComponent
             }
         ]
     },

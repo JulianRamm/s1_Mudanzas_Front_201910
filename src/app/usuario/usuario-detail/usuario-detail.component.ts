@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 import { UsuarioService } from '../usuario.service';
 import { UsuarioDetail } from '../usuario-detail';
+import { TarjetaService } from '../../tarjeta/tarjeta.service';
 import { Carga } from '../../carga/carga';
 @Component({
   selector: 'app-usuario-detail',
