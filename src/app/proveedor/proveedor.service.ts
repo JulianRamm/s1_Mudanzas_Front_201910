@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule} from "@angular/common/http";
 
 import { Proveedor } from './proveedor';
-import { ProveedorDetail } from './proveedor-detail';
+//import { ProveedorDetail } from './proveedor-detail';
 
 import { environment } from '../../environments/environment';
 
@@ -34,7 +34,7 @@ export class ProveedorService {
     /**
     * Returns the Observable object with the details of an usuario retrieved from the API
     * @returns The usuario details
-    */
+    *
     getProveedorDetail(usuarioLogin): Observable<ProveedorDetail> {
         return this.http.get<ProveedorDetail>(API_URL + proveedores + '/' + usuarioLogin);
     }
@@ -43,6 +43,6 @@ export class ProveedorService {
         return this.http.post<Proveedor>(API_URL + proveedores, usuario);
     }
 
-  
+  */
 
 }

@@ -1,0 +1,31 @@
+<div class='container-fluid' id="caja-fondo">
+    <div class="row" id="perfil">
+        <img class="img-fluid" alt="Responsive image" src="../../../userprofile.png">
+        <table class='table col'>
+            <tbody>
+                <br>
+                <br>
+                <br>
+                <tr>
+                    <h2>{{ proveedorDetail.nombre + " " + proveedorDetail.apellido}}</h2>
+                    <hr>
+                </tr>
+                <tr id="username"> {{ "@" + proveedorDetail.login }} </tr>
+                <tr> <a href="mailto:{{proveedorDetail.correoElectronico}}"> {{ proveedorDetail.correoElectronico }}
+                    </a></tr>
+                <tr> {{ "Ubicacion: " + proveedorDetail.ciudadDeOrigen + ", Colombia" }} </tr>
+                <tr><button type="button" class="btn btn-light"
+                        [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
+                        (click)="showHideEdit()">Cambiar mi perfil</button></tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div *ngIf="showEdit">
+        <app-usuario-edit [usuario]="this.proveedorDetail" (cancel)="showHideEdit()" (update)="ngOnInit()">
+        </app-usuario-edit>
+        <hr>
+    </div>
+    <hr>
+    <hr>
+</div>

@@ -7,8 +7,8 @@ import {FormsModule} from '@angular/forms';
 import {ProveedorListComponent} from './proveedor-list/proveedor-list.component';
 import {ProveedorService} from './proveedor.service';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
-import { ProveedorDetailComponent } from './proveedor-detail/proveedor-detail.component';
-import { ProveedorCreateComponent } from './proveedor-create/proveedor-create.component';
+//import { ProveedorDetailComponent } from './proveedor-detail/proveedor-detail.component';
+//import { ProveedorCreateComponent } from './proveedor-create/proveedor-create.component';
 
 
 
@@ -20,7 +20,7 @@ import { ProveedorCreateComponent } from './proveedor-create/proveedor-create.co
         CommonModule,
         FormsModule,
     ],
-    declarations: [ProveedorListComponent, ProveedorDetailComponent, ProveedorCreateComponent],
+    declarations: [ProveedorListComponent  /*ProveedorDetailComponent, ProveedorCreateComponent*/],
     providers: [ProveedorService],
     bootstrap: [ProveedorListComponent]
 })
