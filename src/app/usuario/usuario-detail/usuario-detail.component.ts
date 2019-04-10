@@ -3,10 +3,8 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 
 import { UsuarioService } from '../usuario.service';
-import { Usuario } from '../usuario';
 import { UsuarioDetail } from '../usuario-detail';
-import { TarjetaService } from '../../tarjeta/tarjeta.service';
-import { Carga } from 'src/app/carga/carga';
+import { Carga } from '../../carga/carga';
 @Component({
   selector: 'app-usuario-detail',
   templateUrl: './usuario-detail.component.html',
@@ -16,9 +14,7 @@ export class UsuarioDetailComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
-    private tarjetaService: TarjetaService,
     private route: ActivatedRoute,
-    private router: Router
   ) { }
 
   /**
@@ -56,13 +52,12 @@ export class UsuarioDetailComponent implements OnInit {
     this.showMap = !this.showMap;
   }
 
-  mostrarMapa(mostrar): void {
-    this.showMap = mostrar;
+  setCarga(carg: Carga): void {
+    this.carga = carg;
   }
 
-  setCarga(carg: Carga): void {
-    console.log(this.carga);
-    this.carga = carg;
+  mostrarMapa(mostrar): void {
+    this.showMap = mostrar;
   }
 
   /**
