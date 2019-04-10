@@ -24,7 +24,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 
 import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widget';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
     declarations: [
@@ -54,7 +54,8 @@ import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widg
         SubastaModule,
         AgmCoreModule,
         AgmDirectionModule,
-        AngularWeatherWidgetModule
+        AngularWeatherWidgetModule,
+        MDBBootstrapModule
     ],
     bootstrap: [AppComponent],
     providers: [

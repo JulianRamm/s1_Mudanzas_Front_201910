@@ -34,3 +34,7 @@ tbody tr:hover {
     border-radius: 10px;
     background-color: white;
 }
+
+i {
+    cursor: ns-resize;
+}
