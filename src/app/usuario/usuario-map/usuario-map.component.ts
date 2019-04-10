@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
 import { Carga } from '../../carga/carga';
 import { Ciudad } from '../ciudad';
+import { WeatherSettings, TemperatureScale, WeatherLayout, ForecastMode } from 'angular-weather-widget';
 
 @Component({
   selector: 'app-usuario-map',
@@ -23,6 +24,14 @@ export class UsuarioMapComponent implements OnInit {
   //Bogota como default
   lat: number = 4.710989;
   lng: number = -74.072090;
+  
+  positionTruck = {
+    lat: this.lat,
+    long: this.lng
+  }
+
+  settings1: WeatherSettings;
+  settings2: WeatherSettings;
 
   constructor(
     private usuarioService: UsuarioService
@@ -46,7 +55,7 @@ export class UsuarioMapComponent implements OnInit {
           lng: this.ciudad2.results[0].geometry.location.lng
         }
       });
-      console.log(this.carga);
+      this.setWeatherCiudades(this.carga.lugarSalida, this.carga.lugarLlegada);
   }
 
   cerrarMapa(): void {
@@ -58,6 +67,41 @@ export class UsuarioMapComponent implements OnInit {
       top: 300,
       behavior: 'smooth',
     });
+  }
+
+  setWeatherCiudades(ciudad1, ciudad2): void {
+    this.settings1 = {
+      location: {
+        cityName: ciudad1
+      },
+      backgroundColor: '#a9a9a9',
+      color: '#ffffff',
+      width: '300px',
+      height: 'auto',
+      showWind: false,
+      scale: TemperatureScale.CELCIUS,
+      forecastMode: ForecastMode.DETAILED,
+      showDetails: false,
+      showForecast: true,
+      layout: WeatherLayout.WIDE,
+      language: 'es'
+    };
+    this.settings2 = {
+      location: {
+        cityName: ciudad2
+      },
+      backgroundColor: '#FF4500',
+      color: '#ffffff',
+      width: '300px',
+      height: 'auto',
+      showWind: false,
+      scale: TemperatureScale.CELCIUS,
+      forecastMode: ForecastMode.DETAILED,
+      showDetails: false,
+      showForecast: true,
+      layout: WeatherLayout.WIDE,
+      language: 'es'
+    };
   }
 
   ngOnInit() {
