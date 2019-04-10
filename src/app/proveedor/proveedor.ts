@@ -33,7 +33,7 @@ export class Proveedor {
     /**
      * La ciudad de origen del proveedor
      */
-    ciudadDeOrigen: string;
+    ciudadOrigen: string;
 
     /**
      * El correo electronico del proveedor
@@ -43,7 +43,7 @@ export class Proveedor {
     /**
      * El telefono del proveedor
      */
-    telefono: string;
+    numeroTelefono: string;
 
     /**
      * El numero de vehiculos del proveedor
@@ -58,5 +58,5 @@ export class Proveedor {
     /**
      * La calificacion del proveedor
      */
-    calificacion: number;
+    clasificacion: number;
 }

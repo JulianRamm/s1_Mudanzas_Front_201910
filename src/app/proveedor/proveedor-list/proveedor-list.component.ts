@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Proveedor } from '../proveedor';
 import { ProveedorService } from '../proveedor.service';
-//import { ProveedorDetail } from '../proveedor-detail';
+import { ProveedorDetail } from '../proveedor-detail';
 
 @Component({
     selector: 'app-proveedor',
@@ -32,8 +32,8 @@ export class ProveedorListComponent implements OnInit {
     onSelected(login: string): void {
         this.showCreate = false;
         this.proveedor_login = login;
-        //this.selectedProveedor = new ProveedorDetail();
-        //this.getProveedorDetail();
+        this.selectedProveedor = new ProveedorDetail();
+        this.getProveedorDetail();
     }
 
     /**
@@ -42,12 +42,11 @@ export class ProveedorListComponent implements OnInit {
     showHideCreate(): void {
         if (this.selectedProveedor) {
             this.selectedProveedor = undefined;
-            this.proveedor_login
-     = undefined;
+            this.proveedor_login= undefined;
         }
         this.showCreate = !this.showCreate;
     }
-/* 
+ 
     getProveedorDetail(): void {
         this.proveedorService.getProveedorDetail(this.proveedor_login
     )
@@ -55,7 +54,7 @@ export class ProveedorListComponent implements OnInit {
                 this.selectedProveedor = selectedProveedor;
             });
     }
-*/
+
     /**
      * Asks the service to update the list of proveedores
      */
@@ -71,8 +70,7 @@ export class ProveedorListComponent implements OnInit {
     ngOnInit() {
         this.showCreate = false;
         this.selectedProveedor = undefined;
-        this.proveedor_login
- = undefined;
+        this.proveedor_login = undefined;
         this.getProveedores();
     }
 }
