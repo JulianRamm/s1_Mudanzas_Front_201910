@@ -1,0 +1,24 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 31-mar-2019, 21:15:55
+    Author     : estudiante
+*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i');
+
+#titular {
+    background-color: #ff2955;
+    color: white;
+}
+
+td {
+    color: #6b6b6b;
+    font-family: 'Space Mono', monospace;
+}
+tbody tr:hover {
+    background-color: #FFF5FF;
+}
