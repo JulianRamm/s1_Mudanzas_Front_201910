@@ -1,0 +1,27 @@
+<div class='container-fluid row justify-content-center'>
+    <div class="row" id="detail">
+        <div class="card">
+            <div class="table-responsive">
+                <table class='table'>
+                    <thead id="titular" class="thead">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let conductor of conductores" style="cursor: pointer;">
+                            <td>{{ conductor.id }}</td>
+                            <td>{{ conductor.nombre }}</td>
+                            <td>{{ conductor.telefono }}</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+
+</div>

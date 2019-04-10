@@ -40,6 +40,7 @@ export class ProveedorDetailComponent implements OnInit {
     this.proveedorService.getProveedorDetail(this.proveedor_login)
       .subscribe(proveedorDetail => {
         this.proveedorDetail = proveedorDetail;
+        console.log(this.proveedorDetail)
       });
   }
 
@@ -55,6 +56,7 @@ export class ProveedorDetailComponent implements OnInit {
   */
   ngOnInit() {
     this.proveedor_login = this.route.snapshot.paramMap.get('login');
+    console.log(this.proveedor_login)
     this.proveedorDetail = new ProveedorDetail();
     this.getProveedorDetail();
   }
