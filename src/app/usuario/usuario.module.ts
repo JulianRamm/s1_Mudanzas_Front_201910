@@ -13,6 +13,8 @@ import { UsuarioCreateComponent } from './usuario-create/usuario-create.componen
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
 import { CargaModule } from '../carga/carga.module';
 import { SubastaModule } from '../subasta/subasta.module';
+import { OfertaModule } from '../oferta/oferta.module';
+
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule} from 'agm-direction';
 import { UsuarioMapComponent } from '../usuario/usuario-map/usuario-map.component';
@@ -28,6 +30,7 @@ import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widg
         TarjetaModule,
         CargaModule,
         SubastaModule,
+        OfertaModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyB46hhGR-5V8I80sTmWPmHztp9buXoCCPE'
         }),

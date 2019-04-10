@@ -13,8 +13,9 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><b>Valor inicial: </b>${{subasta.valorInicial}} </li>
           <li class="list-group-item"><b>Valor final: </b>${{subasta.valorFinal}}</li>
-
         </ul>
+        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+        (click)="onSelectedClick(subasta.id)">Ver ofertas</button>
       </div>
 
       <!--
