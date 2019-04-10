@@ -56,10 +56,6 @@ export class UsuarioDetailComponent implements OnInit {
     this.carga = carg;
   }
 
-  mostrarMapa(mostrar): void {
-    this.showMap = mostrar;
-  }
-
   /**
   * The method which initilizes the component
   * We need to initialize the usuario and its tarjetas so that
