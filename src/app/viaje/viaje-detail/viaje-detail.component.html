@@ -6,12 +6,12 @@
         <br>
         <br>
         <tr>
-          <h1>Track id: {{viajeDetail.id}}</h2>
+          <h2>Track id: {{viajeDetail.id}}</h2>
             <hr>
         </tr>
-        <tr> {{ "Datos del envío: " + viajeDetail.datosEnvío + "}} </tr>
+        <tr> {{ "Tiempo del envío: " + viajeDetail.tiempo}} </tr>
         <tr> {{ "Lugar de salida: " + viajeDetail.lugarSalida + ", Colombia" }} </tr>
-        <tr> {{ "Lugar de salida: " + viajeDetail.lugarSalida + ", Colombia" }} </tr>
+        <tr> {{ "Lugar de llegada: " + viajeDetail.lugarLlegada + ", Colombia" }} </tr>
         <tr><button type="button" class="btn btn-light" [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
             (click)="showHideEdit()">Editar viaje</button></tr>
       </tbody>
@@ -19,7 +19,7 @@
   </div>
   <hr>
   <div *ngIf="showEdit">
-    <app-usuario-edit [usuario]="this.usuarioDetail" (cancel)="showHideEdit()" (update)="ngOnInit()">
+    <app-usuario-edit [usuario]="this.viajeDetail" (cancel)="showHideEdit()" (update)="ngOnInit()">
     </app-usuario-edit>
   </div>
   <div class=" table row" id="perfil">
@@ -27,7 +27,7 @@
       <p id="tituloSub"><b>Cargas: </b></p>
       <hr>
       <br>
-      <div *ngIf="usuarioDetail.login">
+      <div *ngIf="this.loginP">
         <app-carga [viajeId]="viajeDetail.id" [LoginP]={{this.loginP}} [conductorId]={{this.conductorId}}></app-carga>
       </div>
     </div>

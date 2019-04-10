@@ -6,7 +6,8 @@ import { UsuarioService } from '../usuario.service';
 import { Usuario } from '../usuario';
 import { UsuarioDetail } from '../usuario-detail';
 import { TarjetaService } from '../../tarjeta/tarjeta.service';
-import { Carga } from 'src/app/carga/carga';
+import { Carga } from '../../carga/carga';
+
 @Component({
   selector: 'app-usuario-detail',
   templateUrl: './usuario-detail.component.html',
