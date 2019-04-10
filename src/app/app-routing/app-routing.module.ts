@@ -6,7 +6,10 @@ import { NgxPermissionsGuard } from 'ngx-permissions';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
-import { TarjetaListComponent } from '../tarjeta/tarjeta-list/tarjeta-list.component';
+
+import { ViajeListComponent } from '../viaje/viaje-list/viaje-list.component';
+import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail.component';
+
 
 const routes: Routes = [
 
@@ -50,15 +53,19 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: UsuarioListComponent
+            },
+            {
+                path: ':login',
+                component: UsuarioDetailComponent
             }
         ]
     },
     {
-        path: 'tarjetas',
+        path: 'viajes',
         children: [
             {
                 path: 'list',
-                component: TarjetaListComponent
+                component: ViajeListComponent
             }
         ]
     }

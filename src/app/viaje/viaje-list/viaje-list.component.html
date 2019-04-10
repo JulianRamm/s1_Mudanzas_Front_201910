@@ -1,0 +1,30 @@
+<div class='container-fluid'>
+  <div class='col'>
+      <table class='table'>
+          <thead id="titular" class="thead">
+              <tr>
+                  <th>ID</th>
+                  <th>Lugar de salida</th>
+                  <th>Lugar de llegada</th>
+                  <th>Tiempo</th>
+                  <th>Gasto de gasolina</th>
+                  <th>Clima</th>
+                  <th>Hora de partida</th>
+                  <th>Hora de llegada</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor = "let viaje of viajes" style="cursor: pointer;" routerLink="/viajes/{{viaje.id}}">
+                  <td>{{ viaje.id }}</td>
+                  <td>{{ viaje.lugarSalida }}</td>
+                  <td>{{ viaje.lugarLlegada }}</td>
+                  <td>{{ viaje.tiempo }}</td>
+                  <td>{{ viaje.gastoGasolina }}</td>
+                  <td>{{ viaje.clima }}</td>
+                  <td>{{ viaje.horaPartida }}</td>
+                  <td>{{ viaje.horaLlegada }}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

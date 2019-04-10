@@ -1,0 +1,37 @@
+<div class='container-fluid'>
+  <button type="row button" class="btn btn-danger" (click)="this.cerrarMapa()">Cerrar</button>
+  <h1>{{this.carga.lugarSalida}} - {{this.carga.lugarLlegada}}</h1>
+  <agm-map *ngIf="this.carga" [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="positionTruck.lat" [longitude]="positionTruck.long" [iconAnchorX]="10" [iconAnchorY]="10"
+      [iconHeight]="20" [iconWidth]="20" [iconUrl]="{
+      url: './src/app/usuario/usuario-map/truck.ico',
+      scaledSize: {
+          width: 60,
+          height: 60
+      }
+  }">
+    </agm-marker>
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    <agm-direction *ngIf="origin && destination" [origin]="origin" [destination]="destination"></agm-direction>
+  </agm-map>
+  <form class="row" name="longitud" (ngSubmit)="setLongTruck()" #f="ngForm" novalidate>
+    <div class="col input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Latitud camion</span>
+      </div>
+      <input type="number" placeholder="Latitud" name="latTruck" class="form-control" id="latTruck"
+        [(ngModel)]="positionTruck.lat" #latTruck="ngModel" required>
+    </div>
+    <div class="col input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Longitud camion</span>
+      </div>
+      <input type="number" placeholder="Longitud" name="longTruck" class="form-control" id="longTruck"
+        [(ngModel)]="positionTruck.long" #longTruck="ngModel" required>
+    </div>
+  </form>
+  <div class="row" *ngIf="this.carga">
+      <weather-widget class="col" [settings]="settings1"></weather-widget>
+      <weather-widget class="col" [settings]="settings2"></weather-widget>
+  </div>
+</div>

@@ -1,0 +1,156 @@
+.btn {
+    width: 50%;
+    margin-top: 10px;
+}
+
+input {
+    border-radius: 50px;
+    background: transparent;
+    color: white;
+}
+
+/*
+ ESTE ESTILO DE TARJETA FUE TOMADO DE CODEPEN, POR LUIS MIGUEL GOMEZ LONDOÑO
+*/
+.card {
+    width: 640px;
+    height: 380px;
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    perspective: 1200px;
+}
+
+.card__part {
+    box-shadow: 2px 2px #aaa3a3;
+    top: 0;
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    display: inline-block;
+    width: 640px;
+    height: 380px;
+    background-image: url('https://image.ibb.co/bVnMrc/g3095.png'), linear-gradient(to right bottom, #fd696b, #fa616e, #f65871, #f15075, #ec4879);
+    /*linear-gradient(to right bottom, #fd8369, #fc7870, #f96e78, #f56581, #ee5d8a)*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 16px;
+    -webkit-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -moz-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -ms-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -o-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+.card__front {
+    padding: 36px;
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+}
+
+.card__back {
+    padding: 36px 0;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+}
+
+.card__black-line {
+    margin-top: 10px;
+    height: 82px;
+    background-color: #303030;
+}
+
+.card__logo {
+    height: 80px;
+}
+
+.card__front-logo {
+    position: absolute;
+    top: 36px;
+    right: 36px;
+}
+
+.card__square {
+    border-radius: 10px;
+    height: 60px;
+}
+
+.card_numer {
+    display: block;
+    width: 100%;
+    word-spacing: 8px;
+    font-size: 40px;
+    letter-spacing: 4px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.card__space-75 {
+    width: 75%;
+    float: left;
+}
+
+.card__space-25 {
+    width: 25%;
+    float: left;
+}
+
+.card__label {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 2px;
+}
+
+.card__info {
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-size: 64px;
+    line-height: 36px;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.card__back-content {
+    padding: 30px 30px 0;
+}
+
+.card__secret--last {
+    color: #303030;
+    text-align: right;
+    align-content: right;
+    margin: 0;
+    margin-left: 200px;
+}
+
+.card__secret {
+    padding: 10px 10px;
+    background-color: #fff;
+    align-content: right;
+    position: relative;
+    font-size: 28px;
+}
+
+.card__secret input {
+    width: 60px;
+}
+
+
+.card__back-logo {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+.card__back-square {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}

@@ -1,7 +1,48 @@
 /*
  ESTE ESTILO DE TARJETA FUE TOMADO DE CODEPEN, POR LUIS MIGUEL GOMEZ LONDOÑO
 */
+
 @import url('https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i');
+#but {
+    background-image: linear-gradient(45deg, #0ba360, #3cba92, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75); 
+    background-size: 300% 100%;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    color: white;
+    margin-top: 2px;
+    margin-left: 15px;
+    margin-right: 110px;
+    box-shadow: 1px 1px #aaa3a3;
+    top: 0;
+    z-index: 1000;
+    left: 0;
+    display: inline-block;
+    width: 320px;
+    height: 190px;
+    border-radius: 8px;
+    -webkit-perspective: 600px;
+    -moz-perspective: 600px;
+    perspective: 600px;
+    font-size: 80px;
+}
+#but:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+#crear {
+    margin-top: 50px;
+}
+
+#tituloSub {
+    font-size: 20px;
+}
 
 .card {
     width: 320px;
@@ -26,7 +67,6 @@
     background-position: center;
     background-size: cover;
     border-radius: 8px;
-
     -webkit-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     -moz-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     -ms-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -153,7 +193,6 @@
 .card:hover .card__front {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
-
 }
 
 .card:hover .card__back {

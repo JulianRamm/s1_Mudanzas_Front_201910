@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col" *ngFor="let carga of cargas">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top"
+          src="https://png.pngtree.com/element_origin_min_pic/17/09/15/7fa8a2f68bd91d3a520690798feecebe.jpg"
+          alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title"><b>Carga</b></h4>
+          <h3 class="card-title"><b>Track ID: </b>{{carga.id}}</h3>
+          <p class="card-text"> <b>Observaciones:</b> {{carga.observaciones}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><b>Volumen: </b>{{carga.volumen}} (m3)</li>
+          <li class="list-group-item"><b>Lugar de salida: </b>{{carga.lugarSalida}}</li>
+          <li class="list-group-item"><b>Lugar de llegada: </b>{{carga.lugarLlegada}}</li>
+          <li class="list-group-item"><b>Fecha de envío: </b>{{convertirFechaChevere(carga.fechaEnvio)}}</li>
+          <li class="list-group-item"><b>Entrega estimada: </b>{{convertirFechaChevere(carga.fechaEstimadaLlegada)}}
+          </li>
+        </ul>
+        <div class="row justify-content-center align-self-center">
+          <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+            (click)="onSelectedClick(carga.id)">Ver mapa</button>
+        </div>
+      </div>
+    </div>
+    <div class="card" id="add" style="width: 18rem;">
+      <button type="col button" id="but" class="btn"
+        [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" (click)="showHideCreate()">+</button>
+    </div>
+  </div>
+  <div id="crear" *ngIf="showCreate">
+    <p id="tituloSub"><b>Agregar una nueva carga: </b></p>
+    <hr>
+    <br>
+    <app-carga-create [loginUsuario]="this.login" (cancel)="showHideCreate()" (create)="ngOnInit()">
+    </app-carga-create>
+  </div>
+</div>

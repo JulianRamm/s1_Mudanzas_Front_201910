@@ -1,3 +1,67 @@
-<p>
-  usuario-detail works!
-</p>
+<div class='container-fluid row justify-content-center'>
+    <div class="row" id="detail">
+        <img class="img-fluid" alt="Responsive image" src="../../../userprofile.png">
+        <table class='table col'>
+            <tbody>
+                <br>
+                <br>
+                <br>
+                <tr>
+                    <h2>{{ usuarioDetail.nombre + " " + usuarioDetail.apellido}}</h2>
+                    <hr>
+                </tr>
+                <tr id="username"> {{ "@" + usuarioDetail.login }} </tr>
+                <tr> <a href="mailto:{{usuarioDetail.correoElectronico}}"> {{ usuarioDetail.correoElectronico }}
+                    </a></tr>
+                <tr> {{ "Ubicacion: " + usuarioDetail.ciudadDeOrigen + ", Colombia" }} </tr>
+                <tr><button type="button" class="btn btn-light"
+                        [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
+                        (click)="showHideEdit()">Cambiar mi perfil</button></tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="table row">
+        <div *ngIf="showEdit" class="row edit" id="detail">
+            <div class="col-2"></div>
+            <app-usuario-edit class="col-10" [usuario]="this.usuarioDetail" (cancel)="showHideEdit()"
+                (update)="ngOnInit()">
+            </app-usuario-edit>
+            <div class="col-2"></div>
+        </div>
+        <div class="col" id="detail">
+            <div *ngIf="showMap && carga" id="detail">
+                <app-usuario-map (cerrar)="showHideMap()" [carga]="this.carga"></app-usuario-map>
+                <hr>
+            </div>
+            <br>
+            <p id="tituloSub"><b>Cargas: </b></p>
+            <hr>
+            <br>
+            <div *ngIf="usuarioDetail.login">
+                <app-carga [login]="usuarioDetail.login" (selectedCarga)="setCarga($event)"
+                    (showMap)="mostrarMapa($event)"></app-carga>
+            </div>
+        </div>
+        <div class="col" id="detail">
+            <p id="tituloSub"><b>Subastas activas: </b></p>
+            <hr>
+            <br>
+            <div *ngIf="usuarioDetail.login">
+                <app-subasta [login]="usuarioDetail.login"></app-subasta>
+            </div>
+        </div>
+    </div>
+    <div class="table row" id="perfil" id="detail">
+        <div class="col">
+            <p id="tituloSub"><b>Tarjetas De Credito: </b></p>
+            <hr>
+            <br>
+            <div *ngIf="usuarioDetail.login">
+                <app-tarjeta [login]="usuarioDetail.login"></app-tarjeta>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <hr>
+</div>

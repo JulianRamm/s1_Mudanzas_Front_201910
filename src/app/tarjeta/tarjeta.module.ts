@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { TarjetaService } from './tarjeta.service';
 import { TarjetaListComponent } from './tarjeta-list/tarjeta-list.component';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
+import { TarjetaCreateComponent } from './tarjeta-create/tarjeta-create.component';
 
 @NgModule({
   imports: [
@@ -16,8 +17,9 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
     CommonModule,
     FormsModule
   ],
-  declarations: [TarjetaListComponent],
+  declarations: [TarjetaListComponent, TarjetaCreateComponent],
   providers: [TarjetaService],
-  bootstrap: [TarjetaListComponent]
+  bootstrap: [TarjetaListComponent],
+  exports: [TarjetaListComponent]
 })
 export class TarjetaModule { }
