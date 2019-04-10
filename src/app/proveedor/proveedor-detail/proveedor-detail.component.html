@@ -1,5 +1,5 @@
-<div class='container-fluid' id="caja-fondo">
-    <div class="row" id="perfil">
+<div class='container-fluid row justify-content-center'>
+    <div class="row" id="detail">
         <img class="img-fluid" alt="Responsive image" src="../../../userprofile.png">
         <table class='table col'>
             <tbody>
@@ -14,7 +14,10 @@
                 <tr> <a href="mailto:{{proveedorDetail.correoElectronico}}"> {{ proveedorDetail.correoElectronico }}
                     </a></tr>
                 <tr> {{ "Ubicacion: " + proveedorDetail.ciudadOrigen + ", Colombia" }} </tr>
-
+                <tr>{{ "Telefono: " + proveedorDetail.numeroTelefono  }}</tr>
+                <tr>{{ "Numero de Vehiculos: " + proveedorDetail.numeroVehiculos  }}</tr>
+                <tr>{{ "Calificación: " + proveedorDetail.clasificacion  }}</tr>
+                
             </tbody>
         </table>
     </div>
