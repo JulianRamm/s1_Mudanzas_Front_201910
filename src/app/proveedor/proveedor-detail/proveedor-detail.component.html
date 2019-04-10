@@ -1,0 +1,39 @@
+<div class='container-fluid row justify-content-center'>
+    <div class="row" id="detail">
+        <img class="img-fluid" alt="Responsive image" src="../../../userprofile.png">
+        <table class='table col'>
+            <tbody>
+                <br>
+                <br>
+                <br>
+                <tr>
+                    <h2>{{ proveedorDetail.nombre }}</h2>
+                    <hr>
+                </tr>
+                <tr id="username"> {{ "@" + proveedorDetail.login }} </tr>
+                <tr> <a href="mailto:{{proveedorDetail.correoElectronico}}"> {{ proveedorDetail.correoElectronico }}
+                    </a></tr>
+                <tr> {{ "Ubicacion: " + proveedorDetail.ciudadOrigen + ", Colombia" }} </tr>
+                <tr>{{ "Telefono: " + proveedorDetail.numeroTelefono  }}</tr>
+                <tr>{{ "Numero de Vehiculos: " + proveedorDetail.numeroVehiculos  }}</tr>
+                <tr>{{ "Calificación: " + proveedorDetail.clasificacion  }}</tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="table row">
+
+
+        <div class="col" id="detail">
+            <p id="tituloSub"><b>Conductores: </b></p>
+            <hr>
+            <br>
+            <div *ngIf="proveedorDetail.login">
+                <app-conductor [conductor_login]="proveedorDetail.login"></app-conductor>
+            </div>
+        </div>
+    </div>   
+    <hr>
+    <hr>
+</div>
