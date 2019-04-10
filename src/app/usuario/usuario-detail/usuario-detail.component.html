@@ -1,5 +1,5 @@
-<div class='container-fluid' id="caja-fondo">
-    <div class="row" id="perfil">
+<div class='container-fluid row justify-content-center'>
+    <div class="row" id="detail">
         <img class="img-fluid" alt="Responsive image" src="../../../userprofile.png">
         <table class='table col'>
             <tbody>
@@ -21,25 +21,29 @@
         </table>
     </div>
     <hr>
-    <div *ngIf="showEdit">
-        <app-usuario-edit [usuario]="this.usuarioDetail" (cancel)="showHideEdit()" (update)="ngOnInit()">
-        </app-usuario-edit>
-        <hr>
-    </div>
-    <div *ngIf="showMap && carga">
-            <app-usuario-map (cerrar)="showHideMap()" [carga] = "this.carga"></app-usuario-map>
-            <hr>
+    <div class="table row">
+        <div *ngIf="showEdit" class="row edit" id="detail">
+            <div class="col-2"></div>
+            <app-usuario-edit class="col-10" [usuario]="this.usuarioDetail" (cancel)="showHideEdit()"
+                (update)="ngOnInit()">
+            </app-usuario-edit>
+            <div class="col-2"></div>
         </div>
-    <div class=" table row" id="perfil">
-        <div class="col">
+        <div class="col" id="detail">
+            <div *ngIf="showMap && carga" id="detail">
+                <app-usuario-map (cerrar)="showHideMap()" [carga]="this.carga"></app-usuario-map>
+                <hr>
+            </div>
+            <br>
             <p id="tituloSub"><b>Cargas: </b></p>
             <hr>
             <br>
             <div *ngIf="usuarioDetail.login">
-                <app-carga [login]="usuarioDetail.login" (selectedCarga)="setCarga($event)" (showMap)="mostrarMapa($event)"></app-carga>
+                <app-carga [login]="usuarioDetail.login" (selectedCarga)="setCarga($event)"
+                    (showMap)="mostrarMapa($event)"></app-carga>
             </div>
         </div>
-        <div class="col">
+        <div class="col" id="detail">
             <p id="tituloSub"><b>Subastas activas: </b></p>
             <hr>
             <br>
@@ -48,7 +52,7 @@
             </div>
         </div>
     </div>
-    <div class="table row" id="perfil">
+    <div class="table row" id="perfil" id="detail">
         <div class="col">
             <p id="tituloSub"><b>Tarjetas De Credito: </b></p>
             <hr>
