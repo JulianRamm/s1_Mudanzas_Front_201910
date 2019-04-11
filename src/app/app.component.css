@@ -1,8 +1,22 @@
 #fondo {
     background-color: #f1f1f1;
+    min-height: 95vh;
 }
 
 .navbar-nav li a {
     font-size: 20px;
     margin: 0px 20px 0px 20px;
+}
+
+.footer {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.list {
+    height: 100%;
 }
