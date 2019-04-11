@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Conductor } from '../conductor';
 import { ConductorService } from '../conductor.service';
+import { ConductorDetail } from '../conductor-detail';
 import { StringifyOptions } from 'querystring';
 import { ConductorDetail } from '../conductor-detail';
 //import { ConductorDetail } from '../conductor-detail';
+
 
 @Component({
     selector: 'app-conductor',
@@ -12,7 +14,8 @@ import { ConductorDetail } from '../conductor-detail';
 })
 export class ConductorListComponent implements OnInit {
 
-    @Input()conductor_login: string;
+    @Input()conductor_Id: number;
+    @Input()proveedor_login: string;
     selectedConductor: Conductor;
     idC:number;
     /**
@@ -44,15 +47,16 @@ export class ConductorListComponent implements OnInit {
 
         if (this.selectedConductor) {
             this.selectedConductor = undefined;
-            this.conductor_login= undefined;
+            this.conductor_Id= undefined;
         }
         this.showCreate = !this.showCreate;
     }
  
     getConductorDetail(): void {
-        this.conductorService.getConductorDetail(this.conductor_login, this.idC)
-            .subscribe(sel => {
-                this.selectedConductor = sel;
+        this.conductorService.getConductorDetail(this.proveedor_login, this.conductor_Id
+    )
+            .subscribe(selectedConductor => {
+                this.selectedConductor = selectedConductor;
             });
     }
 
@@ -60,7 +64,7 @@ export class ConductorListComponent implements OnInit {
      * Asks the service to update the list of conductores
      */
     getConductores(): void {
-        this.conductorService.getConductores(this.conductor_login)
+        this.conductorService.getConductores(this.proveedor_login)
             .subscribe(conductores => this.conductores = conductores);
     }
 
