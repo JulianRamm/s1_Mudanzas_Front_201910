@@ -26,6 +26,7 @@ import { AgmDirectionModule } from 'agm-direction';
 
 import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widget';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ConductorModule } from './conductor/conductor.module';
 
 @NgModule({
     declarations: [
@@ -54,6 +55,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
         CargaModule,
         SubastaModule,
         OfertaModule,
+        ConductorModule,
         AgmCoreModule,
         AgmDirectionModule,
         AngularWeatherWidgetModule,
