@@ -40,15 +40,24 @@
             <br>
             <div *ngIf="usuarioDetail.login">
                 <app-carga [login]="usuarioDetail.login" (selectedCarga)="setCarga($event)"
-                    (showMap)="mostrarMapa($event)"></app-carga>
+                    (showMap)="showHideMap()"></app-carga>
             </div>
         </div>
         <div class="col" id="detail">
+            <div *ngIf="showOferta && subasta" id="detail">
+                <app-oferta (cerrar)="showHideOferta()" [id]="this.subasta.id"></app-oferta>
+                <hr>
+            </div>
+            <br>
+
+            <br>
+
             <p id="tituloSub"><b>Subastas activas: </b></p>
             <hr>
             <br>
             <div *ngIf="usuarioDetail.login">
-                <app-subasta [login]="usuarioDetail.login"></app-subasta>
+                <app-subasta [login]="usuarioDetail.login" (selectedSubasta)="setSubasta($event)"
+                (showOferta)="showHideOferta()"></app-subasta>
             </div>
         </div>
     </div>

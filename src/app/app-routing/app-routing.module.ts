@@ -6,9 +6,14 @@ import { NgxPermissionsGuard } from 'ngx-permissions';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
+import { ProveedorListComponent } from '../proveedor/proveedor-list/proveedor-list.component';
+import { ProveedorDetailComponent } from '../proveedor/proveedor-detail/proveedor-detail.component';
+
 
 import { ViajeListComponent } from '../viaje/viaje-list/viaje-list.component';
 import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail.component';
+import { ViajeDetailComponent } from '../viaje/viaje-detail/viaje-detail.component';
+import { ConductorDetailComponent } from '../conductor/conductor-detail/conductor-detail.component';
 
 
 const routes: Routes = [
@@ -61,14 +66,30 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'viajes',
+        path: 'proveedores',
         children: [
             {
                 path: 'list',
-                component: ViajeListComponent
+                component: ProveedorListComponent
+            },
+            {
+                path: ':login',
+                component: ProveedorDetailComponent,
+                children: [
+                    {
+                        path: 'conductores',
+                        children: [
+                            {
+                                path: ':id',
+                                component: ConductorDetailComponent
+                            }
+                        ]
+                    }
+                ]
             }
         ]
-    }
+    },
+    
 ];
 
 @NgModule({

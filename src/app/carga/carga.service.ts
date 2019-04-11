@@ -1,4 +1,4 @@
-import { Injectable, Input } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
@@ -23,5 +23,4 @@ export class CargaService {
   createCarga(login: string, carga:Carga ){
     return this.http.post<Carga>(API_URL + usuarios + '/' + login + '/' + cargas, carga);
   }
-
 }

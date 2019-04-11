@@ -37,6 +37,7 @@ export class UsuarioService {
     * @returns The usuario details
     */
     getUsuarioDetail(usuarioLogin): Observable<UsuarioDetail> {
+       
         return this.http.get<UsuarioDetail>(API_URL + usuarios + '/' + usuarioLogin);
     }
 

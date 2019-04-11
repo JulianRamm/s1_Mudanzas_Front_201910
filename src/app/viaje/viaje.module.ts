@@ -6,6 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ViajeService } from './viaje.service';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
+import { ViajeDetailComponent } from './viaje-detail/viaje-detail.component';
+import { ViajeCreateComponent } from './viaje-create/viaje-create.component';
+import { ViajeEditComponent } from './viaje-edit/viaje-edit.component';
 
 @NgModule({
   imports: [
@@ -15,7 +18,9 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
     CommonModule,
     FormsModule
   ],
-  declarations: [ViajeListComponent],
+  declarations: [ViajeListComponent, ViajeDetailComponent, ViajeCreateComponent, ViajeEditComponent],
+  bootstrap: [ViajeListComponent, ViajeCreateComponent, ViajeDetailComponent],
+  exports: [ViajeListComponent, ViajeCreateComponent, ViajeDetailComponent],
   providers: [ViajeService]
 })
 export class ViajeModule { }
