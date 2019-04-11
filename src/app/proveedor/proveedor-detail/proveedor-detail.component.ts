@@ -56,7 +56,6 @@ export class ProveedorDetailComponent implements OnInit {
   */
   ngOnInit() {
     this.proveedor_login = this.route.snapshot.paramMap.get('login');
-    console.log(this.proveedor_login)
     this.proveedorDetail = new ProveedorDetail();
     this.getProveedorDetail();
   }
