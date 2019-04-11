@@ -32,18 +32,25 @@ export class ProveedorService {
     }
 
     /**
-    * Returns the Observable object with the details of an usuario retrieved from the API
-    * @returns The usuario details
+    * Returns the Observable object with the details of an proveedor retrieved from the API
+    * @returns The proveedor details
     */
     getProveedorDetail(proveedorLogin): Observable<ProveedorDetail> {
         return this.http.get<ProveedorDetail>(API_URL + proveedores + '/' + proveedorLogin);
     }
-
-    /*
-    createProveedor(usuario): Observable<Proveedor> {
-        return this.http.post<Proveedor>(API_URL + proveedores, usuario);
+    
+    createProveedor(proveedor): Observable<Proveedor> {
+        return this.http.post<Proveedor>(API_URL + proveedores, proveedor);
     }
 
-  */
+    /**
+    * Updates an proveedor
+    * @param proveedor The proveedor's information updated
+    * @returns The confirmation that the proveedor was updated
+    */
+   updateProveedor(proveedor: ProveedorDetail): Observable<ProveedorDetail> {
+    return this.http.put<ProveedorDetail>(API_URL + proveedores + '/' + proveedor.login, proveedor);
+}
 
+ 
 }

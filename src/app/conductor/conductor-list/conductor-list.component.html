@@ -11,6 +11,24 @@
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><b>Telefono: </b>{{conductor.telefono}}</li>
+
+  
+          </ul>
+        </div>
+      </div>
+      <div class="card" id="add" style="width: 18rem;">
+        <button type="col button" id="but" class="btn btn-primary"
+          [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" (click)="showHideCreate()">+</button>
+      </div>
+      <div id="crear" *ngIf="showCreate">
+        <h4 id="tituloSub"><b>Agregar un nuevo conductor: </b></h4>
+        <app-conductor-create [loginProveedor]="this.conductor_login" (cancel)="showHideCreate()" (create)="ngOnInit()">
+        </app-conductor-create>
+        <hr>
+        <br>
+        
+      </div>
+    </div>
           </ul>
           <app-viaje-detail></app-viaje-detail>
           <div>
@@ -19,4 +37,5 @@
         </div>
       </div>
     </div>
+
   </div>

@@ -10,7 +10,6 @@ import { ConductorService } from '../conductor.service';
 })
 export class ConductorListComponent implements OnInit {
 
-    @Input()proveedor_login: string;
     @Input()conductor_login: string;
     selectedConductor: Conductor;
 
@@ -41,6 +40,7 @@ export class ConductorListComponent implements OnInit {
     * Shows or hides the create component
     */
     showHideCreate(): void {
+
         if (this.selectedConductor) {
             this.selectedConductor = undefined;
             this.conductor_login= undefined;
@@ -60,7 +60,6 @@ export class ConductorListComponent implements OnInit {
      * Asks the service to update the list of conductores
      */
     getConductores(): void {
-        console.log(this.conductor_login)
         this.conductorService.getConductores(this.conductor_login)
             .subscribe(conductores => this.conductores = conductores);
     }
