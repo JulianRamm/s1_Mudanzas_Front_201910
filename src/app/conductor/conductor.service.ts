@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule} from "@angular/common/http";
 
 import { Conductor } from './conductor';
-//import { ConductorDetail } from './conductor-detail';
+import { ConductorDetail } from './conductor-detail';
 
 import { environment } from '../../environments/environment';
 
@@ -44,5 +44,7 @@ export class ConductorService {
         return this.http.post<Conductor>(API_URL +proveedores+ '/'+ login+ conductores, conductor);
     }
 
-
+    getConductorDetail(login: string, idConductor: number ) :Observable<ConductorDetail>{
+        return this.http.get<ConductorDetail>(API_URL +proveedores+'/'+login+ conductores+ '/'+ idConductor);
+    }
 }
