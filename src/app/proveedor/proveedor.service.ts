@@ -38,7 +38,6 @@ export class ProveedorService {
     getProveedorDetail(proveedorLogin): Observable<ProveedorDetail> {
         return this.http.get<ProveedorDetail>(API_URL + proveedores + '/' + proveedorLogin);
     }
-
     
     createProveedor(proveedor): Observable<Proveedor> {
         return this.http.post<Proveedor>(API_URL + proveedores, proveedor);
@@ -53,6 +52,5 @@ export class ProveedorService {
     return this.http.put<ProveedorDetail>(API_URL + proveedores + '/' + proveedor.login, proveedor);
 }
 
-  
-
+ 
 }

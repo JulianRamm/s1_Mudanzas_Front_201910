@@ -13,7 +13,6 @@ import { ProveedorCreateComponent } from './proveedor-create/proveedor-create.co
 import { ProveedorEditComponent } from './proveedor-edit/proveedor-edit.component';
 
 
-
 @NgModule({
     imports: [
         BrowserModule,

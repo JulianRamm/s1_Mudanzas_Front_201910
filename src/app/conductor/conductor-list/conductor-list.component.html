@@ -1,6 +1,5 @@
 <div class="container-fluid">
     <div class="row">
-  
       <div class="col" *ngFor="let conductor of conductores" style="cursor: pointer;">
         <div class="card" style="width: 18rem;">
           <img class="card-img-top"
@@ -12,6 +11,7 @@
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><b>Telefono: </b>{{conductor.telefono}}</li>
+
   
           </ul>
         </div>
@@ -29,5 +29,13 @@
         
       </div>
     </div>
-    
+          </ul>
+          <app-viaje-detail></app-viaje-detail>
+          <div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
