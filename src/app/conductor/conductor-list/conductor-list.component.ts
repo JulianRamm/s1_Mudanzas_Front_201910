@@ -30,7 +30,7 @@ export class ConductorListComponent implements OnInit {
      * The list of conductores which belong to the BookStore
      */
     conductores: Conductor[];
-    onSelected(login: string): void {
+    onSelected(login: string, ): void {
         this.showCreate = false;
         this.conductor_login = login;
         this.selectedConductor = new ConductorDetail();
@@ -71,6 +71,7 @@ export class ConductorListComponent implements OnInit {
     ngOnInit() {
         this.showCreate = false;
         this.selectedConductor = undefined;
+        this.idC=undefined;
         this.getConductores();
     }
 }
