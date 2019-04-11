@@ -60,6 +60,7 @@ export class UsuarioListComponent implements OnInit {
     getUsuarios(): void {
         this.usuarioService.getUsuarios()
             .subscribe(usuarios => this.usuarios = usuarios);
+            alert(this.usuarios);
     }
 
     /**

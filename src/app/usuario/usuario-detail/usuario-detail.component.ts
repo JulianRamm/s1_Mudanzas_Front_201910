@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 import { UsuarioService } from '../usuario.service';
 import { UsuarioDetail } from '../usuario-detail';
+import { TarjetaService } from '../../tarjeta/tarjeta.service';
 import { Carga } from '../../carga/carga';
 import { Subasta } from '../../subasta/subasta';
 import { Oferta } from '../../oferta/oferta';
@@ -65,6 +66,7 @@ export class UsuarioDetailComponent implements OnInit {
   setCarga(carg: Carga): void {
     this.carga = carg;
   }
+
 
   mostrarMapa(mostrar): void {
     this.showMap = mostrar;

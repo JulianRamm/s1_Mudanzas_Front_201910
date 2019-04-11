@@ -13,8 +13,7 @@ export class CargaListComponent implements OnInit {
   @Output() selectedCarga:  EventEmitter<Carga> = new EventEmitter<Carga>();
   cargaSeleccionada: Carga;
   
-  @Output() showMap: EventEmitter<boolean> = new EventEmitter<boolean>();
-  showMapActual: boolean;
+  @Output() showMap: EventEmitter<any> = new EventEmitter();
 
   idCarga: number;
 
@@ -28,7 +27,7 @@ export class CargaListComponent implements OnInit {
   @Input() login: string;
 
   /**
-   * The list of cargas which belong to the BookStore
+   * The list of cargas 
    */
   cargas: Carga[];
 
@@ -60,8 +59,7 @@ export class CargaListComponent implements OnInit {
     }
     this.idCarga = idCarga;
     this.getCarga();
-    this.showMapActual = !this.showMapActual;
-    this.showMap.emit(this.showMapActual);
+    this.showMap.emit();
     window.scrollTo({
       top: 250,
       behavior: 'smooth',
@@ -82,9 +80,7 @@ export class CargaListComponent implements OnInit {
    */
   ngOnInit() {
     this.showCreate = false;
-    this.showMapActual = false;
     this.cargaSeleccionada = new Carga();
-    this.showMap.emit(this.showMapActual);
     this.getCargas();
 
   }

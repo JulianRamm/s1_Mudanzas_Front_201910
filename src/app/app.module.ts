@@ -15,6 +15,7 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 
 import {UsuarioModule} from "./usuario/usuario.module";
+import {ProveedorModule} from "./proveedor/proveedor.module";
 import {TarjetaModule} from "./tarjeta/tarjeta.module";
 import { ViajeModule } from './viaje/viaje.module';
 import { CargaModule } from './carga/carga.module';
@@ -24,7 +25,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 
 import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widget';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
     declarations: [
@@ -48,13 +49,15 @@ import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widg
         NgbModule,
         UsuarioModule,
         TarjetaModule,
+        ProveedorModule,
         ViajeModule,
         CargaModule,
         SubastaModule,
         OfertaModule,
         AgmCoreModule,
         AgmDirectionModule,
-        AngularWeatherWidgetModule
+        AngularWeatherWidgetModule,
+        MDBBootstrapModule
     ],
     bootstrap: [AppComponent],
     providers: [

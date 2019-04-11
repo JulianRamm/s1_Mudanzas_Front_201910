@@ -2,11 +2,11 @@
     <div class="row" id="detail">
         <div class="card">
             <div class="table-responsive">
-                <table class='table'>
+                <table mdbTable  class='table data-sortable' cellspacing="0">
                     <thead id="titular" class="thead">
                         <tr>
-                            <th>ID</th>
-                            <th>Login</th>
+                            <th [mdbTableSort]="usuarios" sortBy="id">ID <i class="fa fa-fw fa-sort"></i></th>
+                            <th [mdbTableSort]="usuarios" sortBy="login">Login <i class="fa fa-fw fa-sort"></i></th>
                             <th>Nombre Completo</th>
                             <th>Ciudad</th>
                             <th>Correo Electronico</th>

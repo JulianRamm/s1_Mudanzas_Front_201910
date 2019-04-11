@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col" *ngFor="let conductor of conductores" style="cursor: pointer;">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top"
+            src="https://images.all-free-download.com/images/graphiclarge/road_logistic_banner_truck_male_shipper_icons_6838315.jpg"
+            alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title"><b>{{conductor.nombre}}</b></h4>
+            <h3 class="card-title"><b>ID: </b>{{conductor.id}}</h3>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Telefono: </b>{{conductor.telefono}}</li>
+
+  
+          </ul>
+        </div>
+      </div>
+      <div class="card" id="add" style="width: 18rem;">
+        <button type="col button" id="but" class="btn btn-primary"
+          [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" (click)="showHideCreate()">+</button>
+      </div>
+      <div id="crear" *ngIf="showCreate">
+        <h4 id="tituloSub"><b>Agregar un nuevo conductor: </b></h4>
+        <app-conductor-create [loginProveedor]="this.conductor_login" (cancel)="showHideCreate()" (create)="ngOnInit()">
+        </app-conductor-create>
+        <hr>
+        <br>
+        
+      </div>
+    </div>
+          </ul>
+          <app-viaje-detail></app-viaje-detail>
+          <div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
