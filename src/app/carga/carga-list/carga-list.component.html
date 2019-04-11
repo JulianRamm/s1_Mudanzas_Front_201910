@@ -14,16 +14,18 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><b>Lugar de salida: </b>{{carga.lugarSalida}}</li>
             <li class="list-group-item"><b>Lugar de llegada: </b>{{carga.lugarLlegada}}</li>
-            <li class="list-group-item"><div class="row justify-content-center align-self-center">
+            <li class="list-group-item">
+              <div class="row justify-content-center align-self-center">
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button"
                   class="btn btn-success" (click)="onSelectedClick(carga.id)">Ver en mapa</button>
-              </div></li>
+              </div>
+            </li>
             <li class="list-group-item"><b>Volumen: </b>{{carga.volumen}} (m3)</li>
             <li class="list-group-item"><b>Fecha de envío: </b>{{convertirFechaChevere(carga.fechaEnvio)}}</li>
             <li class="list-group-item"><b>Entrega estimada: </b>{{convertirFechaChevere(carga.fechaEstimadaLlegada)}}
             </li>
           </ul>
-          
+
         </div>
         <hr>
         <div class="row justify-content-center align-self-center">
@@ -34,10 +36,8 @@
         </div>
       </div>
     </div>
-    <div class="card" id="add" style="width: 18rem;">
-      <button type="col button" id="but" class="btn btn-primary"
-        [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" (click)="showHideCreate()">+</button>
-    </div>
+    <button type="col button" id="but" class="btn btn-primary"
+      [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" (click)="showHideCreate()">+</button>
   </div>
   <div id="crear" *ngIf="showCreate">
     <p id="tituloSub"><b>Agregar una nueva carga: </b></p>
