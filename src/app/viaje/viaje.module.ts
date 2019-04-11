@@ -19,6 +19,8 @@ import { ViajeEditComponent } from './viaje-edit/viaje-edit.component';
     FormsModule
   ],
   declarations: [ViajeListComponent, ViajeDetailComponent, ViajeCreateComponent, ViajeEditComponent],
+  bootstrap: [ViajeListComponent, ViajeCreateComponent, ViajeDetailComponent],
+  exports: [ViajeListComponent, ViajeCreateComponent, ViajeDetailComponent],
   providers: [ViajeService]
 })
 export class ViajeModule { }
