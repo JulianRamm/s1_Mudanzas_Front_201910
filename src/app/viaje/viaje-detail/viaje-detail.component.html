@@ -9,16 +9,18 @@
           <h2>Track id: {{viajeDetail.id}}</h2>
             <hr>
         </tr>
-        <tr> {{ "Tiempo del envío: " + viajeDetail.tiempo}} </tr>
-        <tr> {{ "Lugar de salida: " + viajeDetail.lugarSalida + ", Colombia" }} </tr>
-        <tr> {{ "Lugar de llegada: " + viajeDetail.lugarLlegada + ", Colombia" }} </tr>
-        <tr> {{ "Gasto de gasolina: " + viajeDetail.gastoGasolina + ", (galones)" }} </tr>
-        <tr> {{ "CLima: " + viajeDetail.clima }} </tr>
-        <tr> {{ "Hora de partida: " + viajeDetail.horaPartida + "}} </tr>
-        <tr> {{ "Hora de partida: " + viajeDetail.horaLlegada + "}} </tr>
-        <tr><button type="button" class="btn btn-light" [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
+        <tr> Tiempo del envío: {{viajeDetail.tiempo}} </tr>
+        <tr> Lugar de salida: {{viajeDetail.lugarSalida}}, Colombia  </tr>
+        <tr> Lugar de llegada: {{viajeDetail.lugarLlegada}}, Colombia </tr>
+        <tr> Gasto de gasolina: {{viajeDetail.gastoGasolina}} (galones) </tr>
+        <tr> CLima:  {{viajeDetail.clima}} </tr>
+        <tr> Hora de partida: {{viajeDetail.horaPartida}} </tr>
+        <tr> Hora de partida: {{viajeDetail.horaLlegada}} </tr>
+        <!--<tr><button type="button" class="btn btn-light" [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
             (click)="showHideEdit()">Editar viaje</button></tr>
-      </tbody>
+      
+      -->
+    </tbody>
     </table>
   </div>
   <hr>

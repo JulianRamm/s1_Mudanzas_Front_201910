@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-conductor-detail',
   templateUrl: './conductor-detail.component.html',
-  styleUrls: ['./conductor-detail.component.scss']
+  styleUrls: ['./conductor-detail.component.css']
 })
 export class ConductorDetailComponent implements OnInit {
 
