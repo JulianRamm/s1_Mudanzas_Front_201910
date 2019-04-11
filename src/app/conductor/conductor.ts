@@ -3,5 +3,4 @@ export class Conductor{
     nombre:string;
     calificacion:number;
     telefono: string;
-    lugarLlegada: string;
 }

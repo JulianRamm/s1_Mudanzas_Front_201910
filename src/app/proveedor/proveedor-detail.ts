@@ -1,5 +1,5 @@
 import { Proveedor } from './proveedor';
-//import { Conductor } from '../tarjeta/tarjeta';
+import { Conductor } from '../conductor/conductor';
 
 /**
 * This class represents a proveedor of the moveasy. 
@@ -7,6 +7,6 @@ import { Proveedor } from './proveedor';
 */
 export class ProveedorDetail extends Proveedor {
 
-    //tarjetas: Conductor[];
+    conductores: Conductor[];
 
 }
