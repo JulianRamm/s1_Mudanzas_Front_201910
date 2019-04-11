@@ -6,6 +6,8 @@ import { UsuarioService } from '../usuario.service';
 import { UsuarioDetail } from '../usuario-detail';
 import { TarjetaService } from '../../tarjeta/tarjeta.service';
 import { Carga } from '../../carga/carga';
+import { Subasta } from '../../subasta/subasta';
+import { Oferta } from '../../oferta/oferta';
 @Component({
   selector: 'app-usuario-detail',
   templateUrl: './usuario-detail.component.html',
@@ -34,6 +36,10 @@ export class UsuarioDetailComponent implements OnInit {
 
   showMap: boolean;
 
+  subasta:Subasta;
+
+  showOferta:boolean;
+
   /**
   * The method which retrieves the details of the usuario that
   * we want to show
@@ -53,8 +59,22 @@ export class UsuarioDetailComponent implements OnInit {
     this.showMap = !this.showMap;
   }
 
+  showHideOferta(): void {
+    this.showOferta =!this.showOferta
+  }
+
   setCarga(carg: Carga): void {
     this.carga = carg;
+  }
+
+
+  mostrarMapa(mostrar): void {
+    this.showMap = mostrar;
+  }
+
+  
+  setSubasta(sub: Subasta): void {
+    this.subasta = sub;
   }
 
   /**
@@ -66,6 +86,7 @@ export class UsuarioDetailComponent implements OnInit {
     this.usuario_login = this.route.snapshot.paramMap.get('login');
     this.showEdit = false;
     this.showMap = false;
+    this.showOferta = false;
     this.usuarioDetail = new UsuarioDetail();
     this.getUsuarioDetail();
   }
