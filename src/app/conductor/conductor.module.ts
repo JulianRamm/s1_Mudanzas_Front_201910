@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ConductorCreateComponent } from './conductor-create/conductor-create.component';
 import { ConductorDetailComponent } from './conductor-detail/conductor-detail.component';
+import { ViajeModule } from '../viaje/viaje.module';
 
 
 @NgModule({
@@ -16,15 +17,12 @@ import { ConductorDetailComponent } from './conductor-detail/conductor-detail.co
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ViajeModule
   ],
   declarations: [ConductorListComponent, ConductorCreateComponent, ConductorDetailComponent],
   providers: [ConductorService],
   bootstrap: [ConductorListComponent, ConductorCreateComponent],
   exports: [ConductorListComponent,ConductorCreateComponent ]
-  declarations: [ConductorListComponent],
-  providers: [ConductorService],
-  bootstrap: [ConductorListComponent],
-  exports: [ConductorListComponent ]
 })
 export class ConductorModule { }
