@@ -13,6 +13,7 @@ import { ProveedorDetailComponent } from '../proveedor/proveedor-detail/proveedo
 import { ViajeListComponent } from '../viaje/viaje-list/viaje-list.component';
 import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail.component';
 import { ViajeDetailComponent } from '../viaje/viaje-detail/viaje-detail.component';
+import { ConductorDetailComponent } from '../conductor/conductor-detail/conductor-detail.component';
 
 
 const routes: Routes = [
@@ -73,23 +74,22 @@ const routes: Routes = [
             },
             {
                 path: ':login',
-                component: ProveedorDetailComponent
+                component: ProveedorDetailComponent,
+                children: [
+                    {
+                        path: 'conductores',
+                        children: [
+                            {
+                                path: ':id',
+                                component: ConductorDetailComponent
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
-    {
-        path: 'viajes',
-        children: [
-            {
-                path: 'list',
-                component: ViajeListComponent
-            },
-            {
-                path: ':viajeId',
-                component: ViajeDetailComponent
-            }
-        ]
-    }
+    
 ];
 
 @NgModule({
