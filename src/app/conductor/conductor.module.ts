@@ -22,9 +22,6 @@ import { ConductorDetailComponent } from './conductor-detail/conductor-detail.co
   providers: [ConductorService],
   bootstrap: [ConductorListComponent, ConductorCreateComponent],
   exports: [ConductorListComponent,ConductorCreateComponent ]
-  declarations: [ConductorListComponent],
-  providers: [ConductorService],
-  bootstrap: [ConductorListComponent],
-  exports: [ConductorListComponent ]
+ 
 })
 export class ConductorModule { }
