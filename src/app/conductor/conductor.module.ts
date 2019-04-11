@@ -6,7 +6,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
+import { ConductorCreateComponent } from './conductor-create/conductor-create.component';
 
 
 @NgModule({
@@ -17,9 +17,9 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule
   ],
-  declarations: [ConductorListComponent],
+  declarations: [ConductorListComponent, ConductorCreateComponent],
   providers: [ConductorService],
-  bootstrap: [ConductorListComponent],
-  exports: [ConductorListComponent ]
+  bootstrap: [ConductorListComponent, ConductorCreateComponent],
+  exports: [ConductorListComponent,ConductorCreateComponent ]
 })
 export class ConductorModule { }

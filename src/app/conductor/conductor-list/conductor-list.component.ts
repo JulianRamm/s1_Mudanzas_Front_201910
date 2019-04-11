@@ -41,10 +41,6 @@ export class ConductorListComponent implements OnInit {
     * Shows or hides the create component
     */
     showHideCreate(): void {
-        if (this.selectedConductor) {
-            this.selectedConductor = undefined;
-            this.conductor_login= undefined;
-        }
         this.showCreate = !this.showCreate;
     }
  
