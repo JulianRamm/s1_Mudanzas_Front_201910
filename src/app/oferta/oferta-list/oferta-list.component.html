@@ -1,0 +1,15 @@
+<button type="row button" class="btn btn-danger" (click)="this.cerrarOferta()">Cerrar</button>
+<div class="col" *ngFor="let oferta of ofertas">
+
+<div class="card" style="width: 300px;">
+    <div class="card-body">
+      <h5 class="card-title">Oferta</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Id: {{oferta.id}}</h6>
+      <p class="card-text">Comentario proveedor: {{oferta.comentario}}</p>
+      <p class="card-text">precio: ${{oferta.valor}}</p>
+
+      <a href="#" class="card-link">aceptar oferta</a>
+      <a href="#" class="card-link">rechazar oferta</a>
+    </div>
+  </div>
+</div>
