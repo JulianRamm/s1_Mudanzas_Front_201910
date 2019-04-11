@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Router} from '@angular/router';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ViajeService } from '../viaje.service';
 import { ViajeDetail } from '../viaje-detail';
 
@@ -10,6 +10,8 @@ import { ViajeDetail } from '../viaje-detail';
 })
 export class ViajeDetailComponent implements OnInit {
 
+  @Output() selectedViaje: EventEmitter<ViajeDetail> = new EventEmitter<ViajeDetail>();
+  viajeSeleccionado: ViajeDetail;
   @Input() loginP: string;
   @Input() conductorId: number;
   @Input() viajeId: number;
@@ -23,16 +25,27 @@ export class ViajeDetailComponent implements OnInit {
     private router: Router) { }
 
   getViajeDetail(): void {
-    this.service.getViajeDetail(this.loginP, this.conductorId, this.viajeId).subscribe(viaje=>{this.viajeDetail=viaje});
+    this.service.getViajeDetail(this.loginP, this.conductorId, this.viajeId).subscribe(viaje => { this.viajeDetail = viaje; this.selectedViaje.emit(this.viajeSeleccionado); });
   }
   showHideEdit(): void {
     this.showEdit = !this.showEdit;
   }
 
+  onSelectedClick(viajeId: number): void {
+    if (this.viajeSeleccionado) {
+      this.viajeSeleccionado = null;
+    }
+    this.viajeId = viajeId;
+    this.getViajeDetail();
+    window.scrollTo({
+      top: 250,
+      behavior: 'smooth',
+    });
+  }
   ngOnInit() {
     this.viajeId = Number.parseInt(this.route.snapshot.paramMap.get('viajeId'));
     this.showEdit = false;
-    this.viajeDetail=new ViajeDetail();
+    this.viajeDetail = new ViajeDetail();
     this.getViajeDetail;
   }
 

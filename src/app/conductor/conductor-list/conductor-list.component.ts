@@ -10,7 +10,7 @@ import { ConductorService } from '../conductor.service';
 })
 export class ConductorListComponent implements OnInit {
 
-    
+    @Input()proveedor_login: string;
     @Input()conductor_login: string;
     selectedConductor: Conductor;
 

@@ -14,7 +14,7 @@ const conductores = 'conductores';
 @Injectable()
 export class ViajeService {
 
-  constructor(private http: HttpClient) { }k
+  constructor(private http: HttpClient) { }
 
   getViajes(loginP: string, conductorId: number): Observable<Viaje[]> {
     return this.http.get<Viaje[]>(API_URL + '/' + proveedores + '/' + loginP + '/' + conductores + '/' + conductorId + '/' + viajes);
@@ -25,5 +25,5 @@ export class ViajeService {
   createViaje(condcutorId: number, viaje: Viaje, loginP: string): Observable<Viaje> {
     return this.http.post<Viaje>(API_URL + '/' + proveedores + '/' + loginP + '/' + conductores + '/' + condcutorId + '/' + viajes, viaje);
   }
-
+  
 }
