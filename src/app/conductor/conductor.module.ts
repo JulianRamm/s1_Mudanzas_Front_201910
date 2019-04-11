@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ConductorCreateComponent } from './conductor-create/conductor-create.component';
+import { ConductorDetailComponent } from './conductor-detail/conductor-detail.component';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { ConductorCreateComponent } from './conductor-create/conductor-create.co
     CommonModule,
     FormsModule
   ],
-  declarations: [ConductorListComponent, ConductorCreateComponent],
+  declarations: [ConductorListComponent, ConductorCreateComponent, ConductorDetailComponent],
   providers: [ConductorService],
   bootstrap: [ConductorListComponent, ConductorCreateComponent],
   exports: [ConductorListComponent,ConductorCreateComponent ]

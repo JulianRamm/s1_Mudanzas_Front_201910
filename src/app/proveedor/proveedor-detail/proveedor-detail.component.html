@@ -17,13 +17,23 @@
                 <tr>{{ "Telefono: " + proveedorDetail.numeroTelefono  }}</tr>
                 <tr>{{ "Numero de Vehiculos: " + proveedorDetail.numeroVehiculos  }}</tr>
                 <tr>{{ "Calificación: " + proveedorDetail.clasificacion  }}</tr>
+                <tr><button type="button" class="btn btn-light"
+                    [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
+                    (click)="showHideEdit()">Cambiar mi perfil</button></tr>
                 
             </tbody>
         </table>
-    </div>
+    </div> 
     <hr>
     <div class="table row">
 
+        <div *ngIf="showEdit" class="row edit" id="detail">
+            <div class="col-2"></div>
+            <app-proveedor-edit class="col-10" [proveedor]="this.proveedorDetail" (cancel)="showHideEdit()"
+                (update)="ngOnInit()">
+            </app-proveedor-edit>
+            <div class="col-2"></div>
+        </div>
 
         <div class="col" id="detail">
             <p id="tituloSub"><b>Conductores: </b></p>

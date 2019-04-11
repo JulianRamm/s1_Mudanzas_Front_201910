@@ -10,6 +10,7 @@ import { ConductorModule } from '../conductor/conductor.module';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { ProveedorDetailComponent } from './proveedor-detail/proveedor-detail.component';
 import { ProveedorCreateComponent } from './proveedor-create/proveedor-create.component';
+import { ProveedorEditComponent } from './proveedor-edit/proveedor-edit.component';
 
 
 
@@ -22,7 +23,7 @@ import { ProveedorCreateComponent } from './proveedor-create/proveedor-create.co
         CommonModule,
         FormsModule,
     ],
-    declarations: [ProveedorListComponent,  ProveedorDetailComponent, ProveedorCreateComponent],
+    declarations: [ProveedorListComponent,  ProveedorDetailComponent, ProveedorCreateComponent, ProveedorEditComponent],
     providers: [ProveedorService],
     bootstrap: [ProveedorListComponent]
 })

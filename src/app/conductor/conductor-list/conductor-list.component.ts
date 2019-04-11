@@ -56,7 +56,7 @@ export class ConductorListComponent implements OnInit {
      * Asks the service to update the list of conductores
      */
     getConductores(): void {
-        console.log(this.conductor_login)
+       
         this.conductorService.getConductores(this.conductor_login)
             .subscribe(conductores => this.conductores = conductores);
     }
