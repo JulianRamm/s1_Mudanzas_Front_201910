@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ConductorService } from '../conductor.service';
 import { ConductorDetail } from '../conductor-detail';
 import { ActivatedRoute } from '@angular/router';
+import { Conductor } from '../conductor';
 
 @Component({
   selector: 'app-conductor-detail',
@@ -15,6 +16,7 @@ export class ConductorDetailComponent implements OnInit {
   conductorDetail: ConductorDetail;
   constructor(private conductorService: ConductorService,
     private route: ActivatedRoute, ) { }
+
   getConductorDetail(): void {
     this.conductorService.getConductorDetail(this.proveedor_login, this.conductor_Id)
       .subscribe(conductorDetail => {
@@ -24,6 +26,8 @@ export class ConductorDetailComponent implements OnInit {
   ngOnInit() {
     this.conductor_Id = Number.parseInt(this.route.snapshot.paramMap.get('id'));
     this.proveedor_login=this.route.snapshot.paramMap.get('login');
+    console.log(this.proveedor_login);
+    console.log(this.conductor_Id);
     this.conductorDetail = new ConductorDetail();
     this.getConductorDetail();
   }
