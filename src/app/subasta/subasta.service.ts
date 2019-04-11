@@ -29,5 +29,12 @@ export class SubastaService {
         return this.http.get<Subasta[]>(API_URL + usuarios + '/' + login + subastas);
     }
 
+    getSubastaDetail(id:number, login: String): Observable<Subasta>{
+        return this.http.get<Subasta>(API_URL + usuarios + '/' + login + subastas+ '/'+ id);
+    }
+
+    createSubasta(login: string, subasta:Subasta ){
+        return this.http.post<Subasta>(API_URL + usuarios + '/' + login + subastas +'/', subasta);
+      }
 
 }

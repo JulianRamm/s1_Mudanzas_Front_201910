@@ -15,10 +15,12 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 
 import {UsuarioModule} from "./usuario/usuario.module";
+import {ProveedorModule} from "./proveedor/proveedor.module";
 import {TarjetaModule} from "./tarjeta/tarjeta.module";
 import { ViajeModule } from './viaje/viaje.module';
 import { CargaModule } from './carga/carga.module';
 import { SubastaModule } from './subasta/subasta.module';
+import { OfertaModule } from './oferta/oferta.module';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 
@@ -47,9 +49,11 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
         NgbModule,
         UsuarioModule,
         TarjetaModule,
+        ProveedorModule,
         ViajeModule,
         CargaModule,
         SubastaModule,
+        OfertaModule,
         AgmCoreModule,
         AgmDirectionModule,
         AngularWeatherWidgetModule,
