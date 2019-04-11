@@ -1,7 +1,11 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Conductor } from '../conductor';
 import { ConductorService } from '../conductor.service';
+import { ConductorDetail } from '../conductor-detail';
+import { StringifyOptions } from 'querystring';
+import { ConductorDetail } from '../conductor-detail';
 //import { ConductorDetail } from '../conductor-detail';
+
 
 @Component({
     selector: 'app-conductor',
@@ -10,9 +14,10 @@ import { ConductorService } from '../conductor.service';
 })
 export class ConductorListComponent implements OnInit {
 
-    @Input()conductor_login: string;
+    @Input()conductor_Id: number;
+    @Input()proveedor_login: string;
     selectedConductor: Conductor;
-
+    idC:number;
     /**
      * Constructor for the component
      * @param conductorService The author's services provider
@@ -28,12 +33,11 @@ export class ConductorListComponent implements OnInit {
      * The list of conductores which belong to the BookStore
      */
     conductores: Conductor[];
-
     onSelected(login: string): void {
         this.showCreate = false;
         this.conductor_login = login;
-        //this.selectedConductor = new ConductorDetail();
-        //this.getConductorDetail();
+        this.selectedConductor = new ConductorDetail();
+        this.getConductorDetail();
     }
 
     /**
@@ -43,24 +47,24 @@ export class ConductorListComponent implements OnInit {
 
         if (this.selectedConductor) {
             this.selectedConductor = undefined;
-            this.conductor_login= undefined;
+            this.conductor_Id= undefined;
         }
         this.showCreate = !this.showCreate;
     }
  
-    /*getConductorDetail(): void {
-        this.conductorService.getConductorDetail(this.conductor_login
+    getConductorDetail(): void {
+        this.conductorService.getConductorDetail(this.proveedor_login, this.conductor_Id
     )
             .subscribe(selectedConductor => {
                 this.selectedConductor = selectedConductor;
             });
-    }*/
+    }
 
     /**
      * Asks the service to update the list of conductores
      */
     getConductores(): void {
-        this.conductorService.getConductores(this.conductor_login)
+        this.conductorService.getConductores(this.proveedor_login)
             .subscribe(conductores => this.conductores = conductores);
     }
 
