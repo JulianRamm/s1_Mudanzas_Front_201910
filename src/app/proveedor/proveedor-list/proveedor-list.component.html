@@ -26,9 +26,15 @@
                         </tr>
                     </tbody>
                 </table>
-                
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Agregar un nuevo Prvoeedor</button>
             </div>
         </div>
     </div>
+    <div class="row" *ngIf="showCreate" id="detail">
+        <div class="col-2"></div>
+        <app-proveedor-create class="col-10" (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
+        <div class="col-2"></div>
 
+    </div>
 </div>
