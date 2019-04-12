@@ -1,8 +1,5 @@
-#add {
-    margin-top: 2px;
-    margin-right: 145px;
-}
 #but {
+    margin-right: 130px;
     background-image: linear-gradient(45deg, #0ba360, #3cba92, #30dd8a, #2bb673);
     box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75); 
     background-size: 300% 100%;
@@ -17,6 +14,7 @@
     height: 100%;
     left: 0;
     display: inline-block;
+    width: 288px;
     border-radius: 8px;
     -webkit-perspective: 600px;
     -moz-perspective: 600px;

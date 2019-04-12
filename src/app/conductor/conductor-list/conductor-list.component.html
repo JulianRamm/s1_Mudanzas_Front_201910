@@ -1,6 +1,8 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col" *ngFor="let conductor of conductores" style="cursor: pointer;" routerLink="/proveedores/{{this.conductor_login}}/conductores/{{this.conductor.id}}">
+    <div class="col" *ngFor="let conductor of conductores" style="cursor: pointer;" routerLink="/proveedores/{{this.proveedor_login}}/conductores/{{conductor.id}}">
+  <div class="row" id="detail">
+
       <div class="card" style="width: 18rem;">
         <img class="card-img-top"
           src="https://images.all-free-download.com/images/graphiclarge/road_logistic_banner_truck_male_shipper_icons_6838315.jpg"
@@ -20,7 +22,8 @@
     </div>
     <div id="crear" *ngIf="showCreate">
       <h4 id="tituloSub"><b>Agregar un nuevo conductor: </b></h4>
-      <app-conductor-create [loginProveedor]="this.conductor_login" (cancel)="showHideCreate()" (create)="ngOnInit()">
+      <app-conductor-create [loginProveedor]="this.proveedor_login" (cancel)="showHideCreate()" (create)="ngOnInit()">
+
       </app-conductor-create>
       <hr>
       <br>

@@ -32,19 +32,13 @@ export class ConductorService {
         return this.http.get<Conductor[]>(API_URL +proveedores+'/'+login+ conductores);
     }
 
-    /**
-    * Returns the Observable object with the details of an conductor retrieved from the API
-    * @returns The conductor details
-    getConductorDetail(conductorLogin): Observable<ConductorDetail> {
-        return this.http.get<ConductorDetail>(API_URL + conductores + '/' + conductorLogin);
-    }
-    */
 
     createConductor(conductor:Conductor,login: string): Observable<Conductor> {
         return this.http.post<Conductor>(API_URL +proveedores+ '/'+ login+ conductores, conductor);
     }
 
     getConductorDetail(login: string, idConductor: number ) :Observable<ConductorDetail>{
+
         return this.http.get<ConductorDetail>(API_URL +proveedores+'/'+login+ conductores+ '/'+ idConductor);
     }
 }

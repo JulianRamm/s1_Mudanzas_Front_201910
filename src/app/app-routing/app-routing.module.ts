@@ -74,18 +74,13 @@ const routes: Routes = [
             },
             {
                 path: ':login',
-                component: ProveedorDetailComponent,
-                children: [
-                    {
-                        path: 'conductores',
-                        children: [
-                            {
-                                path: ':id',
-                                component: ConductorDetailComponent
-                            }
-                        ]
-                    }
-                ]
+
+                component: ProveedorDetailComponent
+            },
+            {
+                path: ':login/conductores/:id',
+                component: ConductorDetailComponent,
+
             }
         ]
     },
