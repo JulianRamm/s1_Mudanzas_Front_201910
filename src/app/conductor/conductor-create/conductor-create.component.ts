@@ -16,7 +16,6 @@ export class ConductorCreateComponent implements OnInit {
   ) { }
 
   @Input() loginProveedor: string;
-  @Input() idConductor: number;
 
   conductor: Conductor;
 

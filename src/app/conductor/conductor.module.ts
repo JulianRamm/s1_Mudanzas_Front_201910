@@ -23,6 +23,7 @@ import { ViajeModule } from '../viaje/viaje.module';
   declarations: [ConductorListComponent, ConductorCreateComponent, ConductorDetailComponent],
   providers: [ConductorService],
   bootstrap: [ConductorListComponent, ConductorCreateComponent],
-  exports: [ConductorListComponent,ConductorCreateComponent ]
+  exports: [ConductorListComponent]
+
 })
 export class ConductorModule { }
