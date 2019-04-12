@@ -14,11 +14,11 @@
         (click)="showHideEdit()">Cambiar mi conductor</button>
     </div>
     <div *ngIf="showEdit" class="row edit" id="detail">
-        <div class="col-2"></div>
-        <app-conductor-edit class="col-10" [loginProveedor]="this.proveedor_login" (cancel)="showHideEdit()"
-            (update)="ngOnInit()">
-        </app-conductor-edit>
-        <div class="col-2"></div>
+      <div class="col-2"></div>
+      <app-conductor-edit class="col-10" [loginProveedor]="this.proveedor_login" (cancel)="showHideEdit()"
+        (update)="ngOnInit()">
+      </app-conductor-edit>
+      <div class="col-2"></div>
     </div>
   </ul>
 

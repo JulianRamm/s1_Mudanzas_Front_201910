@@ -26,5 +26,6 @@ import { ConductorEditComponent } from '../Conductor/conductor-edit/conductor-ed
   bootstrap: [ConductorListComponent, ConductorCreateComponent],
   exports: [ConductorListComponent]
 
+
 })
 export class ConductorModule { }
