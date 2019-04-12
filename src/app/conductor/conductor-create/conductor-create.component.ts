@@ -33,6 +33,7 @@ export class ConductorCreateComponent implements OnInit {
 
   createConductor(): Conductor {
     this.conductor.calificacion = 5;
+
     this.conductorService.createConductor( this.conductor ,this.loginProveedor)
       .subscribe(conductor => {
         this.conductor = conductor;

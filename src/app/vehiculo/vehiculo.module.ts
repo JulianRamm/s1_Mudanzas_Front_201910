@@ -13,6 +13,8 @@ import {FormsModule} from '@angular/forms';
 import {VehiculoListComponent} from './vehiculo-list/vehiculo-list.component';
 import {VehiculoService} from './vehiculo.service';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
+import { VehiculoDetailComponent } from '../Vehiculo/vehiculo-detail/vehiculo-detail.component';
+import { VehiculoEditComponent } from '../Vehiculo/vehiculo-edit/vehiculo-edit.component';
 //import { VehiculoDetailComponent } from './vehiculo-detail/vehiculo-detail.component';
 
 @NgModule({
@@ -23,7 +25,7 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
         CommonModule,
         FormsModule
     ],
-    declarations: [VehiculoListComponent],
+    declarations: [VehiculoListComponent, VehiculoDetailComponent, VehiculoEditComponent],
     providers: [VehiculoService]
 })
 export class VehiculoModule {}

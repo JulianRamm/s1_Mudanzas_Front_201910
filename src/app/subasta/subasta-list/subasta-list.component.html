@@ -47,4 +47,11 @@
     <app-subasta-create [loginUsuario]="this.login" (cancel)="showHideCreate()" (create)="ngOnInit()">
     </app-subasta-create>
   </div>
+  <div id="crear" *ngIf="showCreate">
+    <p id="tituloSub"><b>Agregar una nueva subasta: </b></p>
+    <hr>
+    <br>
+    <app-subasta-create [loginUsuario]="this.login" (cancel)="showHideCreate()" (create)="ngOnInit()">
+    </app-subasta-create>
+  </div>
 </div>
