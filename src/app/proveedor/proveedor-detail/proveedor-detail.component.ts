@@ -4,6 +4,9 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 import { ProveedorService } from '../proveedor.service';
 import { ProveedorDetail } from '../proveedor-detail';
+import { Vehiculo } from '../../vehiculo/vehiculo';
+
+
 
 
 @Component({
@@ -30,7 +33,7 @@ export class ProveedorDetailComponent implements OnInit {
 
   showEdit: boolean;
 
-
+  selectedVehiculo: Vehiculo;
 
   /**
   * The method which retrieves the details of the proveedor that
@@ -48,6 +51,11 @@ export class ProveedorDetailComponent implements OnInit {
     this.showEdit = !this.showEdit;
   }
 
+  setVehiculo(v: Vehiculo)
+  {
+    this.selectedVehiculo = v;
+  }
+
 
   /**
   * The method which initilizes the component
@@ -56,7 +64,6 @@ export class ProveedorDetailComponent implements OnInit {
   */
   ngOnInit() {
     this.proveedor_login = this.route.snapshot.paramMap.get('login');
-    console.log(this.proveedor_login)
     this.proveedorDetail = new ProveedorDetail();
     this.getProveedorDetail();
   }

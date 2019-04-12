@@ -13,7 +13,9 @@ import {FormsModule} from '@angular/forms';
 import {VehiculoListComponent} from './vehiculo-list/vehiculo-list.component';
 import {VehiculoService} from './vehiculo.service';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
-//import { VehiculoDetailComponent } from './vehiculo-detail/vehiculo-detail.component';
+import { VehiculoDetailComponent } from '../vehiculo/vehiculo-detail/vehiculo-detail.component';
+import { VehiculoEditComponent } from '../vehiculo/vehiculo-edit/vehiculo-edit.component';
+import { VehiculoCreateComponent } from './vehiculo-create/vehiculo-create.component';
 
 @NgModule({
     imports: [
@@ -23,8 +25,9 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
         CommonModule,
         FormsModule
     ],
-    declarations: [VehiculoListComponent],
-    providers: [VehiculoService]
+    declarations: [VehiculoListComponent, VehiculoDetailComponent, VehiculoEditComponent, VehiculoCreateComponent],
+    providers: [VehiculoService],
+    exports: [VehiculoDetailComponent, VehiculoListComponent, VehiculoEditComponent, VehiculoCreateComponent]
 })
 export class VehiculoModule {}
 

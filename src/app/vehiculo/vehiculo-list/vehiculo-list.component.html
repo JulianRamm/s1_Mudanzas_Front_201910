@@ -1,46 +1,38 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div class='container-fluid'>
-    <div class='col'>
-        <table class='table'>
-            <thead id="titular" class="thead">
-                <tr>
-                    <th>ID</th>
-                    <th>Id Conductor Actual</th>
-                    <th>Numero de Conductores</th>
-                    <th>Marca</th>
-                    <th>Placa</th>
-                    <th>Color</th>
-                    <th>Dimensiones</th>
-                    <th>Rendimiento</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let vehiculo of vehiculos">
-                    <td>{{ vehiculo.id }}</td>
-                    <td>{{ vehiculo.idConductorActual }}</td>
-                    <td>{{ vehiculo.numeroConductores }}</td>
-                    <td>{{ vehiculo.marca }}</td>
-                    <td>{{ vehiculo.placa }}</td>
-                    <td>{{ vehiculo.color }}</td>
-                    <td>{{ vehiculo.dimensiones }}</td>
-                    <td>{{ vehiculo.rendimiento }}</td>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col" *ngFor="let v of vehiculos">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="src\app\usuario\usuario-map\truck.ico" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title"><b>Vehiculo</b></h4>
+          <h3 class="card-title"><b>Placa: </b>{{v.placa}}</h3>
+          <p class="card-text"> <b>Marca:</b> {{v.marca}}</p>
+        </div>
+        <div class="collapse" id="collapseExample">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>ID Conductor: </b>{{v.idConductorActual}}</li>
+            <li class="list-group-item"><b>Numero de Conductores: </b>{{v.numeroConductores}}</li>
+            <li class="list-group-item"><b>Color: </b>{{v.color}}</li>
+            <li class="list-group-item"><b>Dimensiones: </b>{{v.dimensiones}}</li>
+            <li class="list-group-item"><b>Rendimiento: </b>{{v.rendimiento}} (Km/L)</li>
+          </ul>
 
-                </tr>
-            </tbody>
-        </table>
+        </div>
+        <hr>
+        <div class="row justify-content-center align-self-center">
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            Mas info...
+          </button>
+        </div>
+      </div>
     </div>
+    <button type="col button" id="but" class="btn btn-primary"
+      [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" (click)="showHideCreate()">+</button>
+  </div>
+  <div id="crear" *ngIf="showCreate">
+    <br>
+    <app-vehiculo-create [loginProveedor]="this.login" (cancel)="showHideCreate()" (create)="ngOnInit()">
+    </app-vehiculo-create>
+  </div>
 </div>
-    </body>
-</html>
