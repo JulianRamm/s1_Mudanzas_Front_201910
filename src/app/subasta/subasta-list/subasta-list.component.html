@@ -13,8 +13,9 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><b>Valor inicial: </b>${{subasta.valorInicial}} </li>
           <li class="list-group-item"><b>Valor final: </b>${{subasta.valorFinal}}</li>
-
         </ul>
+        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+        (click)="onSelectedClick(subasta.id)">Ver ofertas</button>
       </div>
 
       <!--
@@ -38,5 +39,12 @@
     </div>
         <button type="col button" id="but" class="btn"
           [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" (click)="showHideCreate()">+</button>
+  </div>
+  <div id="crear" *ngIf="showCreate">
+    <p id="tituloSub"><b>Agregar una nueva subasta: </b></p>
+    <hr>
+    <br>
+    <app-subasta-create [loginUsuario]="this.login" (cancel)="showHideCreate()" (create)="ngOnInit()">
+    </app-subasta-create>
   </div>
 </div>

@@ -8,6 +8,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 
 import { SubastaService } from './subasta.service';
 import { SubastaListComponent } from './subasta-list/subasta-list.component';
+import { SubastaCreateComponent } from '../subasta/subasta-create/subasta-create.component';
 
 @NgModule({
   imports: [
@@ -17,9 +18,8 @@ import { SubastaListComponent } from './subasta-list/subasta-list.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [SubastaListComponent],
+  declarations: [SubastaListComponent, SubastaCreateComponent],
   providers: [SubastaService],
-  bootstrap: [SubastaListComponent],
-  exports: [SubastaListComponent]
-})
+  bootstrap: [SubastaListComponent, SubastaCreateComponent],
+  exports: [SubastaListComponent, SubastaCreateComponent ]})
 export class SubastaModule { }
