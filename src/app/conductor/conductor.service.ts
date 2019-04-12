@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { HttpClientModule } from "@angular/common/http";
 
 import { Conductor } from './conductor';
 import { ConductorDetail } from './conductor-detail';

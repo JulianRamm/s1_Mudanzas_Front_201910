@@ -4,7 +4,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 import { ProveedorService } from '../proveedor.service';
 import { ProveedorDetail } from '../proveedor-detail';
-import { Vehiculo } from 'src/app/vehiculo/vehiculo';
+import { Vehiculo } from '../../vehiculo/vehiculo';
 
 
 

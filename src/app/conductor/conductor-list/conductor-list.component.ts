@@ -2,10 +2,6 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Conductor } from '../conductor';
 import { ConductorService } from '../conductor.service';
 import { ConductorDetail } from '../conductor-detail';
-import { StringifyOptions } from 'querystring';
-
-
-
 
 @Component({
     selector: 'app-conductor',

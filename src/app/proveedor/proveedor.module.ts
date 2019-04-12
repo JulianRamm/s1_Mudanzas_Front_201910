@@ -22,7 +22,7 @@ import { SubastaModule } from '../subasta/subasta.module';
         ConductorModule,
         CommonModule,
         FormsModule,
-        VehiculoModule
+        VehiculoModule,
         SubastaModule
     ],
     declarations: [ProveedorListComponent,  ProveedorDetailComponent, ProveedorCreateComponent, ProveedorEditComponent],
