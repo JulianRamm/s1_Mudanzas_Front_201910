@@ -16,8 +16,8 @@ export class ViajeService {
 
   constructor(private http: HttpClient) { }
 
-  getViajes(loginP: string, conductorId: number): Observable<Viaje[]> {
-    return this.http.get<Viaje[]>(API_URL + '/' + proveedores + '/' + loginP + '/' + conductores + '/' + conductorId + '/' + viajes);
+  getViaje(loginP: string, conductorId: number): Observable<ViajeDetail> {
+    return this.http.get<ViajeDetail>(API_URL + '/' + proveedores + '/' + loginP + '/' + conductores + '/' + conductorId + '/' + viajes);
   }
   getViajeDetail(loginP: string, conductorId: number, viajeId: number): Observable<ViajeDetail> {
     return this.http.get<ViajeDetail>(API_URL + '/' + proveedores + '/' + loginP + '/' + conductores + '/' + conductorId + '/' + viajes + '/' + viajeId);
@@ -25,5 +25,5 @@ export class ViajeService {
   createViaje(condcutorId: number, viaje: Viaje, loginP: string): Observable<Viaje> {
     return this.http.post<Viaje>(API_URL + '/' + proveedores + '/' + loginP + '/' + conductores + '/' + condcutorId + '/' + viajes, viaje);
   }
-  
+
 }
