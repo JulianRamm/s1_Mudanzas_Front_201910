@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {Viaje} from '../viaje';
 import{ViajeService} from '../viaje.service';
 
@@ -9,14 +9,14 @@ import{ViajeService} from '../viaje.service';
 })
 export class ViajeListComponent implements OnInit {
 
+
+  @Input() loginP:string;
+  @Input() conductorId:number;
   viajes: Viaje[];
   constructor(private viajeService: ViajeService) { }
-  
-  getViajes(): void{
-    this.viajeService.getViajes().subscribe(viajes=>this.viajes=viajes);
-  }
+
   ngOnInit() {
-    this.getViajes();
+    
   }
 
 }

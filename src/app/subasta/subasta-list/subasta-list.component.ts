@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Subasta } from '../subasta';
 import { SubastaService } from '../subasta.service';
 import { ActivatedRoute } from '@angular/router';
@@ -9,42 +9,85 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./subasta-list.component.css']
 })
 export class SubastaListComponent implements OnInit {
- /**
-     * Constructor for the component
-     * @param subastaService The author's services provider
-     */
-    constructor(private subastaService: SubastaService, private route: ActivatedRoute) { }
+  /**
+      * Constructor for the component
+      * @param subastaService The author's services provider
+      */
+  constructor(private subastaService: SubastaService, private route: ActivatedRoute) { }
 
-    @Input() login: string;
+  @Input() login: string;
 
-    showCreate: boolean;
+  subastaSeleccionada: Subasta;
+  @Output() selectedSubasta: EventEmitter<Subasta> = new EventEmitter<Subasta>();
 
-    /**
-     * The list of subastas which belong to the moveassy
-     */
-    subastas: Subasta[];
+  @Output() showOferta: EventEmitter<any> = new EventEmitter();
 
-    getSubastas(): void {
-        this.subastaService.getSubastas(this.login)
-            .subscribe(subastas => {
-                this.subastas = subastas;
-            });
+
+  idSubasta: number;
+
+  showCreate: boolean;
+
+
+  /**
+   * The list of subastas which belong to the moveassy
+   */
+  subastas: Subasta[];
+
+  getAllSubastas(): void {
+    this.subastaService.getAllSubastas()
+    .subscribe(subastas => {
+      this.subastas = subastas;
+    });
+  }
+  getSubastas(): void {
+    this.subastaService.getSubastas(this.login)
+      .subscribe(subastas => {
+        this.subastas = subastas;
+      });
+  }
+
+  /**
+  * Shows or hides the create component
+  */
+  showHideCreate(): void {
+    this.showCreate = !this.showCreate;
+  }
+
+
+
+  onSelectedClick(idSubasta: number): void {
+    if (this.subastaSeleccionada) {
+      this.subastaSeleccionada = null;
     }
+    this.idSubasta = idSubasta;
+    this.getSubasta();
+    this.showOferta.emit();
+    window.scrollTo({
+      top: 250,
+      behavior: 'smooth',
+    });
+  }
 
-    /**
-    * Shows or hides the create component
-    */
-    showHideCreate(): void {
-        this.showCreate = !this.showCreate;
-    }
 
-    /**
-     * This will initialize the component by retrieving the list of tarjetas from the service
-     * This method will be called when the component is created
-     */
-    ngOnInit() {
-        this.showCreate = false;
-        this.getSubastas();
+  getSubasta(): void {
+    this.subastaService.getSubastaDetail(this.idSubasta, this.login).subscribe(s => {
+      this.subastaSeleccionada = s;
+      this.selectedSubasta.emit(this.subastaSeleccionada)
+    })
+  }
+  /**
+   * This will initialize the component by retrieving the list of tarjetas from the service
+   * This method will be called when the component is created
+   */
+  ngOnInit() {
+    this.showCreate = false;
+    this.subastaSeleccionada = new Subasta();
+    if(this.login !=null)
+    this.getSubastas();
+    else{
+      this.getAllSubastas();
+
     }
+  }
 }
 

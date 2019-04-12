@@ -21,6 +21,11 @@ export class SubastaService {
     */
     constructor(private http: HttpClient) {}
 
+
+
+    getAllSubastas(): Observable<Subasta[]> {
+        return this.http.get<Subasta[]>(API_URL  + subastas);
+    }
     /**
     * Returns the Observable object containing the list of tarjetas retrieved from the API
     * @returns The list of books in real time
@@ -29,5 +34,12 @@ export class SubastaService {
         return this.http.get<Subasta[]>(API_URL + usuarios + '/' + login + subastas);
     }
 
+    getSubastaDetail(id:number, login: String): Observable<Subasta>{
+        return this.http.get<Subasta>(API_URL + usuarios + '/' + login + subastas+ '/'+ id);
+    }
+
+    createSubasta(login: string, subasta:Subasta ){
+        return this.http.post<Subasta>(API_URL + usuarios + '/' + login + subastas +'/', subasta);
+      }
 
 }

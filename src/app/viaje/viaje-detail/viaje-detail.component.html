@@ -1,0 +1,35 @@
+<div class='container-fluid' id="caja-fondo">
+  <div class="row">
+    <table class='table col'>
+      <tbody>
+          <h2>Track id: {{viajeDetail.id}}</h2>
+
+        <tr> Tiempo del envío: {{viajeDetail.tiempo}} </tr>
+        <tr> Lugar de salida: {{viajeDetail.lugarSalida}}, Colombia  </tr>
+        <tr> Lugar de llegada: {{viajeDetail.lugarLlegada}}, Colombia </tr>
+        <tr> Gasto de gasolina: {{viajeDetail.gastoGasolina}} (galones) </tr>
+        <tr> CLima:  {{viajeDetail.clima}} </tr>
+        <tr> Hora de partida: {{viajeDetail.horaPartida}} </tr>
+        <tr> Hora de partida: {{viajeDetail.horaLlegada}} </tr>
+        <!--<tr><button type="button" class="btn btn-light" [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
+            (click)="showHideEdit()">Editar viaje</button></tr>
+      
+      -->
+    </tbody>
+    </table>
+  </div>
+  <hr>
+  <div class=" table row" id="cargas">
+    <div class="col">
+      <p id="tituloSub"><b></b></p>
+      <hr>
+      <br>
+      <!--<div *ngIf="this.loginP">
+        <app-carga [viajeId]="viajeDetail.id" [LoginP]={{this.loginP}} [conductorId]={{this.conductorId}}></app-carga>
+      </div>
+    -->
+    </div>
+  </div>
+  <hr>
+  <hr>
+</div>

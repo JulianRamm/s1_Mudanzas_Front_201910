@@ -1,0 +1,27 @@
+<div class="container-fluid" *ngIf="loginUsuario">
+
+  <form name="subasta" (ngSubmit)="f.form.valid && createSubasta()" #f="ngForm" novalidate>
+
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top"
+      src="https://images.all-free-download.com/images/graphicthumb/monopoly_caracter_6820860.jpg"
+      alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title"><b>Subasta</b></h4>
+        <p class="card-text input-group-prepend"> <b> Valor Inicial:</b></p>
+        <input type="number" name="ValorInicialSubasta" class="form-control" id="ValorInicialSubasta"
+          [(ngModel)]="subasta.valorInicial" [(ngModel)]="subasta.valorFinal" #ValorInicialSubasta="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && ValorInicialSubasta.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Debes ingresar un valor valido</div>
+        </div>
+        
+      </div>
+      <div class="row form-inline justify-content-center align-self-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="divider"></div>
+        <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

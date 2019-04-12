@@ -27,7 +27,7 @@ export class CargaListComponent implements OnInit {
   @Input() login: string;
 
   /**
-   * The list of cargas which belong to the BookStore
+   * The list of cargas 
    */
   cargas: Carga[];
 
