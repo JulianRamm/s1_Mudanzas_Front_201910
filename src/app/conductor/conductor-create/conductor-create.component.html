@@ -10,6 +10,17 @@
         <h3 class="card-title"><b>Conductor</b></h3>
       </div>
       <ul class="list-group list-group-flush">
+
+          <li class="list-group-item"><b>ID: </b>
+            <input type="number" name="conductorId" class="form-control" id="conductorId"
+              [(ngModel)]="conductor.id" #conductorId="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && conductorId.invalid }" maxlength="20" required>
+            <div class="invalid-feedback">
+              <div>Debes ingresar el nombre del conductor</div>
+            </div>
+          </li>
+
+
         <li class="list-group-item"><b>Nombre: </b>
           <input type="text" name="conductorNombre" class="form-control" id="conductorNombre"
             [(ngModel)]="conductor.nombre" #conductorNombre="ngModel"
