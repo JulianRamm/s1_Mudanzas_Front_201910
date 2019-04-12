@@ -31,14 +31,13 @@ export class VehiculoDetailComponent implements OnInit {
     showEdit: boolean;
     
     showAgenda:boolean;
-    
-    /**
+    /*
   getVehiculoDetail(): void {
     this.vehiculoService.getVehiculoDetail(this.placaVehiculo)
       .subscribe(vehiculoDetail => {
         this.vehiculoDetail = vehiculoDetail;
       });
-  }
+  }*/
 
   showHideEdit(): void {
     this.showEdit = !this.showEdit;
@@ -53,7 +52,6 @@ export class VehiculoDetailComponent implements OnInit {
     this.showEdit = false;
     this.showAgenda = false;
     this.vehiculoDetail = new VehiculoDetail();
-    this.getVehiculoDetail();
+   // this.getVehiculoDetail();
   }
-**/
 }
