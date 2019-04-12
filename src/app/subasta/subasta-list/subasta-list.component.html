@@ -14,28 +14,11 @@
           <li class="list-group-item"><b>Valor inicial: </b>${{subasta.valorInicial}} </li>
           <li class="list-group-item"><b>Valor final: </b>${{subasta.valorFinal}}</li>
         </ul>
+        <div *ngIf="login ">
         <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
         (click)="onSelectedClick(subasta.id)">Ver ofertas</button>
+        </div>
       </div>
-
-      <!--
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top"
-                src="https://png.pngtree.com/element_origin_min_pic/17/09/15/7fa8a2f68bd91d3a520690798feecebe.jpg"
-                alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title"><b>Subasta</b></h4>
-                <h3 class="card-title"><b>subasta ID: </b>prueba de funcionalidad</h3>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"><b>Valor inicial: </b>$42000 </li>
-                <li class="list-group-item"><b>Valor final: </b>$45000</li>
-                
-              </ul>
-            </div>
-      </div>
-      -->
     </div>
     <div class="card" id="add" style="width: 18rem;">
         <button type="col button" id="but" class="btn"

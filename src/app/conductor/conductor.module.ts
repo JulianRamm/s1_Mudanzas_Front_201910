@@ -24,9 +24,5 @@ import { ViajeModule } from '../viaje/viaje.module';
   providers: [ConductorService],
   bootstrap: [ConductorListComponent, ConductorCreateComponent],
   exports: [ConductorListComponent,ConductorCreateComponent ]
-<<<<<<< HEAD
- 
-=======
->>>>>>> 0935328099379c38fcd802d626c60bb26783cad4
 })
 export class ConductorModule { }
