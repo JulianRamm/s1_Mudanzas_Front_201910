@@ -2,6 +2,10 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Conductor } from '../conductor';
 import { ConductorService } from '../conductor.service';
 import { ConductorDetail } from '../conductor-detail';
+import { StringifyOptions } from 'querystring';
+import { ConductorDetail } from '../conductor-detail';
+//import { ConductorDetail } from '../conductor-detail';
+
 
 @Component({
     selector: 'app-conductor',
@@ -13,7 +17,7 @@ export class ConductorListComponent implements OnInit {
     @Input()conductor_Id: number;
     @Input()proveedor_login: string;
     selectedConductor: Conductor;
-
+    idC:number;
     /**
      * Constructor for the component
      * @param conductorService The author's services provider
@@ -29,11 +33,9 @@ export class ConductorListComponent implements OnInit {
      * The list of conductores which belong to the BookStore
      */
     conductores: Conductor[];
-
-    onSelected(id: number, loginP: string): void {
+    onSelected(login: string): void {
         this.showCreate = false;
-        this.conductor_Id = id;
-        this.proveedor_login = loginP;
+        this.conductor_login = login;
         this.selectedConductor = new ConductorDetail();
         this.getConductorDetail();
     }

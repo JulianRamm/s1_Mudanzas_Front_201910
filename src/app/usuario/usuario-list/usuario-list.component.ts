@@ -46,14 +46,12 @@ export class UsuarioListComponent implements OnInit {
         }
         this.showCreate = !this.showCreate;
     }
-
     getUsuarioDetail(): void {
         this.usuarioService.getUsuarioDetail(this.usuario_login)
             .subscribe(selectedUsuario => {
                 this.selectedUsuario = selectedUsuario;
             });
     }
-
     /**
      * Asks the service to update the list of usuarios
      */
