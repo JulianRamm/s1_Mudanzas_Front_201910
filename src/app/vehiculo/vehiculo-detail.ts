@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 import { Vehiculo } from './vehiculo';
-//import { Dia } from './agenda';
- //import { Conductor } from '../tarjeta/tarjeta';
+import { Agenda } from '../agenda/agenda';
 
 /**
 * This class represents a usuario of the moveasy. 
@@ -13,8 +12,6 @@ import { Vehiculo } from './vehiculo';
 */
 export class VehiculoDetail extends Vehiculo {
 
-  //  agenda: Dia;
-   //conductores: Conductor[];
-
+    agenda: Agenda;
 }
 

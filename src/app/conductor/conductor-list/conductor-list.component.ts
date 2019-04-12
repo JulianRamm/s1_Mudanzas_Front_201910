@@ -6,6 +6,7 @@ import { StringifyOptions } from 'querystring';
 
 
 
+
 @Component({
     selector: 'app-conductor',
     templateUrl: './conductor-list.component.html',
@@ -17,6 +18,7 @@ export class ConductorListComponent implements OnInit {
     @Input()proveedor_login: string;
     selectedConductor: Conductor;
     idConductor:number;
+
 
     /**
      * Constructor for the component
@@ -37,6 +39,7 @@ export class ConductorListComponent implements OnInit {
         this.showCreate = false;
         this.proveedor_login = login;
         this.idConductor=idConduc;
+
         this.selectedConductor = new ConductorDetail();
         this.getConductorDetail();
     }
@@ -49,6 +52,7 @@ export class ConductorListComponent implements OnInit {
         if (this.selectedConductor) {
             this.selectedConductor = undefined;
             this.conductor_Id= undefined;
+
         }
         this.showCreate = !this.showCreate;
     }
@@ -58,6 +62,7 @@ export class ConductorListComponent implements OnInit {
     )
             .subscribe(selectedConductor => {
                 this.selectedConductor = selectedConductor;
+
             });
     }
 
@@ -66,6 +71,7 @@ export class ConductorListComponent implements OnInit {
      */
     getConductores(): void {
         this.conductorService.getConductores(this.proveedor_login)
+
             .subscribe(conductores => this.conductores = conductores);
     }
 
@@ -77,6 +83,7 @@ export class ConductorListComponent implements OnInit {
         this.showCreate = false;
         this.selectedConductor = undefined;
         this.idConductor=undefined;
+
         this.getConductores();
     }
 }
