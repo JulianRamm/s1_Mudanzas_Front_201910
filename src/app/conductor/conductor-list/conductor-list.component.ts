@@ -3,8 +3,7 @@ import { Conductor } from '../conductor';
 import { ConductorService } from '../conductor.service';
 import { ConductorDetail } from '../conductor-detail';
 import { StringifyOptions } from 'querystring';
-import { ConductorDetail } from '../conductor-detail';
-//import { ConductorDetail } from '../conductor-detail';
+
 
 
 @Component({
@@ -35,7 +34,7 @@ export class ConductorListComponent implements OnInit {
     conductores: Conductor[];
     onSelected(login: string): void {
         this.showCreate = false;
-        this.conductor_login = login;
+        this.proveedor_login = login;
         this.selectedConductor = new ConductorDetail();
         this.getConductorDetail();
     }
