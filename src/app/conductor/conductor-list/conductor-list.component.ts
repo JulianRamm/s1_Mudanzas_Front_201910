@@ -14,7 +14,7 @@ export class ConductorListComponent implements OnInit {
 
     @Input()conductor_login: string;
     selectedConductor: Conductor;
-    idC:number;
+    idConductor:number;
     /**
      * Constructor for the component
      * @param conductorService The author's services provider
@@ -30,9 +30,10 @@ export class ConductorListComponent implements OnInit {
      * The list of conductores which belong to the BookStore
      */
     conductores: Conductor[];
-    onSelected(login: string, ): void {
+    onSelected(login: string, idConduc:number): void {
         this.showCreate = false;
         this.conductor_login = login;
+        this.idConductor=idConduc;
         this.selectedConductor = new ConductorDetail();
         this.getConductorDetail();
     }
@@ -50,7 +51,7 @@ export class ConductorListComponent implements OnInit {
     }
  
     getConductorDetail(): void {
-        this.conductorService.getConductorDetail(this.conductor_login, this.idC)
+        this.conductorService.getConductorDetail(this.conductor_login, this.idConductor)
             .subscribe(sel => {
                 this.selectedConductor = sel;
             });
@@ -71,7 +72,7 @@ export class ConductorListComponent implements OnInit {
     ngOnInit() {
         this.showCreate = false;
         this.selectedConductor = undefined;
-        this.idC=undefined;
+        this.idConductor=undefined;
         this.getConductores();
     }
 }

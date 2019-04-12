@@ -25,7 +25,7 @@ export class ViajeDetailComponent implements OnInit {
     private router: Router) { }
 
   getViajeDetail(): void {
-    this.service.getViajeDetail(this.loginP, this.conductorId, this.viajeId).subscribe(viaje => { this.viajeDetail = viaje; this.selectedViaje.emit(this.viajeSeleccionado); });
+    this.service.getViajeDetail(this.loginP, this.conductorId, this.viajeId).subscribe(viaje => { this.viajeDetail = viaje;});
   }
   showHideEdit(): void {
     this.showEdit = !this.showEdit;
@@ -46,7 +46,7 @@ export class ViajeDetailComponent implements OnInit {
     this.viajeId = Number.parseInt(this.route.snapshot.paramMap.get('viajeId'));
     this.showEdit = false;
     this.viajeDetail = new ViajeDetail();
-    this.getViajeDetail;
+    this.getViajeDetail();
   }
 
 }
