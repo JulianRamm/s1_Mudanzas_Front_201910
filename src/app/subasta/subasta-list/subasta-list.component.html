@@ -37,10 +37,15 @@
       </div>
       -->
     </div>
-    <div class="card" id="add" style="width: 18rem;">
         <button type="col button" id="but" class="btn"
           [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" (click)="showHideCreate()">+</button>
-      </div>
+  </div>
+  <div id="crear" *ngIf="showCreate">
+    <p id="tituloSub"><b>Agregar una nueva subasta: </b></p>
+    <hr>
+    <br>
+    <app-subasta-create [loginUsuario]="this.login" (cancel)="showHideCreate()" (create)="ngOnInit()">
+    </app-subasta-create>
   </div>
   <div id="crear" *ngIf="showCreate">
     <p id="tituloSub"><b>Agregar una nueva subasta: </b></p>
