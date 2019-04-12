@@ -14,12 +14,9 @@ export class ViajeListComponent implements OnInit {
   @Input() conductorId:number;
   viajes: Viaje[];
   constructor(private viajeService: ViajeService) { }
-  
-  getViajes(): void{
-    this.viajeService.getViajes(this.loginP, this.conductorId).subscribe(viajes=>this.viajes=viajes);
-  }
+
   ngOnInit() {
-    this.getViajes();
+    
   }
 
 }

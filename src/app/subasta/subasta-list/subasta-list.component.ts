@@ -33,6 +33,12 @@ export class SubastaListComponent implements OnInit {
    */
   subastas: Subasta[];
 
+  getAllSubastas(): void {
+    this.subastaService.getAllSubastas()
+    .subscribe(subastas => {
+      this.subastas = subastas;
+    });
+  }
   getSubastas(): void {
     this.subastaService.getSubastas(this.login)
       .subscribe(subastas => {
@@ -76,7 +82,12 @@ export class SubastaListComponent implements OnInit {
   ngOnInit() {
     this.showCreate = false;
     this.subastaSeleccionada = new Subasta();
+    if(this.login !=null)
     this.getSubastas();
+    else{
+      this.getAllSubastas();
+
+    }
   }
 }
 

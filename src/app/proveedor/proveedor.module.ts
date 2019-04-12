@@ -12,6 +12,7 @@ import { ProveedorDetailComponent } from './proveedor-detail/proveedor-detail.co
 import { ProveedorCreateComponent } from './proveedor-create/proveedor-create.component';
 import { ProveedorEditComponent } from './proveedor-edit/proveedor-edit.component';
 import { VehiculoModule } from '../vehiculo/vehiculo.module';
+import { SubastaModule } from '../subasta/subasta.module';
 
 @NgModule({
     imports: [
@@ -22,6 +23,7 @@ import { VehiculoModule } from '../vehiculo/vehiculo.module';
         CommonModule,
         FormsModule,
         VehiculoModule
+        SubastaModule
     ],
     declarations: [ProveedorListComponent,  ProveedorDetailComponent, ProveedorCreateComponent, ProveedorEditComponent],
     providers: [ProveedorService],

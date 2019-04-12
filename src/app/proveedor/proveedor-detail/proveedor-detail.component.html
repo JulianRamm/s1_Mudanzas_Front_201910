@@ -60,4 +60,17 @@
     <app-vehiculo-detail></app-vehiculo-detail>  
     <hr>
     <hr>
+
+    <div class="table row">
+        <div class="col" id="detail">
+            <p id="tituloSub"><b>Subastas Disponibles: </b></p>
+            <hr>
+            <br>
+            <div *ngIf="proveedorDetail.login">
+                <app-subasta></app-subasta>
+            </div>
+        </div>
+    </div>   
+    <hr>
+    <hr>
 </div>
