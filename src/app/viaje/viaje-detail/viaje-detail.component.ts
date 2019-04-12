@@ -14,8 +14,8 @@ export class ViajeDetailComponent implements OnInit {
   viajeSeleccionado: ViajeDetail;
   @Input() loginP: string;
   @Input() conductorId: number;
-  @Input() viajeId: number;
-  showEdit: boolean;
+  viajeId: number;
+  showCreate: boolean;
 
   viajeDetail: ViajeDetail;
 
@@ -29,8 +29,15 @@ export class ViajeDetailComponent implements OnInit {
 
 
   }
-  showHideEdit(): void {
-    this.showEdit = !this.showEdit;
+  getViaje(): void{
+    this.service.getViaje(this.loginP, this.conductorId)
+    .subscribe(viaje => {
+       this.viajeDetail = viaje; this.viajeId=viaje.id;
+       console.log(this.viajeDetail.id);
+      });
+  }
+  showHideCreate(): void {
+    this.showCreate = !this.showCreate;
   }
 
   onSelectedClick(viajeId: number): void {
@@ -38,18 +45,17 @@ export class ViajeDetailComponent implements OnInit {
       this.viajeSeleccionado = null;
     }
     this.viajeId = viajeId;
-    this.getViajeDetail();
+    this.getViaje();
     window.scrollTo({
       top: 250,
       behavior: 'smooth',
     });
   }
   ngOnInit() {
-    this.viajeId = Number.parseInt(this.route.snapshot.paramMap.get('viajeId'));
-    this.showEdit = false;
+    this.showCreate = false;
     this.viajeDetail = new ViajeDetail();
-    this.getViajeDetail();
 
+    this.getViaje();
 
   }
 
