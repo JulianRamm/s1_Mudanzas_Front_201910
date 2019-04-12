@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ConductorCreateComponent } from './conductor-create/conductor-create.component';
 import { ConductorDetailComponent } from './conductor-detail/conductor-detail.component';
 import { ViajeModule } from '../viaje/viaje.module';
+import { ConductorEditComponent } from '../Conductor/conductor-edit/conductor-edit.component';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { ViajeModule } from '../viaje/viaje.module';
     FormsModule,
     ViajeModule
   ],
-  declarations: [ConductorListComponent, ConductorCreateComponent, ConductorDetailComponent],
+  declarations: [ConductorListComponent, ConductorCreateComponent, ConductorDetailComponent, ConductorEditComponent],
   providers: [ConductorService],
   bootstrap: [ConductorListComponent, ConductorCreateComponent],
   exports: [ConductorListComponent]
