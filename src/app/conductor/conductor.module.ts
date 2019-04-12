@@ -10,6 +10,7 @@ import { ConductorCreateComponent } from './conductor-create/conductor-create.co
 import { ConductorDetailComponent } from './conductor-detail/conductor-detail.component';
 import { ViajeModule } from '../viaje/viaje.module';
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -23,5 +24,6 @@ import { ViajeModule } from '../viaje/viaje.module';
   providers: [ConductorService],
   bootstrap: [ConductorListComponent, ConductorCreateComponent],
   exports: [ConductorListComponent]
+
 })
 export class ConductorModule { }

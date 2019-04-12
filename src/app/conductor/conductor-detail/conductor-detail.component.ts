@@ -23,6 +23,7 @@ export class ConductorDetailComponent implements OnInit {
         this.conductorDetail = conductorDetail;
       });
   }
+
   ngOnInit() {    
     this.conductor_Id = Number.parseInt(this.route.snapshot.params['id']);
     this.proveedor_login=this.route.snapshot.params['login'];

@@ -2,7 +2,8 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Conductor } from '../conductor';
 import { ConductorService } from '../conductor.service';
 import { ConductorDetail } from '../conductor-detail';
-//import { ConductorDetail } from '../conductor-detail';
+import { StringifyOptions } from 'querystring';
+
 
 
 @Component({
@@ -16,6 +17,7 @@ export class ConductorListComponent implements OnInit {
     @Input()proveedor_login: string;
     selectedConductor: Conductor;
     idConductor:number;
+
     /**
      * Constructor for the component
      * @param conductorService The author's services provider
@@ -52,7 +54,6 @@ export class ConductorListComponent implements OnInit {
     }
  
     getConductorDetail(): void {
-
         this.conductorService.getConductorDetail(this.proveedor_login, this.conductor_Id
     )
             .subscribe(selectedConductor => {

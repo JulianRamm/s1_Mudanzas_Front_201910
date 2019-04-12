@@ -26,6 +26,7 @@ export class ViajeDetailComponent implements OnInit {
 
   getViajeDetail(): void {
     this.service.getViajeDetail(this.loginP, this.conductorId, this.viajeId).subscribe(viaje => { this.viajeDetail = viaje;});
+
   }
   showHideEdit(): void {
     this.showEdit = !this.showEdit;
@@ -47,6 +48,7 @@ export class ViajeDetailComponent implements OnInit {
     this.showEdit = false;
     this.viajeDetail = new ViajeDetail();
     this.getViajeDetail();
+
   }
 
 }

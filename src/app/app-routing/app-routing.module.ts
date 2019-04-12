@@ -79,6 +79,7 @@ const routes: Routes = [
             {
                 path: ':login/conductores/:id',
                 component: ConductorDetailComponent,
+
             }
         ]
     },
