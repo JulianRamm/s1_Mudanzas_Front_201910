@@ -8,6 +8,7 @@ import { VehiculoDetail } from './vehiculo-detail';
 import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
+const proveedores = '/proveedores';
 const vehiculos = '/vehiculos';
 
 /**
@@ -26,8 +27,8 @@ export class VehiculoService {
     * Returns the Observable object containing the list of vehiculos retrieved from the API
     * @returns The list ofvehiculos in real time
     */
-    getVehiculos(): Observable<Vehiculo[]> {
-        return this.http.get<Vehiculo[]>(API_URL + vehiculos);
+    getVehiculos(login: string): Observable<Vehiculo[]> {
+        return this.http.get<Vehiculo[]>(API_URL + proveedores + '/' + login + vehiculos);
     }
     
     getVehiculoDetail(placaVehiculo): Observable<VehiculoDetail> {
@@ -35,8 +36,8 @@ export class VehiculoService {
         return this.http.get<VehiculoDetail>(API_URL + vehiculos + '/' + placaVehiculo);
     }
     
-    createVehiculo(vehiculo): Observable<Vehiculo> {
-        return this.http.post<Vehiculo>(API_URL + vehiculos, vehiculo);
+    createVehiculo(login: string ,vehiculo: Vehiculo): Observable<Vehiculo> {
+        return this.http.post<Vehiculo>(API_URL + proveedores + '/' + login + vehiculos, vehiculo);
     }
 
     /**

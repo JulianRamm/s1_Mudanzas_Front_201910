@@ -1,24 +1,37 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 31-mar-2019, 21:15:55
-    Author     : estudiante
-*/
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i');
-
-#titular {
-    background-color: #ff2955;
+#add {
+    margin-top: 2px;
+    margin-right: 145px;
+}
+#but {
+    background-image: linear-gradient(45deg, #0ba360, #3cba92, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75); 
+    background-size: 300% 100%;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
     color: white;
+    box-shadow: 1px 1px #aaa3a3;
+    top: 0;
+    z-index: 1000;
+    height: 100%;
+    left: 0;
+    display: inline-block;
+    width: 288px;
+    border-radius: 8px;
+    -webkit-perspective: 600px;
+    -moz-perspective: 600px;
+    perspective: 600px;
+    font-size: 80px;
+}
+#but:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
-td {
-    color: #6b6b6b;
-    font-family: 'Space Mono', monospace;
-}
-tbody tr:hover {
-    background-color: #FFF5FF;
+#crear {
+    margin-top: 50px;
 }
