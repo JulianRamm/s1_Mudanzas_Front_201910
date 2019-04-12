@@ -33,6 +33,10 @@ export class Vehiculo{
      */
     color: string;
     /**
+     * la imagen del vehiculo
+     */
+    imagen:string;
+    /**
      * las dimensiones del vehiculo.
      */
     dimensiones: string;

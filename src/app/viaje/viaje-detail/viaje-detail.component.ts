@@ -26,6 +26,8 @@ export class ViajeDetailComponent implements OnInit {
 
   getViajeDetail(): void {
     this.service.getViajeDetail(this.loginP, this.conductorId, this.viajeId).subscribe(viaje => { this.viajeDetail = viaje;});
+
+
   }
   getViaje(): void{
     this.service.getViaje(this.loginP, this.conductorId)
@@ -52,7 +54,9 @@ export class ViajeDetailComponent implements OnInit {
   ngOnInit() {
     this.showCreate = false;
     this.viajeDetail = new ViajeDetail();
+
     this.getViaje();
+
   }
 
 }

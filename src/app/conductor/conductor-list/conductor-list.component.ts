@@ -2,7 +2,9 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Conductor } from '../conductor';
 import { ConductorService } from '../conductor.service';
 import { ConductorDetail } from '../conductor-detail';
-//import { ConductorDetail } from '../conductor-detail';
+import { StringifyOptions } from 'querystring';
+
+
 
 
 @Component({
@@ -16,6 +18,8 @@ export class ConductorListComponent implements OnInit {
     @Input()proveedor_login: string;
     selectedConductor: Conductor;
     idConductor:number;
+
+
     /**
      * Constructor for the component
      * @param conductorService The author's services provider
@@ -35,6 +39,7 @@ export class ConductorListComponent implements OnInit {
         this.showCreate = false;
         this.proveedor_login = login;
         this.idConductor=idConduc;
+
         this.selectedConductor = new ConductorDetail();
         this.getConductorDetail();
     }
@@ -47,16 +52,17 @@ export class ConductorListComponent implements OnInit {
         if (this.selectedConductor) {
             this.selectedConductor = undefined;
             this.conductor_Id= undefined;
+
         }
         this.showCreate = !this.showCreate;
     }
  
     getConductorDetail(): void {
-
         this.conductorService.getConductorDetail(this.proveedor_login, this.conductor_Id
     )
             .subscribe(selectedConductor => {
                 this.selectedConductor = selectedConductor;
+
             });
     }
 
@@ -65,6 +71,7 @@ export class ConductorListComponent implements OnInit {
      */
     getConductores(): void {
         this.conductorService.getConductores(this.proveedor_login)
+
             .subscribe(conductores => this.conductores = conductores);
     }
 
@@ -76,6 +83,7 @@ export class ConductorListComponent implements OnInit {
         this.showCreate = false;
         this.selectedConductor = undefined;
         this.idConductor=undefined;
+
         this.getConductores();
     }
 }

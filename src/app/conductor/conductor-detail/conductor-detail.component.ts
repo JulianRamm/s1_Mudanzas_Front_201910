@@ -18,11 +18,13 @@ export class ConductorDetailComponent implements OnInit {
     private route: ActivatedRoute, ) { }
 
   private async getConductorDetail() {
+
     this.conductorService.getConductorDetail(this.proveedor_login, this.conductor_Id)
       .subscribe(conductorDetail => {
         this.conductorDetail = conductorDetail;
       });
   }
+
   ngOnInit() {    
     this.conductor_Id = Number.parseInt(this.route.snapshot.params['id']);
     this.proveedor_login=this.route.snapshot.params['login'];
