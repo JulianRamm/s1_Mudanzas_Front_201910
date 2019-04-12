@@ -51,6 +51,7 @@ export class ConductorListComponent implements OnInit {
     }
  
     getConductorDetail(): void {
+        console.log("jdsiafoas");
         this.conductorService.getConductorDetail(this.proveedor_login, this.conductor_Id
     )
             .subscribe(selectedConductor => {

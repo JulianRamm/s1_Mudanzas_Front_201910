@@ -7,7 +7,8 @@
       <h3 class="card-title"><b>ID: </b>{{conductor.id}}</h3>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><b>Telefono: </b>{{conductor.telefono}}</li>  
+      <li class="list-group-item"><b>Telefono: </b>{{conductor.telefono}}</li>
+      <li class="list-group-item"><b>Calificacion: </b>{{conductor.calificacion}}</li>    
     </ul>
     <h4 class="card-title"><b>Viajes:</b></h4>
     <app-viaje-detail [loginP]="this.conductor_Id" [conductorId]="this.proveedor_login"></app-viaje-detail>
