@@ -11,8 +11,8 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { ProveedorDetailComponent } from './proveedor-detail/proveedor-detail.component';
 import { ProveedorCreateComponent } from './proveedor-create/proveedor-create.component';
 import { ProveedorEditComponent } from './proveedor-edit/proveedor-edit.component';
+import { VehiculoModule } from '../vehiculo/vehiculo.module';
 import { SubastaModule } from '../subasta/subasta.module';
-
 
 @NgModule({
     imports: [
@@ -22,6 +22,7 @@ import { SubastaModule } from '../subasta/subasta.module';
         ConductorModule,
         CommonModule,
         FormsModule,
+        VehiculoModule
         SubastaModule
     ],
     declarations: [ProveedorListComponent,  ProveedorDetailComponent, ProveedorCreateComponent, ProveedorEditComponent],
