@@ -16,17 +16,17 @@
           </ul>
         </div>
       </div>
-      
-      </div>
-      <div class="card" id="add" style="width: 18rem;">
-          <button type="col button" id="but" class="btn btn-primary"
-            [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" (click)="showHideCreate()">+</button>
-        </div>
-        <div id="crear" *ngIf="showCreate">
-          <h4 id="tituloSub"><b>Agregar un nuevo conductor: </b></h4>
-          <app-conductor-create [loginProveedor]="this.proveedor_login" (cancel)="showHideCreate()" (create)="ngOnInit()">
-          </app-conductor-create>
-          <hr>
-          <br>
+
+    </div>
+    <div class="card" id="add" style="width: 18rem;">
+      <button type="col button" id="but" class="btn btn-primary"
+        [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" (click)="showHideCreate()">+</button>
+    </div>
+    <div id="crear" *ngIf="showCreate">
+      <h4 id="tituloSub"><b>Agregar un nuevo conductor: </b></h4>
+      <app-conductor-create [loginProveedor]="this.proveedor_login" (cancel)="showHideCreate()" (create)="ngOnInit()">
+      </app-conductor-create>
+      <hr>
+      <br>
     </div>
   </div>

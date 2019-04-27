@@ -20,7 +20,7 @@ export class ProveedorEditComponent implements OnInit {
   /**
     * The output which tells the parent component
     * that the user no longer wants to create an proveedor
-    */
+    */ 
   @Output() cancel = new EventEmitter();
 
   /**

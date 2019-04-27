@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 
 import { Proveedor } from './proveedor';
 import { ProveedorDetail } from './proveedor-detail';
@@ -38,7 +38,7 @@ export class ProveedorService {
     getProveedorDetail(proveedorLogin): Observable<ProveedorDetail> {
         return this.http.get<ProveedorDetail>(API_URL + proveedores + '/' + proveedorLogin);
     }
-    
+
     createProveedor(proveedor): Observable<Proveedor> {
         return this.http.post<Proveedor>(API_URL + proveedores, proveedor);
     }
@@ -48,9 +48,9 @@ export class ProveedorService {
     * @param proveedor The proveedor's information updated
     * @returns The confirmation that the proveedor was updated
     */
-   updateProveedor(proveedor: ProveedorDetail): Observable<ProveedorDetail> {
-    return this.http.put<ProveedorDetail>(API_URL + proveedores + '/' + proveedor.login, proveedor);
-}
+    updateProveedor(proveedor: ProveedorDetail): Observable<ProveedorDetail> {
+        return this.http.put<ProveedorDetail>(API_URL + proveedores + '/' + proveedor.login, proveedor);
+    }
 
- 
+
 }

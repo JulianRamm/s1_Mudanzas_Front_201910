@@ -1,16 +1,78 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="container-fluid" *ngIf="loginProveedor">
+
+        <form name="vehiculo" (ngSubmit)="f.form.valid && createVehiculo()" #f="ngForm" novalidate>
+      
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top"
+              src="src\app\usuario\usuario-map\truck.ico"
+              alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title"><b>Vehiculo</b></h4>
+              <p class="card-text input-group-prepend"> <b>Placa: </b></p>
+              <input type="text" name="vPlaca" class="form-control" id="vPlaca"
+                [(ngModel)]="vehiculo.placa" #vPlaca="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && vPlaca.invalid }" maxlength="6" required>
+              <div class="invalid-feedback">
+                <div>Debes ingresar una placa</div>
+              </div>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><b>Marca: </b>
+                <input type="text" name="vMarca" class="form-control" id="vMarca" [(ngModel)]="vehiculo.marca"
+                  #vMarca="ngModel" [ngClass]="{ 'is-invalid': f.submitted && vMarca.invalid }"
+                  required>
+                <div class="invalid-feedback">
+                  <div>Debes ingresar una marca</div>
+                </div>
+              </li>
+              <li class="list-group-item"><b>ID Conductor: </b>
+                <input type="number" name="vIdC" class="form-control" id="vIdC"
+                  [(ngModel)]="vehiculo.idConductorActual" #vIdC="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && vIdC.invalid }" required>
+                <div class="invalid-feedback">
+                  <div>Debes ingresar el Id del conductor</div>
+                </div>
+              </li>
+              <li class="list-group-item"><b>Numero de conductores: </b>
+                <input type="number" name="vNumC" class="form-control" id="vNumC"
+                  [(ngModel)]="vehiculo.numeroConductores" #vNumC="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && vNumC.invalid }" maxlength="20" required>
+                <div class="invalid-feedback">
+                  <div>Debes ingresar el numero de conductores</div>
+                </div>
+              </li>
+              <li class="list-group-item"><b>Color: </b>
+                <input type="text" name="color" class="form-control" id="color"
+                  [(ngModel)]="vehiculo.color" #color="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && color.invalid }">
+                <div class="invalid-feedback">
+                  <div>Debes ingresar un color</div>
+                </div>
+              </li>
+              <li class="list-group-item"><b>Rendimiento: </b>
+                <input type="number" name="rend" class="form-control"
+                  id="rend" [(ngModel)]="vehiculo.rendimiento" #rend="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && rend.invalid }">
+                <div class="invalid-feedback">
+                  <div>Debes ingresar un rendimiento</div>
+                </div>
+              </li>
+              <li class="list-group-item"><b>Dimensiones: </b>
+                <input type="text" name="dim" class="form-control"
+                  id="dim" [(ngModel)]="vehiculo.dimensiones" #dim="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && dim.invalid }">
+                <div class="invalid-feedback">
+                  <div>Debes ingresar unas dimensiones</div>
+                </div>
+              </li>
+              <li>
+                <div class="row form-inline justify-content-center align-self-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <div class="divider"></div>
+                  <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </form>
+      </div>

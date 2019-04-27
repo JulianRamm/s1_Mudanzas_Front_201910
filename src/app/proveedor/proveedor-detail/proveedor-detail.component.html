@@ -16,7 +16,7 @@
                 <tr> {{ "Ubicacion: " + proveedorDetail.ciudadOrigen + ", Colombia" }} </tr>
                 <tr>{{ "Telefono: " + proveedorDetail.numeroTelefono  }}</tr>
                 <tr>{{ "Numero de Vehiculos: " + proveedorDetail.numeroVehiculos  }}</tr>
-                <tr>{{ "Calificación: " + proveedorDetail.clasificacion  }}</tr>
+                <tr>{{ "Calificación: " + proveedorDetail.clasificacion  }}</tr>  
                 <tr><button type="button" class="btn btn-light"
                     [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
                     (click)="showHideEdit()">Cambiar mi perfil</button></tr>
@@ -45,6 +45,29 @@
             <div *ngIf="proveedorDetail.login">
                 <app-conductor [proveedor_login]="proveedorDetail.login"></app-conductor>
 
+            </div>
+        </div>
+        <div class="col" id="detail">
+            <p id="tituloSub"><b>Vehiculos: </b></p>
+            <hr>
+            <br>
+            <div *ngIf="this.proveedor_login">
+                <app-vehiculo [login]="this.proveedor_login" (selectedVehiculo)="setVehiculo($event)">
+                </app-vehiculo>
+            </div>
+        </div>
+    </div>
+    <app-vehiculo-detail></app-vehiculo-detail>  
+    <hr>
+    <hr>
+
+    <div class="table row">
+        <div class="col" id="detail">
+            <p id="tituloSub"><b>Subastas Disponibles: </b></p>
+            <hr>
+            <br>
+            <div *ngIf="proveedorDetail.login">
+                <app-subasta></app-subasta>
             </div>
         </div>
     </div>   
