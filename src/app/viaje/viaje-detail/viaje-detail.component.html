@@ -3,6 +3,7 @@
     <table class='table col'>
       <tbody>
           <h2>Track id: {{viajeDetail.id}}</h2>
+          
         <tr> Tiempo del envío: {{viajeDetail.tiempo}} </tr>
         <tr> Lugar de salida: {{viajeDetail.lugarSalida}}, Colombia  </tr>
         <tr> Lugar de llegada: {{viajeDetail.lugarLlegada}}, Colombia </tr>
@@ -27,19 +28,9 @@
         <app-carga [viajeId]="viajeDetail.id" [LoginP]={{this.loginP}} [conductorId]={{this.conductorId}}></app-carga>
       </div>
     -->
-    </div>
+    </di
+
+v>
   </div>
   <div class="card" id="add" style="width: 18rem;">
-      <button type="col button" id="but" class="btn btn-primary"
-        [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" (click)="showHideCreate()">+</button>
-    </div>
-  <div id="crear" *ngIf="showCreate">
-      <h4 id="tituloSub"><b>Agregar un viaje: </b></h4>
-      <app-viaje-create [loginP]="this.loginP" [conductorId]="this.conductorId" (cancel)="showHideCreate()" (create)="ngOnInit()">
-      </app-viaje-create>
-      <hr>
-      <br>
-    </div>
-  <hr>
-  <hr>
-</div>
+      

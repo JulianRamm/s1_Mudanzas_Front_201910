@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { HttpClientModule} from "@angular/common/http";
 
 import { Conductor } from './conductor';
 import { ConductorDetail } from './conductor-detail';
@@ -29,15 +28,26 @@ export class ConductorService {
     * @returns The list of conductores in real time
     */
     getConductores(login: string): Observable<Conductor[]> {
-        return this.http.get<Conductor[]>(API_URL +proveedores+'/'+login+ conductores);
+        return this.http.get<Conductor[]>(API_URL + proveedores + '/' + login + conductores);
     }
 
-    createConductor(conductor:Conductor,login: string): Observable<Conductor> {
-        return this.http.post<Conductor>(API_URL +proveedores+ '/'+ login+ conductores, conductor);
+
+    /**
+    * Updates an conductor
+    * @param conductor The conductor's information updated
+    * @returns The confirmation that the conductor was updated
+    */
+    updateConductor(conductor: Conductor, login: string): Observable<Conductor> {
+        return this.http.put<Conductor>(API_URL + proveedores + '/' + login + conductores, conductor);
     }
 
-    getConductorDetail(login: string, idConductor: number ) :Observable<ConductorDetail>{
+    createConductor(conductor: Conductor, login: string): Observable<Conductor> {
+        return this.http.post<Conductor>(API_URL + proveedores + '/' + login + conductores, conductor);
+    }
+
+    getConductorDetail(login: string, idConductor: number): Observable<ConductorDetail> {
         console.log(login)
-        return this.http.get<ConductorDetail>(API_URL +proveedores+'/'+login+ conductores+ '/'+ idConductor);
+        return this.http.get<ConductorDetail>(API_URL + proveedores + '/' + login + conductores + '/' + idConductor);
+
     }
 }

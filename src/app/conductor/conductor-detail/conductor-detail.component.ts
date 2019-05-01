@@ -14,20 +14,27 @@ export class ConductorDetailComponent implements OnInit {
   proveedor_login: string;
   conductor_Id: number;
   conductorDetail: ConductorDetail;
+  showEdit: boolean;
+
   constructor(private conductorService: ConductorService,
     private route: ActivatedRoute, ) { }
 
   private async getConductorDetail() {
+
     this.conductorService.getConductorDetail(this.proveedor_login, this.conductor_Id)
       .subscribe(conductorDetail => {
         this.conductorDetail = conductorDetail;
       });
   }
+  
+  showHideEdit(): void {
+    this.showEdit = !this.showEdit;
+  }
+
+
   ngOnInit() {    
     this.conductor_Id = Number.parseInt(this.route.snapshot.params['id']);
     this.proveedor_login=this.route.snapshot.params['login'];
-    console.log(this.proveedor_login);
-    console.log(this.conductor_Id);
     this.conductorDetail = new ConductorDetail();
     this.getConductorDetail();
   }

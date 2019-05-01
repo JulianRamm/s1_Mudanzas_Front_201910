@@ -14,6 +14,7 @@ import { ViajeListComponent } from '../viaje/viaje-list/viaje-list.component';
 import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail.component';
 import { ViajeDetailComponent } from '../viaje/viaje-detail/viaje-detail.component';
 import { ConductorDetailComponent } from '../conductor/conductor-detail/conductor-detail.component';
+import { VehiculoDetailComponent } from '../vehiculo/vehiculo-detail/vehiculo-detail.component';
 
 
 const routes: Routes = [
@@ -74,11 +75,33 @@ const routes: Routes = [
             },
             {
                 path: ':login',
+
                 component: ProveedorDetailComponent
             },
             {
                 path: ':login/conductores/:id',
                 component: ConductorDetailComponent,
+
+            }
+        ]
+    },
+
+    {
+        path: 'proveedores',
+        children: [
+            {
+                path: 'list',
+                component: ProveedorListComponent
+            },
+            {
+                path: ':login',
+
+                component: ProveedorDetailComponent
+            },
+            {
+                path: ':login/vehiculos/:placa',
+                component: VehiculoDetailComponent,
+
             }
         ]
     },

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import { Vehiculo } from '../vehiculo';
 import { VehiculoService } from '../vehiculo.service';
 import { SELECT_VALUE_ACCESSOR } from '@angular/forms/src/directives/select_control_value_accessor';
@@ -14,6 +14,11 @@ import { SELECT_VALUE_ACCESSOR } from '@angular/forms/src/directives/select_cont
     styleUrls: ['./vehiculo-list.component.css']
 })
 export class VehiculoListComponent implements OnInit {
+
+    @Input() login: string;
+    @Output() selectedVehiculo: EventEmitter<Vehiculo> = new EventEmitter();
+
+    showCreate: boolean;
 
     /**
      * Constructor for the component
@@ -29,9 +34,14 @@ export class VehiculoListComponent implements OnInit {
     /**
      * Asks the service to update the list of usuarios
      */
-    getUsuarios(): void {
-        this.vehiculoService.getVehiculos()
+    getVehiculos(): void {
+        this.vehiculoService.getVehiculos(this.login)
             .subscribe(vehiculos => this.vehiculos = vehiculos);
+    }
+
+    showHideCreate()
+    {
+        this.showCreate = !this.showCreate;
     }
 
     /**
@@ -39,7 +49,9 @@ export class VehiculoListComponent implements OnInit {
      * This method will be called when the component is created
      */
     ngOnInit() {
-        this.getUsuarios();
+        this.showCreate = false;
+        this.getVehiculos();
+        console.log(this.login);
     }
 }
 
