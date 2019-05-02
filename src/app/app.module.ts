@@ -28,12 +28,10 @@ import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widg
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ConductorModule } from './conductor/conductor.module';
 import { UsuarioCreateComponent } from './usuario/usuario-create/usuario-create.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        UsuarioCreateComponent
-    ],
+    declarations: [AppComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -61,7 +59,8 @@ import { UsuarioCreateComponent } from './usuario/usuario-create/usuario-create.
         AgmCoreModule,
         AgmDirectionModule,
         AngularWeatherWidgetModule,
-        MDBBootstrapModule
+        MDBBootstrapModule,
+        HomeModule
     ],
     bootstrap: [AppComponent],
     providers: [
