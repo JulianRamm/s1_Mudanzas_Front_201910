@@ -10,6 +10,7 @@ import {
     group,
     animateChild
   } from '@angular/animations';
+import { Router } from '@angular/router';
 
 /**
  * The app component. This component is the base of sXXX_ZZZ-Front
@@ -28,34 +29,36 @@ export class AppComponent implements OnInit {
 
     landingPage: boolean;
 
-    loginPage: boolean;
-
     /**
      * Assigns a title to the web page
      */
     ngOnInit(): void {
         this.title = "moveasy";
         this.landingPage = true;
-        this.loginPage =  false;
         this.authService.start();
     }
 
        /**
      * @ignore
      */
-    constructor(private authService: AuthService) { }
+    constructor(private authService: AuthService, private router: Router) { }
 
     toggleLanding(): void {
         this.landingPage = !this.landingPage;
     }
 
-    toggleLogin(): void {
-        this.loginPage = !this.loginPage;
+    cerrarPagina(): void {
+        this.landingPage = false;
     }
 
-    cerrarPagina(): void {
-        this.loginPage = false;
-        this.landingPage = false;
+    abrirUsuarios(): void {
+        this.toggleLanding();
+        this.router.navigate(['/usuarios/list']);
+    }
+
+    abrirProveedores(): void {
+        this.toggleLanding();
+        this.router.navigate(['/proveedores/list']);
     }
 
     logout(): void {

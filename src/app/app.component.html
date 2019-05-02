@@ -21,11 +21,13 @@
             </ul>
         </div>
     </nav>
-        <br>
-        <br>
-        <br>
-        <br>
-        <router-outlet></router-outlet>
+        <app-home-page *ngIf="this.landingPage" (usuarios)="abrirUsuarios()" (proveedores)="abrirProveedores()"></app-home-page>
+        <router-outlet>
+            <br>
+            <br>
+            <br>
+            <br>
+        </router-outlet>
         <br>
         <br>
     <footer *ngIf="!this.landingPage" class="footer bg-light" id="footer">
