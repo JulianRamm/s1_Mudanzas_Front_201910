@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { AuthService } from './auth/auth.service';
+
 import {
     transition,
     trigger,
@@ -25,11 +26,17 @@ export class AppComponent implements OnInit {
      */
     title: String;
 
+    landingPage: boolean;
+
+    loginPage: boolean;
+
     /**
      * Assigns a title to the web page
      */
     ngOnInit(): void {
         this.title = "moveasy";
+        this.landingPage = true;
+        this.loginPage =  false;
         this.authService.start();
     }
 
@@ -37,6 +44,19 @@ export class AppComponent implements OnInit {
      * @ignore
      */
     constructor(private authService: AuthService) { }
+
+    toggleLanding(): void {
+        this.landingPage = !this.landingPage;
+    }
+
+    toggleLogin(): void {
+        this.loginPage = !this.loginPage;
+    }
+
+    cerrarPagina(): void {
+        this.loginPage = false;
+        this.landingPage = false;
+    }
 
     logout(): void {
         this.authService.logout()
