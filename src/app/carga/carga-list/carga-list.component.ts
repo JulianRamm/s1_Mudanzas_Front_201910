@@ -82,7 +82,6 @@ export class CargaListComponent implements OnInit {
     this.showCreate = false;
     this.cargaSeleccionada = new Carga();
     this.getCargas();
-
   }
 
 }

@@ -1,22 +1,26 @@
-<div class='container-fluid' id="caja-fondo">
-  <div class="row">
-    <table class='table col'>
-      <tbody>
-          <h2>Track id: {{viajeDetail.id}}</h2>
-
-        <tr> Tiempo del envío: {{viajeDetail.tiempo}} </tr>
-        <tr> Lugar de salida: {{viajeDetail.lugarSalida}}, Colombia  </tr>
-        <tr> Lugar de llegada: {{viajeDetail.lugarLlegada}}, Colombia </tr>
-        <tr> Gasto de gasolina: {{viajeDetail.gastoGasolina}} (galones) </tr>
-        <tr> CLima:  {{viajeDetail.clima}} </tr>
-        <tr> Hora de partida: {{viajeDetail.horaPartida}} </tr>
-        <tr> Hora de partida: {{viajeDetail.horaLlegada}} </tr>
-        <!--<tr><button type="button" class="btn btn-light" [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
-            (click)="showHideEdit()">Editar viaje</button></tr>
-      
-      -->
-    </tbody>
-    </table>
+<div class='container-fluid' id="caja-fondo">        
+      <div class= "card-body">
+        <h2 class="card-title"><b> Viaje:</b></h2>
+        <h4><b>Track id:</b> {{viajeDetail.id}}</h4>
+      </div>
+      <ul class ="list-group list-group-flush">
+          <li class="list-group-item"> <b>Tiempo del envío:</b> {{viajeDetail.tiempo}} </li>
+          <li class="list-group-item"> <b>Lugar de salida:</b> {{viajeDetail.lugarSalida}}, Colombia  </li>
+          <li class="list-group-item"> <b>Lugar de llegada:</b> {{viajeDetail.lugarLlegada}}, Colombia </li>
+          <li class="list-group-item"> <b>Gasto de gasolina:</b> {{viajeDetail.gastoGasolina}} (galones) </li>
+          <li class="list-group-item"> <b>Clima:</b>  {{viajeDetail.clima}} </li>
+          <li class="list-group-item"> <b>Hora de partida:</b> {{viajeDetail.horaPartida}} </li>
+          <li class="list-group-item"> <b>Hora de llegada:</b> {{viajeDetail.horaLlegada}} </li>
+      </ul>
+      <div class="card" id="add" style="width: 28rem;"><button type="button" class="btn btn-light" [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
+        (click)="showHideEdit()"><b>Editar viaje:</b></button></div>
+      <div *ngIf="showEdit" class="row edit" id="detail">
+          <div class="col-2"></div>
+          <app-viaje-edit [loginP]="this.loginP" [conductorId]="this.conductorId" (cancel)="showHideEdit()"
+            (update)="ngOnInit()">
+          </app-viaje-edit>
+          <div class="col-2"></div>
+        </div>
   </div>
   <hr>
   <div class=" table row" id="cargas">
@@ -30,6 +34,4 @@
     -->
     </div>
   </div>
-  <hr>
-  <hr>
-</div>
+ 

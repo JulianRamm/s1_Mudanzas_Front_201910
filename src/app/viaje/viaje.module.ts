@@ -19,7 +19,7 @@ import { ViajeEditComponent } from './viaje-edit/viaje-edit.component';
     FormsModule
   ],
   declarations: [ViajeListComponent, ViajeDetailComponent, ViajeCreateComponent, ViajeEditComponent],
-  bootstrap: [ViajeListComponent, ViajeCreateComponent, ViajeDetailComponent],
+  bootstrap: [ViajeListComponent, ViajeDetailComponent],
   exports: [ViajeListComponent, ViajeCreateComponent, ViajeDetailComponent],
   providers: [ViajeService]
 })

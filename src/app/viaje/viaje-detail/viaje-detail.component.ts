@@ -16,7 +16,7 @@ export class ViajeDetailComponent implements OnInit {
   @Input() conductorId: number;
   viajeId: number;
   showCreate: boolean;
-
+  showEdit: boolean;
   viajeDetail: ViajeDetail;
 
   constructor(
@@ -26,14 +26,11 @@ export class ViajeDetailComponent implements OnInit {
 
   getViajeDetail(): void {
     this.service.getViajeDetail(this.loginP, this.conductorId, this.viajeId).subscribe(viaje => { this.viajeDetail = viaje;});
-
-
   }
   getViaje(): void{
     this.service.getViaje(this.loginP, this.conductorId)
     .subscribe(viaje => {
        this.viajeDetail = viaje; this.viajeId=viaje.id;
-       console.log(this.viajeDetail.id);
       });
   }
   showHideCreate(): void {
@@ -51,10 +48,13 @@ export class ViajeDetailComponent implements OnInit {
       behavior: 'smooth',
     });
   }
+  showHideEdit(): void {
+    this.showEdit = !this.showEdit;
+  }
   ngOnInit() {
     this.showCreate = false;
     this.viajeDetail = new ViajeDetail();
-
+    this.showEdit=false;
     this.getViaje();
 
   }
