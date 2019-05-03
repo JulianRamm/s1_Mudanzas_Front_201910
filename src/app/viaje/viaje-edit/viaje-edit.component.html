@@ -1,3 +1,103 @@
-<p>
-  viaje-edit works!
-</p>
+<div class='container-fluid'>
+    <div class="row">
+      <div class="card-body">
+        <br>
+        <h2 class="text-center">Editar viaje</h2>
+        <br>
+        <form name="viaje" (ngSubmit)="f.form.valid && editViaje()" #f="ngForm" novalidate>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Lugar de salida</span>
+            </div>
+            <input type="text" name="lugarSalida" class="form-control" id="viajeLugarSalida"
+              [(ngModel)]="viaje.lugarSalida" #viajeLugarSalida="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && viajeLugarSalida.invalid }"disabled>
+            <div class="invalid-feedback">
+              <div>Debes ingresar un lugar de salida</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Lugar de llegada</span>
+              </div>
+              <input type="text" name="lugarLlegada" class="form-control" id="viajeLugarLlegada"
+                [(ngModel)]="viaje.lugarLlegada" #viajeLugarLlegada="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && viajeLugarLlegada.invalid }"disabled >
+              <div class="invalid-feedback">
+                <div>Debes ingresar un lugar de llegada</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Tiempo</span>
+              </div>
+              <input type="number" placeholder="Tiempo del viaje" name="tiempo" class="form-control" id="KsviajeTiempo"
+                [(ngModel)]="viaje.tiempo" #viajeTiempo="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && viajeTiempo.invalid }" disabled>
+              <div class="invalid-feedback">
+                <div>Debes ingresar un tiempó</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="row">
+              <div class="col input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Gasto de gasolina</span>
+                </div>
+                <input type="number" name="viajeGastoGasolina" class="form-control" id="viajeGastoGasolina"
+                  [(ngModel)]=viaje.gastoGasolina #viajeGastoGasolina="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && viajeGastoGasolina.invalid }">
+                <div class="invalid-feedback">
+                  <div>Debes ingresar el gasto de gasolina del viaje</div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">clima</span>
+            </div>
+            <input type="text" placeholder="soleado, templado, etc..." name="viajeClima" class="form-control"
+              id="viajeClima" [(ngModel)]="viaje.clima" #viajeClima="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && viajeClima.invalid }" >
+            <div class="invalid-feedback">
+              <div>Debes ingresar un clima actual</div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Hora de partida</span>
+            </div>
+            <input type="datetime-local" name="viajeHoraPartida" class="form-control" id="viajeHoraPartida"
+              [(ngModel)]="viaje.horaPartida" #viajeHoraPartida="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && viajeHoraPartida.invalid }" disabled>
+            <div class="invalid-feedback">
+              <div>Debes ingresar una hora de partida</div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Hora de llegada</span>
+            </div>
+            <input type="datetime-local" name="viajeHoraLlegada" class="form-control" id="viajeHoraLlegada"
+              [(ngModel)]="viaje.horaLlegada" #viajeHoraLlegada="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && viajeHoraLlegada.invalid }">
+            <div class="invalid-feedback">
+              <div>Debes ingresar una hora de llegada</div>
+            </div>
+          </div>
+          <div class="row form-inline justify-content-center align-self-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="divider"></div>
+            <button type="button" class="btn btn-danger" (click)="cancelEdit()">Cancel</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </div>

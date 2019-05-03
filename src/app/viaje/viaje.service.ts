@@ -25,5 +25,7 @@ export class ViajeService {
   createViaje(condcutorId: number, viaje: Viaje, loginP: string): Observable<Viaje> {
     return this.http.post<Viaje>(API_URL + '/' + proveedores + '/' + loginP + '/' + conductores + '/' + condcutorId + '/' + viajes, viaje);
   }
-
+  updateViaje(condcutorId: number, viaje: Viaje, loginP: string): Observable<ViajeDetail>{
+    return this.http.put<ViajeDetail>(API_URL + '/' + proveedores + '/' + loginP + '/' + conductores + '/' + condcutorId + '/' + viajes , viaje);
+  }
 }
