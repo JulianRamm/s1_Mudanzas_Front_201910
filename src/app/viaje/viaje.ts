@@ -1,5 +1,4 @@
 import { Conductor } from "../conductor/conductor";
-
 export class Viaje {
     id: number;
     conductor: Conductor;

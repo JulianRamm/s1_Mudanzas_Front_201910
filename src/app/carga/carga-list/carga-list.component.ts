@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { CargaService } from '../carga.service';
 import { ActivatedRoute } from '@angular/router';
 import { Carga } from '../carga';
+import { splitClasses } from '@angular/compiler';
 
 @Component({
   selector: 'app-carga',
@@ -74,6 +75,10 @@ export class CargaListComponent implements OnInit {
     });
   }
 
+  cargaEliminada(idCarga:number):void{
+    let c =this.cargas.find(function(element){return element.id==idCarga});
+    this.cargas.splice(this.cargas.indexOf(c),1);
+  }
   /**
    * This will initialize the component by retrieving the list of cargas from the service
    * This method will be called when the component is created

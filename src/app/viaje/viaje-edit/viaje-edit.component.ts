@@ -14,27 +14,26 @@ export class ViajeEditComponent implements OnInit {
     private ViajeService: ViajeService,
     private toastrService: ToastrService
   ) { }
-  viaje:ViajeDetail;
 
+  @Input() viaje:ViajeDetail;
   @Input() loginP: string;
   @Input() conductorId: number;
-
   @Output() cancel = new EventEmitter();
   @Output() edit = new EventEmitter();
-  editViaje(): ViajeDetail {
+
+ editViaje(): void {
     this.ViajeService.updateViaje(this.conductorId,this.viaje, this.loginP)
-      .subscribe(viaje => {
-        this.viaje = viaje;
-        this.edit.emit();
+      .subscribe( ()=> {
         this.toastrService.success("El Viaje fue actualizado", "actualización de Viaje");
       });
-    return this.viaje;
+      this.edit.emit();
   }
+
   cancelEdit(): void {
     this.cancel.emit();
   }
+
   ngOnInit() {
-    this.viaje = new ViajeDetail();
   }
 
 }
