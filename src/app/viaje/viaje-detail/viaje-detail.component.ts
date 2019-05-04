@@ -10,8 +10,6 @@ import { ViajeDetail } from '../viaje-detail';
 })
 export class ViajeDetailComponent implements OnInit {
 
-  @Output() selectedViaje: EventEmitter<ViajeDetail> = new EventEmitter<ViajeDetail>();
-  viajeSeleccionado: ViajeDetail;
   @Input() loginP: string;
   @Input() conductorId: number;
   viajeId: number;
@@ -37,26 +35,14 @@ export class ViajeDetailComponent implements OnInit {
     this.showCreate = !this.showCreate;
   }
 
-  onSelectedClick(viajeId: number): void {
-    if (this.viajeSeleccionado) {
-      this.viajeSeleccionado = null;
-    }
-    this.viajeId = viajeId;
-    this.getViaje();
-    window.scrollTo({
-      top: 250,
-      behavior: 'smooth',
-    });
-  }
   showHideEdit(): void {
     this.showEdit = !this.showEdit;
   }
   ngOnInit() {
-    this.showCreate = false;
+    this.showEdit = false;
+    this.showCreate = false; 
     this.viajeDetail = new ViajeDetail();
-    this.showEdit=false;
     this.getViaje();
-
   }
 
 }

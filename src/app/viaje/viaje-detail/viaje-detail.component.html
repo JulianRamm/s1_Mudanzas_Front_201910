@@ -11,13 +11,15 @@
           <li class="list-group-item"> <b>Clima:</b>  {{viajeDetail.clima}} </li>
           <li class="list-group-item"> <b>Hora de partida:</b> {{viajeDetail.horaPartida}} </li>
           <li class="list-group-item"> <b>Hora de llegada:</b> {{viajeDetail.horaLlegada}} </li>
+          <li class="card" id="add" style="width: 28rem;"><button type="button" class="btn btn-light" 
+            [ngClass]="{ 'btn-primary': showEdit, 'btn-danger': !showEdit }"
+            (click)="showHideEdit()"><b>Editar viaje:</b></button></li>
       </ul>
-      <div class="card" id="add" style="width: 28rem;"><button type="button" class="btn btn-light" [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
-        (click)="showHideEdit()"><b>Editar viaje:</b></button></div>
       <div *ngIf="showEdit" class="row edit" id="detail">
           <div class="col-2"></div>
-          <app-viaje-edit [loginP]="this.loginP" [conductorId]="this.conductorId" (cancel)="showHideEdit()"
-            (update)="ngOnInit()">
+          <app-viaje-edit [loginP]="this.loginP" [conductorId]="this.conductorId" [viaje]="this.viajeDetail"
+            (cancel)="showHideEdit()"
+            (update)=" ngOnInit()">
           </app-viaje-edit>
           <div class="col-2"></div>
         </div>
