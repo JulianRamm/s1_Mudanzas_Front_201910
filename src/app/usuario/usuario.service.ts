@@ -45,6 +45,10 @@ export class UsuarioService {
         return this.http.post<Usuario>(API_URL + usuarios, usuario);
     }
 
+    deleteUser(usuarioLogin): void {
+        this.http.delete<Usuario>(API_URL + usuarios + '/' + usuarioLogin);
+    }
+
     /**
     * Updates an usuario
     * @param usuario The usuario's information updated

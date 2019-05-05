@@ -61,6 +61,11 @@ export class UsuarioListComponent implements OnInit {
             alert(this.usuarios);
     }
 
+    deleteUser(usuarioLogin): void {
+        this.usuarioService.deleteUser(usuarioLogin);
+        this.getUsuarios();
+    }
+
     /**
      * This will initialize the component by retrieving the list of usuarios from the service
      * This method will be called when the component is created

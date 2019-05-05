@@ -19,9 +19,8 @@
                             <td>{{ usuario.login }}</td>
                             <td>{{ usuario.nombre }}</td>
                             <td>{{ usuario.ciudadDeOrigen }}</td>
-                            <td>{{ usuario.correoElectronico }}</td>
-                            <td><button type="button" class="btn btn-labeled btn-danger">
-                                    <span class="btn-label glyphicon glyphicon-trash"></span>Eliminar</button></td>
+                            <td><a href="mailto:{{usuario.correoElectronico}}">{{usuario.correoElectronico}}</a></td>
+                            <td><button type="button" class="btn btn-labeled btn-danger" (click)="this.deleteUser(usuario.login)" routerLink="/usuarios/list">ELIMINAR</button></td>
                         </tr>
                     </tbody>
                 </table>
