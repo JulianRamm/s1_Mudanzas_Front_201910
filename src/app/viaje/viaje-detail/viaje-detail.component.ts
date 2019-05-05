@@ -22,9 +22,6 @@ export class ViajeDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) { }
 
-  getViajeDetail(): void {
-    this.service.getViajeDetail(this.loginP, this.conductorId, this.viajeId).subscribe(viaje => { this.viajeDetail = viaje;});
-  }
   getViaje(): void{
     this.service.getViaje(this.loginP, this.conductorId)
     .subscribe(viaje => {
@@ -34,15 +31,15 @@ export class ViajeDetailComponent implements OnInit {
   showHideCreate(): void {
     this.showCreate = !this.showCreate;
   }
-
+  viajeEliminado(){
+    this.viajeDetail=null;
+  }
   showHideEdit(): void {
     this.showEdit = !this.showEdit;
   }
   ngOnInit() {
     this.showEdit = false;
     this.showCreate = false; 
-    this.viajeDetail = new ViajeDetail();
     this.getViaje();
   }
-
 }

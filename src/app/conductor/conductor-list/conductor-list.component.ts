@@ -79,7 +79,6 @@ export class ConductorListComponent implements OnInit {
         this.showCreate = false;
         this.selectedConductor = undefined;
         this.idConductor=undefined;
-
         this.getConductores();
     }
 }
