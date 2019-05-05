@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AgendaService } from './agenda.service';
 //import { AgendaListComponent } from './agenda-list/agenda-list.component';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
-import { AgendaEditComponent } from '../Agenda/agenda-edit/agenda-edit.component';
+import { AgendaEditComponent } from '../agenda/agenda-edit/agenda-edit.component';
 //import { AgendaCreateComponent } from './agenda-create/agenda-create.component';
 
 @NgModule({

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { AuthService } from './auth/auth.service';
+
 import {
     transition,
     trigger,
@@ -9,6 +10,7 @@ import {
     group,
     animateChild
   } from '@angular/animations';
+import { Router } from '@angular/router';
 
 /**
  * The app component. This component is the base of sXXX_ZZZ-Front
@@ -25,18 +27,39 @@ export class AppComponent implements OnInit {
      */
     title: String;
 
+    landingPage: boolean;
+
     /**
      * Assigns a title to the web page
      */
     ngOnInit(): void {
         this.title = "moveasy";
+        this.landingPage = true;
         this.authService.start();
     }
 
        /**
      * @ignore
      */
-    constructor(private authService: AuthService) { }
+    constructor(private authService: AuthService, private router: Router) { }
+
+    toggleLanding(): void {
+        this.landingPage = !this.landingPage;
+    }
+
+    cerrarPagina(): void {
+        this.landingPage = false;
+    }
+
+    abrirUsuarios(): void {
+        this.toggleLanding();
+        this.router.navigate(['/usuarios/list']);
+    }
+
+    abrirProveedores(): void {
+        this.toggleLanding();
+        this.router.navigate(['/proveedores/list']);
+    }
 
     logout(): void {
         this.authService.logout()

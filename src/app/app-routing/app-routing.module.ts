@@ -15,6 +15,7 @@ import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail
 import { ViajeDetailComponent } from '../viaje/viaje-detail/viaje-detail.component';
 import { ConductorDetailComponent } from '../conductor/conductor-detail/conductor-detail.component';
 import { VehiculoDetailComponent } from '../vehiculo/vehiculo-detail/vehiculo-detail.component';
+import { HomePageComponent } from '../home/home-page/home-page.component';
 
 
 const routes: Routes = [
@@ -43,16 +44,16 @@ const routes: Routes = [
                 }
             }
         ]
-    },
-    /**{
+    },/*
+    {
         path: 'home',
-        component: UsuarioListComponent
+        component: HomePageComponent
         //AuthLoginComponent
-    },**/
+    },
     {
         path: '**',
         redirectTo: 'home',
-    },
+    },*/
     {
         path: 'usuarios',
         children: [

@@ -27,11 +27,11 @@ import { AgmDirectionModule } from 'agm-direction';
 import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widget';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ConductorModule } from './conductor/conductor.module';
+import { UsuarioCreateComponent } from './usuario/usuario-create/usuario-create.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
+    declarations: [AppComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -59,7 +59,8 @@ import { ConductorModule } from './conductor/conductor.module';
         AgmCoreModule,
         AgmDirectionModule,
         AngularWeatherWidgetModule,
-        MDBBootstrapModule
+        MDBBootstrapModule,
+        HomeModule
     ],
     bootstrap: [AppComponent],
     providers: [

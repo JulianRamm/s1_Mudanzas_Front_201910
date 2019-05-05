@@ -19,18 +19,12 @@
                             <td>{{ usuario.login }}</td>
                             <td>{{ usuario.nombre }}</td>
                             <td>{{ usuario.ciudadDeOrigen }}</td>
-                            <td>{{ usuario.correoElectronico }}</td>
+                            <td><a href="mailto:{{usuario.correoElectronico}}">{{usuario.correoElectronico}}</a></td>
+                            <td><button type="button" class="btn btn-labeled btn-danger" (click)="this.deleteUser(usuario.login)" routerLink="/usuarios/list">ELIMINAR</button></td>
                         </tr>
                     </tbody>
                 </table>
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Agregar un nuevo Usuario</button>
             </div>
         </div>
-    </div>
-    <div class="row" *ngIf="showCreate" id="detail">
-        <div class="col-2"></div>
-        <app-usuario-create class="col-10" (cancel)="showHideCreate()" (create)="ngOnInit()"></app-usuario-create>
-        <div class="col-2"></div>
     </div>
 </div>

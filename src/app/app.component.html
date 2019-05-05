@@ -1,75 +1,41 @@
 <div class="container-fluid" id="fondo">
-    <!--
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <div class="form-inline">
-
-                <img src="../../logo-text.png" class="col-3">
-            </div>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav mr-auto mt-0">
-
-            </div>
-            <div class="navbar-nav ml-auto flex-column">
-                <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
-                    <div class="form-inline">
-                        <li class="right-space"><a id="signup-navbar-item" routerLink="/auth/sign-up"><span
-                                    class="fa fa-user"></span>
-                                Sign Up</a></li>
-                        <li><a id="login-navbar-item" routerLink="/auth/login"><span
-                                    class="fa fa-sign-in"></span>Login</a></li>
-                    </div>
-                </div>
-                <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
-                    <div class="form-inline">
-                        <li><a id="logout-navbar-item" (click)="logout()" href="#"><span
-                                    class="fa fa-sign-out"></span>Logout</a></li>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
--->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
-            <img src="logotextder.png" width="160.75" height="46.5" class="d-inline-block align-top" alt="">
+    <nav *ngIf="!this.landingPage" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" (click)="this.landingPage = true">
+            <img src="https://dl.dropbox.com/s/qpeqdwcyn28s83m/logotextder.png?dl=0" width="160.75" height="46.5" class="d-inline-block align-top" alt="">
         </a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="#" (click)="this.landingPage = true">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a id="usuariosTag" class="nav-link" routerLink="/usuarios/list">Usuarios</a>
+                    <a id="usuariosTag" class="nav-link" routerLink="/usuarios/list"
+                        (click)="toggleLanding()">Usuarios</a>
                 </li>
                 <li class="nav-item">
-                    <a id="proveedoresTag" class="nav-link" routerLink="/proveedores/list">Proveedores</a>
+                    <a id="proveedoresTag" class="nav-link" routerLink="/proveedores/list"
+                        (click)="toggleLanding()">Proveedores</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="list">
-        <router-outlet></router-outlet>
+        <app-home-page *ngIf="this.landingPage" (usuarios)="abrirUsuarios()" (proveedores)="abrirProveedores()"></app-home-page>
+        <router-outlet>
+            <br>
+            <br>
+            <br>
+            <br>
+        </router-outlet>
         <br>
         <br>
-    </div>
+    <footer *ngIf="!this.landingPage" class="footer bg-light" id="footer">
+        <div class="container">
+            <p class="navbar-text text-center">
+                <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text"></span>
+                <a routerLink="/home"> moveasy</a>
+            </p>
+        </div>
+    </footer>
 </div>
-<footer class="footer bg-light" id="footer">
-    <div class="container">
-        <p class="navbar-text text-center">
-            <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text"></span>
-            <a routerLink="/home"> moveasy</a>
-        </p>
-    </div>
-</footer>
