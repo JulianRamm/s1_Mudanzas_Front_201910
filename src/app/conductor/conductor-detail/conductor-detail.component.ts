@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ConductorService } from '../conductor.service';
 import { ConductorDetail } from '../conductor-detail';
 import { ActivatedRoute } from '@angular/router';
@@ -20,21 +20,19 @@ export class ConductorDetailComponent implements OnInit {
     private route: ActivatedRoute, ) { }
 
   private async getConductorDetail() {
-
     this.conductorService.getConductorDetail(this.proveedor_login, this.conductor_Id)
       .subscribe(conductorDetail => {
         this.conductorDetail = conductorDetail;
       });
   }
-  
+
   showHideEdit(): void {
     this.showEdit = !this.showEdit;
   }
 
-
-  ngOnInit() {    
+  ngOnInit() {
     this.conductor_Id = Number.parseInt(this.route.snapshot.params['id']);
-    this.proveedor_login=this.route.snapshot.params['login'];
+    this.proveedor_login = this.route.snapshot.params['login'];
     this.conductorDetail = new ConductorDetail();
     this.getConductorDetail();
   }

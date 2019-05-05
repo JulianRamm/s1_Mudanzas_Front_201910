@@ -1,39 +1,42 @@
-<div class='container-fluid' id="caja-fondo">        
-      <div class= "card-body">
-        <h2 class="card-title"><b> Viaje:</b></h2>
-        <h4><b>Track id:</b> {{viajeDetail.id}}</h4>
-      </div>
-      <ul class ="list-group list-group-flush">
-          <li class="list-group-item"> <b>Tiempo del envío:</b> {{viajeDetail.tiempo}} </li>
-          <li class="list-group-item"> <b>Lugar de salida:</b> {{viajeDetail.lugarSalida}}, Colombia  </li>
-          <li class="list-group-item"> <b>Lugar de llegada:</b> {{viajeDetail.lugarLlegada}}, Colombia </li>
-          <li class="list-group-item"> <b>Gasto de gasolina:</b> {{viajeDetail.gastoGasolina}} (galones) </li>
-          <li class="list-group-item"> <b>Clima:</b>  {{viajeDetail.clima}} </li>
-          <li class="list-group-item"> <b>Hora de partida:</b> {{viajeDetail.horaPartida}} </li>
-          <li class="list-group-item"> <b>Hora de llegada:</b> {{viajeDetail.horaLlegada}} </li>
-          <li class="card" id="add" style="width: 28rem;"><button type="button" class="btn btn-light" 
-            [ngClass]="{ 'btn-primary': showEdit, 'btn-danger': !showEdit }"
-            (click)="showHideEdit()"><b>Editar viaje:</b></button></li>
-      </ul>
-      <div *ngIf="showEdit" class="row edit" id="detail">
-          <div class="col-2"></div>
-          <app-viaje-edit [loginP]="this.loginP" [conductorId]="this.conductorId" [viaje]="this.viajeDetail"
-            (cancel)="showHideEdit()"
-            (update)=" ngOnInit()">
-          </app-viaje-edit>
-          <div class="col-2"></div>
-        </div>
+<div *ngIf="this.viajeDetail!=null&&this.viajeDetail.id!=undefined" class='container-fluid' id="caja-fondo">
+  <div class="card-body">
+    <h2 class="card-title"><b> Viaje:</b></h2>
+    <h4><b>Track id:</b> {{viajeDetail.id}}</h4>
   </div>
-  <hr>
-  <div class=" table row" id="cargas">
-    <div class="col">
-      <p id="tituloSub"><b></b></p>
-      <hr>
-      <br>
-      <!--<div *ngIf="this.loginP">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"> <b>Tiempo del envío:</b> {{viajeDetail.tiempo}} </li>
+    <li class="list-group-item"> <b>Lugar de salida:</b> {{viajeDetail.lugarSalida}}, Colombia </li>
+    <li class="list-group-item"> <b>Lugar de llegada:</b> {{viajeDetail.lugarLlegada}}, Colombia </li>
+    <li class="list-group-item"> <b>Gasto de gasolina:</b> {{viajeDetail.gastoGasolina}} (galones) </li>
+    <li class="list-group-item"> <b>Clima:</b> {{viajeDetail.clima}} </li>
+    <li class="list-group-item"> <b>Hora de partida:</b> {{viajeDetail.horaPartida}} </li>
+    <li class="list-group-item"> <b>Hora de llegada:</b> {{viajeDetail.horaLlegada}} </li>
+  </ul>
+  <div>
+    <div class="card" id="add" style="width: 28rem;" ><button type="button" class="btn btn-light"
+        [ngClass]="{ 'btn-primary': showEdit, 'btn-danger': !showEdit }" (click)="showHideEdit()"><b>Editar
+          viaje:</b></button></div>
+    <div class="row justify-content-center align-self-center">
+      <app-viaje-delete [loginP]="this.loginP" [conductorId]="this.conductorId" [viajeId]="this.viajeId" (notifyDelete)="viajeEliminado()"></app-viaje-delete>
+    </div>
+  </div>
+  <div *ngIf="showEdit" class="row edit" id="detail">
+    <div class="col-2"></div>
+    <app-viaje-edit [loginP]="this.loginP" [conductorId]="this.conductorId" [viaje]="this.viajeDetail"
+      (cancel)="showHideEdit()" (update)=" ngOnInit()">
+    </app-viaje-edit>
+    <div class="col-2"></div>
+  </div>
+</div>
+<hr>
+<div class=" table row" id="cargas">
+  <div class="col">
+    <p id="tituloSub"><b></b></p>
+    <hr>
+    <br>
+    <!--<div *ngIf="this.loginP">
         <app-carga [viajeId]="viajeDetail.id" [LoginP]={{this.loginP}} [conductorId]={{this.conductorId}}></app-carga>
       </div>
     -->
-    </div>
   </div>
- 
+</div>
