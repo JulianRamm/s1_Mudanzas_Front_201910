@@ -43,7 +43,6 @@ export class ProveedorDetailComponent implements OnInit {
     this.proveedorService.getProveedorDetail(this.proveedor_login)
       .subscribe(proveedorDetail => {
         this.proveedorDetail = proveedorDetail;
-        console.log(this.proveedorDetail)
       });
   }
 

@@ -25,5 +25,10 @@ export class ViajeService {
   createViaje(condcutorId: number, viaje: Viaje, loginP: string): Observable<Viaje> {
     return this.http.post<Viaje>(API_URL + '/' + proveedores + '/' + loginP + '/' + conductores + '/' + condcutorId + '/' + viajes, viaje);
   }
-
+  updateViaje(condcutorId: number, viaje: Viaje, loginP: string): Observable<ViajeDetail>{
+    return this.http.put<ViajeDetail>(API_URL + '/' + proveedores + '/' + loginP + '/' + conductores + '/' + condcutorId + '/' + viajes , viaje);
+  }
+  deleteViaje(loginP: string, conductorId: number, viajeId: number): Observable<void>{
+    return this.http.delete<void>(API_URL + '/' + proveedores + '/' + loginP + '/' + conductores + '/' + conductorId + '/' + viajes + '/' + viajeId);
+  }
 }
