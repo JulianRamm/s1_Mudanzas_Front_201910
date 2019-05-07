@@ -50,8 +50,9 @@ const routes: Routes = [
         component: HomePageComponent
     },
     {
-        path: '**',
-        redirectTo: 'home',
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
     },
     {
         path: 'usuarios',
