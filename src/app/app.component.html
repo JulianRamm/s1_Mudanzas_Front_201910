@@ -1,5 +1,5 @@
 <div class="container-fluid" id="fondo">
-    <nav *ngIf="!this.landingPage" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#" (click)="this.landingPage = true">
             <img src="https://dl.dropbox.com/s/qpeqdwcyn28s83m/logotextder.png?dl=0" width="160.75" height="46.5" class="d-inline-block align-top" alt="">
         </a>
@@ -21,15 +21,7 @@
             </ul>
         </div>
     </nav>
-        <app-home-page *ngIf="this.landingPage" (usuarios)="abrirUsuarios()" (proveedores)="abrirProveedores()"></app-home-page>
-        <router-outlet>
-            <br>
-            <br>
-            <br>
-            <br>
-        </router-outlet>
-        <br>
-        <br>
+        <router-outlet></router-outlet>
     <footer *ngIf="!this.landingPage" class="footer bg-light" id="footer">
         <div class="container">
             <p class="navbar-text text-center">

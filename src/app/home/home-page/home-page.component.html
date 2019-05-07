@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <div *ngIf="this.loginPage" class="row align-items-center" id="home-container">
     <div class="col"></div>
-    <div class="col-3 card">
-      <app-usuario-create (cancel)="toggleLogin()"></app-usuario-create>
+    <div class="col-5 card">
+      <app-usuario-create (cancel)="toggleLogin()" (create)="toggleLogin()"></app-usuario-create>
     </div>
     <div class="col"></div>
   </div>
@@ -14,8 +14,6 @@
       <p class="subtitulo swirl-in-bl-fwd">Mudarse nunca fue tan facil!</p>
 
       <button type="button" class="btn cta slide-in-bottom" (click)="toggleLogin()">Unirse o entrar</button>
-      <button type="button" class="btn cta slide-in-bottom" (click)="abrirUsuarios()">Usuarios</button>
-      <button type="button" class="btn cta slide-in-bottom" (click)="abrirProveedores()">Proveedores</button>
     </div>
     <div class="col-5" id="animacion">
       <div class="row">

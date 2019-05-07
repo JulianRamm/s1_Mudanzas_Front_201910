@@ -37,7 +37,6 @@ export class UsuarioService {
     * @returns The usuario details
     */
     getUsuarioDetail(usuarioLogin): Observable<UsuarioDetail> {
-       
         return this.http.get<UsuarioDetail>(API_URL + usuarios + '/' + usuarioLogin);
     }
 
@@ -45,8 +44,8 @@ export class UsuarioService {
         return this.http.post<Usuario>(API_URL + usuarios, usuario);
     }
 
-    deleteUser(usuarioLogin): void {
-        this.http.delete<Usuario>(API_URL + usuarios + '/' + usuarioLogin);
+    deleteUser(usuarioLogin): Observable<void> {
+        return this.http.delete<void>(API_URL + usuarios + '/' + usuarioLogin);
     }
 
     /**

@@ -44,7 +44,7 @@ const routes: Routes = [
                 }
             }
         ]
-    },/*
+    },
     {
         path: 'home',
         component: HomePageComponent
@@ -53,7 +53,7 @@ const routes: Routes = [
     {
         path: '**',
         redirectTo: 'home',
-    },*/
+    },
     {
         path: 'usuarios',
         children: [

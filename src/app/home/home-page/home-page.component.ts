@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -11,11 +12,8 @@ export class HomePageComponent implements OnInit {
 
   landingPage: boolean;
 
-  @Output() usuarios: EventEmitter<any> = new EventEmitter();
-
-  @Output() proveedores: EventEmitter<any> = new EventEmitter();
-
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit() {
     this.landingPage = true;
@@ -29,14 +27,6 @@ export class HomePageComponent implements OnInit {
 
   toggleLanding(): void {
     this.landingPage = !this.landingPage;
-  }
-
-  abrirUsuarios(): void {
-    this.usuarios.emit();
-  }
-
-  abrirProveedores(): void {
-    this.proveedores.emit();
   }
 
 }

@@ -10,7 +10,7 @@ import {
     group,
     animateChild
   } from '@angular/animations';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 /**
  * The app component. This component is the base of sXXX_ZZZ-Front
