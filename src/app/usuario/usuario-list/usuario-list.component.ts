@@ -48,7 +48,6 @@ export class UsuarioListComponent implements OnInit {
         .subscribe(() =>
         alert("Usuario login: " + usuarioLogin + " eliminado.")
         );
-        window.location.reload();
     }
 
     /**
