@@ -10,7 +10,7 @@ import {
     group,
     animateChild
   } from '@angular/animations';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 /**
  * The app component. This component is the base of sXXX_ZZZ-Front
@@ -41,24 +41,10 @@ export class AppComponent implements OnInit {
        /**
      * @ignore
      */
-    constructor(private authService: AuthService, private router: Router) { }
+    constructor(private authService: AuthService) { }
 
     toggleLanding(): void {
         this.landingPage = !this.landingPage;
-    }
-
-    cerrarPagina(): void {
-        this.landingPage = false;
-    }
-
-    abrirUsuarios(): void {
-        this.toggleLanding();
-        this.router.navigate(['/usuarios/list']);
-    }
-
-    abrirProveedores(): void {
-        this.toggleLanding();
-        this.router.navigate(['/proveedores/list']);
     }
 
     logout(): void {
