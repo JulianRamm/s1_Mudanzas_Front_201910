@@ -10,13 +10,13 @@
                             <th>Nombre Completo</th>
                             <th>Ciudad</th>
                             <th>Correo Electronico</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let usuario of usuarios" style="cursor: pointer;"
-                            routerLink="/usuarios/{{usuario.login}}">
+                        <tr *ngFor="let usuario of usuarios">
                             <td>{{ usuario.id }}</td>
-                            <td>{{ usuario.login }}</td>
+                            <td id="login" routerLink="/usuarios/{{usuario.login}}" style="cursor: pointer;"><b>{{ usuario.login }}</b></td>
                             <td>{{ usuario.nombre }}</td>
                             <td>{{ usuario.ciudadDeOrigen }}</td>
                             <td><a href="mailto:{{usuario.correoElectronico}}">{{usuario.correoElectronico}}</a></td>

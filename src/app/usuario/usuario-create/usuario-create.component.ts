@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from '../usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario-create',
@@ -12,6 +13,7 @@ export class UsuarioCreateComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
+    private router: Router,
     private toastrService: ToastrService
   ) { }
 
@@ -38,7 +40,7 @@ export class UsuarioCreateComponent implements OnInit {
         this.usuario = usuario;
         this.create.emit();
         this.toastrService.success("El usuario fue creado", "Creacion de Usuario");
-
+        this.router.navigate([`/usuarios/${this.usuario.login}`]);
       });
     return this.usuario;
   }
