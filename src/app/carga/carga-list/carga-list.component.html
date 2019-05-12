@@ -24,7 +24,6 @@
             <li class="list-group-item"><b>Fecha de envío: </b>{{convertirFechaChevere(carga.fechaEnvio)}}</li>
             <li class="list-group-item"><b>Entrega estimada: </b>{{convertirFechaChevere(carga.fechaEstimadaLlegada)}}
             </li>
-
           </ul>
           <div class="row justify-content-center align-self-center">
             <app-carga-delete [login]="this.login" [idCarga]="carga.id" (notifyDelete)="cargaEliminada(carga.id)"> </app-carga-delete>

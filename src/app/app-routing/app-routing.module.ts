@@ -15,6 +15,7 @@ import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail
 import { ViajeDetailComponent } from '../viaje/viaje-detail/viaje-detail.component';
 import { ConductorDetailComponent } from '../conductor/conductor-detail/conductor-detail.component';
 import { VehiculoDetailComponent } from '../vehiculo/vehiculo-detail/vehiculo-detail.component';
+import { UsuarioEditComponent } from '../usuario/usuario-edit/usuario-edit.component';
 
 
 const routes: Routes = [
@@ -63,7 +64,12 @@ const routes: Routes = [
             {
                 path: ':login',
                 component: UsuarioDetailComponent
+            },
+            {
+                path: ':login/edit',
+                component: UsuarioEditComponent
             }
+            
         ]
     },
     {
@@ -80,8 +86,7 @@ const routes: Routes = [
             },
             {
                 path: ':login/conductores/:id',
-                component: ConductorDetailComponent,
-
+                component: ConductorDetailComponent
             }
         ]
     },
