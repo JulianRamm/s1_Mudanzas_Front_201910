@@ -2,9 +2,6 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ViajeService } from '../viaje.service';
 import { ViajeDetail } from '../viaje-detail';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { ConductorDetail } from '../../conductor/conductor-detail';
 
 @Component({
   selector: 'app-viaje-detail',
@@ -15,9 +12,6 @@ export class ViajeDetailComponent implements OnInit {
 
   @Input() loginP: string;
   @Input() conductorId: number;
-  @Input() hayViaje: boolean;
-  @Input() eliminado : EventEmitter<any> = new EventEmitter;
-
   viajeId: number;
   showCreate: boolean;
   showEdit: boolean;
@@ -28,30 +22,26 @@ export class ViajeDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) { }
 
-  getViaje(): void {
-   
+  getViaje(): void{
     this.service.getViaje(this.loginP, this.conductorId)
-      .subscribe(viaje => this.viajeDetail = viaje,
+    .subscribe(viaje => {
+       this.viajeDetail = viaje[0];this.viajeDetail.id=viaje[0].id;console.log(viaje);
+      },
       error => this.showCreate=true);
-
-   
   }
-  
   showHideCreate(): void {
     this.showCreate = !this.showCreate;
   }
-  viajeEliminado() {
-    this.showCreate = true;
-    this.viajeDetail =null;
-   
+  viajeEliminado(){
+    this.showCreate=true;
+    this.viajeDetail=null;
   }
   showHideEdit(): void {
     this.showEdit = !this.showEdit;
   }
   ngOnInit() {
-    console.log(this.hayViaje);
     this.showEdit = false;
-    this.showCreate = false;
+    this.showCreate = false; 
     this.getViaje();
   }
 }

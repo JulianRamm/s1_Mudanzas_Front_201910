@@ -15,18 +15,17 @@ export class ConductorDetailComponent implements OnInit {
   conductor_Id: number;
   conductorDetail: ConductorDetail;
   showEdit: boolean;
-  hayViaje:boolean;
 
   constructor(private conductorService: ConductorService,
     private route: ActivatedRoute, ) { }
 
-  private getConductorDetail() {
+  private async getConductorDetail() {
     this.conductorService.getConductorDetail(this.proveedor_login, this.conductor_Id)
       .subscribe(conductorDetail => {
         this.conductorDetail = conductorDetail;
       });
   }
-  
+
   showHideEdit(): void {
     this.showEdit = !this.showEdit;
   }
@@ -38,5 +37,3 @@ export class ConductorDetailComponent implements OnInit {
     this.getConductorDetail();
   }
 }
-
-

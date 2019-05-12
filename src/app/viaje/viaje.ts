@@ -7,6 +7,6 @@ export class Viaje {
     tiempo: number;
     gastoGasolina: number;
     clima: string;
-    horaPartida: Date;
-    horaLlegada: Date;  
+    horaPartida: any;
+    horaLlegada: any;
 }
