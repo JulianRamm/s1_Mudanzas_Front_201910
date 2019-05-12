@@ -15,7 +15,11 @@ import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail
 import { ViajeDetailComponent } from '../viaje/viaje-detail/viaje-detail.component';
 import { ConductorDetailComponent } from '../conductor/conductor-detail/conductor-detail.component';
 import { VehiculoDetailComponent } from '../vehiculo/vehiculo-detail/vehiculo-detail.component';
+<<<<<<< HEAD
 import { UsuarioEditComponent } from '../usuario/usuario-edit/usuario-edit.component';
+=======
+import { HomePageComponent } from '../home/home-page/home-page.component';
+>>>>>>> 5b0add730cd86ff61f2c31cd4c3fc52faa51bf0c
 
 
 const routes: Routes = [
@@ -45,14 +49,14 @@ const routes: Routes = [
             }
         ]
     },
-    /**{
-        path: 'home',
-        component: UsuarioListComponent
-        //AuthLoginComponent
-    },**/
     {
-        path: '**',
-        redirectTo: 'home',
+        path: 'home',
+        component: HomePageComponent
+    },
+    {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
     },
     {
         path: 'usuarios',
