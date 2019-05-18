@@ -1,6 +1,6 @@
 import { Conductor } from "../conductor/conductor";
 export class Viaje {
-    id: number;
+    id: any;
     conductor: Conductor;
     lugarSalida: string;
     lugarLlegada: string;

@@ -1,6 +1,6 @@
 <div *ngIf="this.viajeDetail!=undefined||this.viajeDetail!=undefined" class='container-fluid' id="caja-fondo">
   <div class="card-body">
-    <h2 class="card-title"><b> Viaje:</b></h2>
+    <h2 class="card-title"><b> Viaje actual:</b></h2>
     <h4><b>Track id:</b> {{viajeDetail.id}}</h4>
   </div>
   <ul class="list-group list-group-flush">
@@ -9,15 +9,15 @@
     <li class="list-group-item"> <b>Lugar de llegada:</b> {{viajeDetail.lugarLlegada}}, Colombia </li>
     <li class="list-group-item"> <b>Gasto de gasolina:</b> {{viajeDetail.gastoGasolina}} (galones) </li>
     <li class="list-group-item"> <b>Clima:</b> {{viajeDetail.clima}} </li>
-    <li class="list-group-item"> <b>Hora de partida:</b> {{viajeDetail.horaPartida}} </li>
-    <li class="list-group-item"> <b>Hora de llegada:</b> {{viajeDetail.horaLlegada}} </li>
+    <li class="list-group-item"> <b>Hora de partida:</b> {{convertirFechaChevere(viajeDetail.horaPartida)}} </li>
+    <li class="list-group-item"> <b>Hora de llegada:</b> {{convertirFechaChevere(viajeDetail.horaLlegada)}} </li>
   </ul>
   <div>
 
     <div class="card" id="add" style="width: 28rem;"><button type="button" class="btn btn-light"
         [ngClass]="{ 'btn-primary': showEdit, 'btn-danger': !showEdit }" (click)="showHideEdit()"><b>Editar
           viaje:</b></button></div>
-    
+
     <div class="row justify-content-center align-self-center">
       <app-viaje-delete [loginP]="this.loginP" [conductorId]="this.conductorId" [viajeId]="this.viajeDetail.id"
         (notifyDelete)="viajeEliminado()"></app-viaje-delete>
@@ -33,25 +33,56 @@
 </div>
 
 <div *ngIf="!viajeDetail">
-    <div *ngIf="showCreate" class="card" id="add" style="width: 28rem;"><button type="button" class="btn btn-success"
+  <div *ngIf="showCreate" class="card" id="add" style="width: 28rem;"><button type="button" class="btn btn-success"
       [ngClass]="{ 'btn-primary': showCreate, 'btn-danger': !showCreate }" (click)="showHideCreate()"><b>Crear viaje
-        </b></button></div>
-    <div *ngIf="!showCreate" class="card" id="add" style="width: 28rem;">
-        <app-viaje-create [loginP]="this.loginP" [conductorId]="this.conductorId" (cancel)="showHideCreate()"
-          (create)=" ngOnInit()">
-        </app-viaje-create>
-      </div>
-</div>
-    
-<hr>
-<div class=" table row" id="cargas">
-  <div class="col">
-    <p id="tituloSub"><b></b></p>
-    <hr>
-    <br>
-    <!--<div *ngIf="this.loginP">
-        <app-carga [viajeId]="viajeDetail.id" [LoginP]={{this.loginP}} [conductorId]={{this.conductorId}}></app-carga>
-      </div>
-    -->
+      </b></button></div>
+  <div *ngIf="!showCreate" class="card" id="add" style="width: 28rem;">
+    <app-viaje-create [loginP]="this.loginP" [conductorId]="this.conductorId" (cancel)="showHideCreate()"
+      (create)=" ngOnInit()">
+    </app-viaje-create>
   </div>
+</div>
+
+<div class="row justify-content-center align-self-center">
+  <div *ngIf="!verCargas" id="add" style="width: 27rem;"class="btn btn-primary" (click)="verCargas=true"><b>Ver cargas del viaje</b></div>
+</div>
+
+
+<hr>
+<div *ngIf="verCargas">
+
+
+  <div *ngIf="viajeDetail.cargas" class=" table row" id="cargas">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col" *ngFor="let carga of viajeDetail.cargas">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top"
+              src="https://png.pngtree.com/element_origin_min_pic/17/09/15/7fa8a2f68bd91d3a520690798feecebe.jpg"
+              alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title"><b>Carga</b></h4>
+              <h3 class="card-title"><b>Track ID: </b>{{carga.id}}</h3>
+              <p class="card-text"> <b>Observaciones:</b> {{carga.observaciones}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><b>Lugar de salida: </b>{{carga.lugarSalida}}</li>
+              <li class="list-group-item"><b>Lugar de llegada: </b>{{carga.lugarLlegada}}</li>
+              <li class="list-group-item"><b>Datos de envío: </b>{{carga.datosEnvio}}</li>
+              <li class="list-group-item"><b>Volumen: </b>{{carga.volumen}} (m3)</li>
+              <li class="list-group-item"><b>Fecha de envío: </b>{{convertirFechaChevere(carga.fechaEnvio)}}</li>
+              <li class="list-group-item"><b>Entrega estimada: </b>{{convertirFechaChevere(carga.fechaEstimadaLlegada)}}
+              </li>
+            </ul>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center align-self-center">
+      <div  style="width: 10rem;"><button type="button" class="btn btn-primary"
+          (click)="verCargas=!verCargas"><b>Ver menos
+          </b></button></div>
+    </div>
 </div>
