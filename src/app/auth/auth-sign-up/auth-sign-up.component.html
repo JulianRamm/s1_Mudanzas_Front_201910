@@ -1,26 +1,191 @@
-<div class="row">
-    <div class="col-6 offset-3">
-        <br>
-        <h2 class="text-center">Sign up</h2>
-        <br>
-        <form name="sign-up" (ngSubmit)="f.form.valid && signUp()" #f="ngForm" novalidate>
-            <div class="form-group">
-                <label for="username"><b>Name</b></label>
-                <input type="text" name="username" class="form-control" id="username" [(ngModel)]="user.name" required>
-            </div>
-            <div class="form-group">
-                <label for="password"><b>Password</b></label>
-                <input type="text" name="password" class="form-control" id="password" [(ngModel)]="user.password" required>
-            </div>
-            <div class="form-group">
-                <label for="role"><b>Role</b></label>
-                <select class="custom-select" name="role" id="role" [(ngModel)]="user.role" required>
+<div class='container-fluid'>
+    <div class="row">
+        <div class="card-body">
+            <br>
+            <h3 class="text-center">Sign-up</h3>
+            <br>
+            <div>
+                <label for="role"><b>Rol: </b></label>
+                <select class="custom-select" name="role" id="role" [(ngModel)]="this.rolSeleccionado" required>
                     <option [value]="role" *ngFor="let role of roles">{{role}}</option>
                 </select>
             </div>
-            <div class="justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary"> Sign Up</button>
-            </div>
-        </form>
+            <br>
+            <form name="usuario" *ngIf="this.rolSeleccionado == 'USER'" (ngSubmit)="f.form.valid && createUsuario()" #f="ngForm" novalidate>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                    <input type="text" placeholder="Username" name="usuarioLogin" class="form-control" id="usuarioLogin"
+                        [(ngModel)]="usuario.login" #usuarioLogin="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && usuarioLogin.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Debes ingresar un username</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Contraseña</span>
+                        </div>
+                        <input type="password" name="usuarioPassword" class="form-control" id="usuarioPassword"
+                            [(ngModel)]="usuario.password" #usuarioPassword="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && usuarioPassword.invalid }" required>
+                        <div class="invalid-feedback">
+                            <div>Debes ingresar una contraseña</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Nombre</span>
+                        </div>
+                        <input type="text" name="usuarioName" class="form-control" id="usuarioName"
+                            [(ngModel)]="usuario.nombre" #usuarioName="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && usuarioName.invalid }" required>
+                        <div class="invalid-feedback">
+                            <div>Debes ingresar tu nombre</div>
+                        </div>
+                    </div>
+                    <div class="col input-group mb-3">
+                        <input type="text" placeholder="Apellido" name="usuarioApellido" class="form-control"
+                            id="usuarioApellido" [(ngModel)]="usuario.apellido" #usuarioApellido="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && usuarioApellido.invalid }" required>
+                        <div class="invalid-feedback">
+                            <div>Debes ingresar tu apellido</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Correo Electonico:</span>
+                    </div>
+                    <input type="email " placeholder="example@email.com" name="usuarioCorreo" class="form-control"
+                        id="usuarioCorreo" [(ngModel)]="usuario.correoElectronico" #usuarioCorreo="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && usuarioCorreo.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Debes ingresar un correo electronico valido</div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Ciudad</span>
+                    </div>
+                    <input type="text" name="usuarioCiudad" class="form-control" id="usuarioCiudad"
+                        [(ngModel)]="usuario.ciudadDeOrigen" #usuarioCiudad="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && usuarioCiudad.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Debes ingresar una ciudad</div>
+                    </div>
+                </div>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-success">√</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">x</button>
+                </div>
+            </form>
+
+
+            <form name="proveedor" *ngIf="this.rolSeleccionado == 'PROVIDER'" (ngSubmit)="f.form.valid && createProveedor()" #f="ngForm" novalidate>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                  </div>
+                  <input type="text" placeholder="Username" name="proveedorLogin" class="form-control" id="proveedorLogin"
+                    [(ngModel)]="proveedor.login" #proveedorLogin="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && proveedorLogin.invalid }" required>
+                  <div class="invalid-feedback">
+                    <div>Debes ingresar un username</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Contraseña</span>
+                    </div>
+                    <input type="password" name="proveedorPassword" class="form-control" id="proveedorPassword"
+                      [(ngModel)]="proveedor.password" #proveedorPassword="ngModel"
+                      [ngClass]="{ 'is-invalid': f.submitted && proveedorPassword.invalid }" required>
+                    <div class="invalid-feedback">
+                      <div>Debes ingresar una contraseña</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Nombre</span>
+                    </div>
+                    <input type="text" name="proveedorName" class="form-control" id="proveedorName" [(ngModel)]="proveedor.nombre"
+                      #proveedorName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && proveedorName.invalid }" required>
+                    <div class="invalid-feedback">
+                      <div>Debes ingresar el nombre de tu empresa</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Correo Electonico:</span>
+                  </div>
+                  <input type="email " placeholder="example@email.com" name="proveedorCorreo" class="form-control"
+                    id="proveedorCorreo" [(ngModel)]="proveedor.correoElectronico" #proveedorCorreo="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && proveedorCorreo.invalid }" required>
+                  <div class="invalid-feedback">
+                    <div>Debes ingresar un correo electronico valido</div>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Ciudad</span>
+                  </div>
+                  <input type="text" name="proveedorCiudad" class="form-control" id="proveedorCiudad"
+                    [(ngModel)]="proveedor.ciudadOrigen" #proveedorCiudad="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && proveedorCiudad.invalid }" required>
+                  <div class="invalid-feedback">
+                    <div>Debes ingresar una ciudad</div>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Telefono</span>
+                  </div>
+                  <input type="text" name="proveedorTelefono" class="form-control" id="proveedorTelefono"
+                    [(ngModel)]="proveedor.numeroTelefono" #proveedorTelefono="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && proveedorTelefono.invalid }" required>
+                  <div class="invalid-feedback">
+                    <div>Debes ingresar un telefono</div>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Numero De Vehiculos</span>
+                  </div>
+                  <input type="text" name="proveedorNumeroVehiculos" class="form-control" id="proveedorNumeroVehiculos"
+                    [(ngModel)]="proveedor.numeroVehiculos" #proveedorTelefono="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && proveedorNumeroVehiculos.invalid }" required>
+                  <div class="invalid-feedback">
+                    <div>Debes ingresar un Numero de vehiculos</div>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Dinero Disponible</span>
+                  </div>
+                  <input type="text" name="proveedorDineroDisponible" class="form-control" id="proveedorDineroDisponible"
+                    [(ngModel)]="proveedor.dineroDisponible" #proveedorTelefono="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && proveedorDineroDisponibleinvalid }" required>
+                  <div class="invalid-feedback">
+                    <div>Debes ingresar una suma de dinero</div>
+                  </div>
+                </div>
+                <div class="row form-inline justify-content-center align-self-center">
+                  <button type="submit" class="btn btn-success">√</button>
+                  <div class="divider"></div>
+                  <button type="button" class="btn btn-danger" (click)="cancelCreation()">x</button>
+                </div>
+              </form>
+        </div>
+        <div class="col-3"></div>
     </div>
 </div>

@@ -2,9 +2,9 @@ import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angu
 
 import { AuthService } from '../auth.service';
 
-import { User } from '../user';
-
 import { ToastrService } from 'ngx-toastr';
+import { Usuario } from '../../usuario/usuario';
+import { Proveedor } from '../../proveedor/proveedor';
 
 @Component({
     selector: 'app-auth-login',
@@ -23,7 +23,11 @@ export class AuthLoginComponent implements OnInit {
         private toastrService: ToastrService,
     ) { }
 
-    user: User;
+    usuario: Usuario;
+
+    proveedor: Proveedor;
+
+    rolSeleccionado: String;
 
     roles: String[];
 
@@ -31,7 +35,7 @@ export class AuthLoginComponent implements OnInit {
     * Logs the user in with the selected role
     */
     login(): void {
-        this.authService.login(this.user.role);
+        this.authService.login(this.rolSeleccionado);
         this.toastrService.success('Logged in')
     }
 
@@ -39,8 +43,10 @@ export class AuthLoginComponent implements OnInit {
     * This function will initialize the component
     */
     ngOnInit() {
-        this.user = new User();
-        this.roles = ['Administrator', 'Client'];
+        this.usuario = new Usuario();
+        this.proveedor = new Proveedor();
+        this.roles = ['USER', 'ADMIN', 'PROVIDER'];
+        this.rolSeleccionado = this.roles[0];
     }
 
 }

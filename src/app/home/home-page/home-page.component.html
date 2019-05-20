@@ -2,7 +2,13 @@
   <div *ngIf="this.loginPage" class="row align-items-center" id="home-container">
     <div class="col"></div>
     <div class="col-5 card">
-      <app-usuario-create (cancel)="toggleLogin()" (create)="toggleLogin()"></app-usuario-create>
+      <app-auth-sign-up *ngIf="!this.check" (cancel)="toggleLogin()" (create)="toggleLogin()"></app-auth-sign-up>
+      <app-auth-login *ngIf="this.check"></app-auth-login>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col"><input type="checkbox" (change)="checkear()" id="switch" /><label for="switch">Toggle</label></div>
+        <div class="col"></div>
+      </div>
     </div>
     <div class="col"></div>
   </div>

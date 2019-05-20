@@ -98,21 +98,6 @@ const routes: Routes = [
                         only: ['ADMIN', 'USER', 'PROVIDER']
                     }
                 }
-            }
-        ]
-    },
-
-    {
-        path: 'proveedores',
-        children: [
-            {
-                path: 'list',
-                component: ProveedorListComponent
-            },
-            {
-                path: ':login',
-
-                component: ProveedorDetailComponent
             },
             {
                 path: ':login/vehiculos/:placa',
@@ -120,7 +105,7 @@ const routes: Routes = [
 
             }
         ]
-    },
+    }
     
 ];
 

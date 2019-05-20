@@ -12,12 +12,19 @@ export class HomePageComponent implements OnInit {
 
   landingPage: boolean;
 
+  check: boolean;
+
   constructor(
   ) { }
 
   ngOnInit() {
     this.landingPage = true;
     this.loginPage = false;
+    this.check = false;
+  }
+
+  checkear():void {
+    this.check = !this.check;
   }
 
   toggleLogin(): void {
