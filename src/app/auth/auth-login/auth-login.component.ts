@@ -35,7 +35,17 @@ export class AuthLoginComponent implements OnInit {
     * Logs the user in with the selected role
     */
     login(): void {
-        this.authService.login(this.rolSeleccionado);
+        if (this.rolSeleccionado == 'USER') {
+            this.authService.login(this.rolSeleccionado);
+
+        }
+        else if (this.rolSeleccionado == 'PROVIDER') {
+            this.authService.login(this.rolSeleccionado);
+
+        }
+        else {
+            this.authService.login(this.rolSeleccionado);
+        }
         this.toastrService.success('Logged in')
     }
 
