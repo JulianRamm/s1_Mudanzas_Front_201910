@@ -61,11 +61,7 @@ const routes: Routes = [
                 path: 'list',
                 component: UsuarioListComponent,
                 canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['ADMIN']
-                    }
-                }
+                
             },
             {
                 path: ':login',
