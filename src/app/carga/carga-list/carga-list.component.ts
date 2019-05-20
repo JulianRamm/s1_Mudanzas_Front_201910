@@ -76,8 +76,16 @@ export class CargaListComponent implements OnInit {
   }
 
   cargaEliminada(idCarga:number):void{
-    let c =this.cargas.find(function(element){return element.id==idCarga});
+    let c =this.cargas.find(function(element){return element.id===idCarga});
     this.cargas.splice(this.cargas.indexOf(c),1);
+  }
+
+  buscarCarga(){
+    if(this.idCarga==undefined){
+      this.ngOnInit();
+    }
+    this.cargas=this.cargas.filter((element)=>
+    {return element.id.toLocaleString().match(this.idCarga.toLocaleString())});
   }
   /**
    * This will initialize the component by retrieving the list of cargas from the service

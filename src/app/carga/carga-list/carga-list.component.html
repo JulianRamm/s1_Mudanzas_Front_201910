@@ -1,6 +1,14 @@
+<div class="input-group">
+    <input #esto class="form-control py-2 border-right-0 border" type="number" name="idCarga" [(ngModel)]="idCarga" 
+     id="example-search-input" placeholder="buscar carga con id..." (keyup.enter)="buscarCarga()">
+    <span class="input-group-append">
+        <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+    </span>
+</div>
+{{idCarga}}
 <div class="container-fluid">
   <div class="row">
-    <div class="col" *ngFor="let carga of cargas">
+    <div class="col" *ngFor="let carga of cargas ">
       <div class="card" style="width: 18rem;">
         <img class="card-img-top"
           src="https://png.pngtree.com/element_origin_min_pic/17/09/15/7fa8a2f68bd91d3a520690798feecebe.jpg"

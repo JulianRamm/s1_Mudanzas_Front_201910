@@ -33,7 +33,7 @@
 </div>
 
 <div *ngIf="!viajeDetail">
-  <div *ngIf="showCreate" class="card" id="add" style="width: 28rem;"><button type="button" class="btn btn-success"
+  <div *ngIf="showCreate" class="card" id="add" style="width: 100% ;"><button type="button" class="btn btn-success"
       [ngClass]="{ 'btn-primary': showCreate, 'btn-danger': !showCreate }" (click)="showHideCreate()"><b>Crear viaje
       </b></button></div>
   <div *ngIf="!showCreate" class="card" id="add" style="width: 28rem;">
@@ -50,8 +50,6 @@
 
 <hr>
 <div *ngIf="verCargas">
-
-
   <div *ngIf="viajeDetail.cargas" class=" table row" id="cargas">
     <div class="container-fluid">
       <div class="row">
