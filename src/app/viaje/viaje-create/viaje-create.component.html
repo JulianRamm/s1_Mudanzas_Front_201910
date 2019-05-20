@@ -73,7 +73,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Hora de partida</span>
           </div>
-          <input type="datetime-local" name="viajeHoraPartida" class="form-control" id="viajeHoraPartida"
+          <input type="date" name="viajeHoraPartida" class="form-control" id="viajeHoraPartida"
             [(ngModel)]="viaje.horaPartida" #viajeHoraPartida="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && viajeHoraPartida.invalid }" required>
           <div class="invalid-feedback">
@@ -92,9 +92,9 @@
           </div>
         </div>
         <div class="row form-inline justify-content-center align-self-center">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Crear</button>
           <div class="divider"></div>
-          <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+          <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
         </div>
       </form>
     </div>

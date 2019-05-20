@@ -2,10 +2,6 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Conductor } from '../conductor';
 import { ConductorService } from '../conductor.service';
 import { ConductorDetail } from '../conductor-detail';
-import { StringifyOptions } from 'querystring';
-
-
-
 
 @Component({
     selector: 'app-conductor',
@@ -83,7 +79,6 @@ export class ConductorListComponent implements OnInit {
         this.showCreate = false;
         this.selectedConductor = undefined;
         this.idConductor=undefined;
-
         this.getConductores();
     }
 }

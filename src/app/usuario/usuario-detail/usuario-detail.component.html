@@ -1,6 +1,11 @@
-<div class='container-fluid row justify-content-center'>
+<br>
+<br>
+<br>
+<br>
+<div *ngIf="this.usuarioDetail" class='container-fluid row justify-content-center'>
     <div class="row" id="detail">
-        <img class="img-fluid" alt="Responsive image" src="../../../userprofile.png">
+        <img class="img-fluid" alt="Responsive image"
+            src="https://dl.dropbox.com/s/x4bvrlzf5h0nlny/userprofile.png?dl=0">
         <table class='table col'>
             <tbody>
                 <br>
@@ -39,8 +44,8 @@
             <hr>
             <br>
             <div *ngIf="usuarioDetail.login">
-                <app-carga [login]="usuarioDetail.login" (selectedCarga)="setCarga($event)"
-                    (showMap)="showHideMap()"></app-carga>
+                <app-carga [login]="usuarioDetail.login" (selectedCarga)="setCarga($event)" (showMap)="showHideMap()">
+                </app-carga>
             </div>
         </div>
         <div class="col" id="detail">
@@ -48,16 +53,12 @@
                 <app-oferta (cerrar)="showHideOferta()" [id]="this.subasta.id"></app-oferta>
                 <hr>
             </div>
-            <br>
-
-            <br>
-
             <p id="tituloSub"><b>Subastas activas: </b></p>
             <hr>
             <br>
             <div *ngIf="usuarioDetail.login">
                 <app-subasta [login]="usuarioDetail.login" (selectedSubasta)="setSubasta($event)"
-                (showOferta)="showHideOferta()"></app-subasta>
+                    (showOferta)="showHideOferta()"></app-subasta>
             </div>
         </div>
     </div>

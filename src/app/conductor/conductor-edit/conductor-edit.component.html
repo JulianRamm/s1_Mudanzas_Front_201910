@@ -1,3 +1,57 @@
-<p>
-  conductor-edit works!
-</p>
+<div class="container-fluid" *ngIf="loginProveedor">
+
+  <form name="conductor" (ngSubmit)="f.form.valid && updateConductor()" #f="ngForm" novalidate>
+
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top"
+        src="https://images.all-free-download.com/images/graphiclarge/road_logistic_banner_truck_male_shipper_icons_6838315.jpg"
+        alt="Card image cap">
+      <div class="card-body">
+        <h3 class="card-title"><b>Conductor</b></h3>
+      </div>
+      <ul class="list-group list-group-flush">
+
+        <li class="list-group-item"><b>ID: </b>
+          <input type="number" name="conductorId" class="form-control" id="conductorId" [(ngModel)]="conductor.id"
+            #conductorId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && conductorId.invalid }" maxlength="20"
+            required>
+          <div class="invalid-feedback">
+            <div>Debes ingresar el ID</div>
+          </div>
+        </li>
+
+        <li class="list-group-item"><b>Nombre: </b>
+          <input type="text" name="conductorNombre" class="form-control" id="conductorNombre"
+            [(ngModel)]="conductor.nombre" #conductorNombre="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && conductorNombre.invalid }" maxlength="20" required>
+          <div class="invalid-feedback">
+            <div>Debes ingresar el nombre del conductor</div>
+          </div>
+        </li>
+        <li class="list-group-item"><b>Telefono: </b>
+          <input type="text" name="conductorTelefono" class="form-control" id="conductorTelefono"
+            [(ngModel)]="conductor.telefono" #conductorTelefono="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && conductorTelefono.invalid }" maxlength="20" required>
+          <div class="invalid-feedback">
+            <div>Debes ingresar un telefono</div>
+          </div>
+        </li>
+        <li class="list-group-item"><b>Calificacion: </b>
+          <input type="text" name="conductorCalificacion" class="form-control" id="conductorCalificacion"
+            [(ngModel)]="conductor.calificacion" #conductorCalificacion="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && conductorCalificacion.invalid }" maxlength="20" required>
+          <div class="invalid-feedback">
+            <div>Debes ingresar una calificacion</div>
+          </div>
+        </li>
+        <li>
+          <div class="row form-inline justify-content-center align-self-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="divider"></div>
+            <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </form>
+</div>

@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ConductorCreateComponent } from './conductor-create/conductor-create.component';
 import { ConductorDetailComponent } from './conductor-detail/conductor-detail.component';
 import { ViajeModule } from '../viaje/viaje.module';
-import { ConductorEditComponent } from '../Conductor/conductor-edit/conductor-edit.component';
+import { ConductorEditComponent } from '../conductor/conductor-edit/conductor-edit.component';
 
 
 @NgModule({

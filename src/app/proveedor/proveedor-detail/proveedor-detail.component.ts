@@ -4,6 +4,9 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 import { ProveedorService } from '../proveedor.service';
 import { ProveedorDetail } from '../proveedor-detail';
+import { Vehiculo } from '../../vehiculo/vehiculo';
+
+
 
 
 @Component({
@@ -30,7 +33,7 @@ export class ProveedorDetailComponent implements OnInit {
 
   showEdit: boolean;
 
-
+  selectedVehiculo: Vehiculo;
 
   /**
   * The method which retrieves the details of the proveedor that
@@ -40,12 +43,16 @@ export class ProveedorDetailComponent implements OnInit {
     this.proveedorService.getProveedorDetail(this.proveedor_login)
       .subscribe(proveedorDetail => {
         this.proveedorDetail = proveedorDetail;
-        console.log(this.proveedorDetail)
       });
   }
 
   showHideEdit(): void {
     this.showEdit = !this.showEdit;
+  }
+
+  setVehiculo(v: Vehiculo)
+  {
+    this.selectedVehiculo = v;
   }
 
 
