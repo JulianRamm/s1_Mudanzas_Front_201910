@@ -4,7 +4,7 @@
             <br>
             <h3 class="text-center">Log-in</h3>
             <br>
-            <form name="usuario" *ngIf="this.rolSeleccionado == 'USER'" (ngSubmit)="f.form.valid && login()"
+            <form name="usuario" (ngSubmit)="f.form.valid && login()"
                 #f="ngForm" novalidate>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -37,12 +37,11 @@
                     </select>
                 </div>
                 <div class="row form-inline justify-content-center align-self-center">
-                    <button type="submit" class="btn btn-success">√</button>
+                    <button type="submit" class="btn btn-success">Ingresar</button>
                     <div class="divider"></div>
-                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">x</button>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
                 </div>
             </form>
         </div>
-        <div class="col-3"></div>
     </div>
 </div>
