@@ -37,5 +37,3 @@ export class ConductorDetailComponent implements OnInit {
     this.getConductorDetail();
   }
 }
-
-

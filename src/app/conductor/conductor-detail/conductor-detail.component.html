@@ -1,26 +1,38 @@
-<div class="card" style="width: 30rem;">
-  <img class="card-img-top"
-    src="https://images.all-free-download.com/images/graphiclarge/road_logistic_banner_truck_male_shipper_icons_6838315.jpg"
-    alt="Card image cap">
-  <div class="card-body">
-    <h4 class="card-title"><b>{{conductorDetail.nombre}}</b></h4>
-    <h3 class="card-title"><b>ID: </b>{{conductorDetail.id}}</h3>
+<div class="card" style="width: 95%;">
+    <img class="card-img-top" style="display: block;margin-left: auto;margin-right: auto; width: 40%; height: 30%;"
+      src="https://images.all-free-download.com/images/graphiclarge/road_logistic_banner_truck_male_shipper_icons_6838315.jpg"
+      alt="Card image cap">
+    </div>
+    <br>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title"><b>{{conductorDetail.nombre}}</b></h4>
+          <h3 class="card-title"><b>ID: </b>{{conductorDetail.id}}</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><b>Telefono: </b>{{conductorDetail.telefono}}</li>
+          <li class="list-group-item"><b>Calificacion: </b>{{conductorDetail.calificacion}}</li>
+          <div class="card" id="add" style="width: 28rem;">
+            <button type="button" class="btn btn-light" [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
+              (click)="showHideEdit()">Cambiar mi conductor</button>
+          </div>
+          <div *ngIf="showEdit" class="row edit" id="detail">
+            <div class="col-2"></div>
+            <app-conductor-edit class="col-10" [loginProveedor]="this.proveedor_login" (cancel)="showHideEdit()"
+              (update)="ngOnInit()">
+            </app-conductor-edit>
+            <div class="col-2"></div>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+      <app-viaje-detail [loginP]="this.proveedor_login" [conductorId]="this.conductor_Id"></app-viaje-detail>
+    </div>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><b>Telefono: </b>{{conductorDetail.telefono}}</li>
-    <li class="list-group-item"><b>Calificacion: </b>{{conductorDetail.calificacion}}</li>
-    <div class="card" id="add" style="width: 28rem;">
-      <button type="button" class="btn btn-light" [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
-        (click)="showHideEdit()">Cambiar mi conductor</button>
-    </div>
-    <div *ngIf="showEdit" class="row edit" id="detail">
-      <div class="col-2"></div>
-      <app-conductor-edit class="col-10" [loginProveedor]="this.proveedor_login" (cancel)="showHideEdit()"
-        (update)="ngOnInit()">
-      </app-conductor-edit>
-      <div class="col-2"></div>
-    </div>
-  </ul>
-    <app-viaje-detail [loginP]="this.proveedor_login" [conductorId]="conductor_Id" ></app-viaje-detail>
+  </div>
 </div>
-
