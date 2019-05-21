@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
         this.title = "moveasy";
         this.landingPage = true;
         this.authService.start();
+        this.authService.printRole();
     }
 
        /**
@@ -47,7 +48,7 @@ export class AppComponent implements OnInit {
     }
 
     logout(): void {
-        this.authService.logout()
+        this.authService.logout();
     }
 
 }

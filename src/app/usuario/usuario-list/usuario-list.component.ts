@@ -58,7 +58,7 @@ export class UsuarioListComponent implements OnInit {
     ngOnInit() {
         this.selectedUsuario = undefined;
         this.usuario_login = undefined;
-        this.usuarios = undefined;
+        this.usuarios = [];
         this.getUsuarios();
     }
 }
