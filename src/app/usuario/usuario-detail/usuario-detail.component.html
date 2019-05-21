@@ -1,6 +1,11 @@
-<div class='container-fluid row justify-content-center'>
-    <div class="row" id="detail">
-        <img class="img-fluid" alt="Responsive image" src="../../../userprofile.png">
+<br>
+<br>
+<br>
+<br>
+<div *ngIf="this.usuarioDetail" class='container-fluid row justify-content-center'>
+    <div class="row" id="detail" *ngxPermissionsOnly="['USER', 'ADMIN', 'PROVIDER']">
+        <img class="img-fluid" alt="Responsive image"
+            src="https://dl.dropbox.com/s/x4bvrlzf5h0nlny/userprofile.png?dl=0">
         <table class='table col'>
             <tbody>
                 <br>
@@ -14,24 +19,24 @@
                 <tr> <a href="mailto:{{usuarioDetail.correoElectronico}}"> {{ usuarioDetail.correoElectronico }}
                     </a></tr>
                 <tr> {{ "Ubicacion: " + usuarioDetail.ciudadDeOrigen + ", Colombia" }} </tr>
-                <tr><button type="button" class="btn btn-light"
+                <tr *ngxPermissionsOnly="['USER', 'ADMIN']"><button type="button" class="btn btn-light"
                         [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
                         (click)="showHideEdit()">Cambiar mi perfil</button></tr>
             </tbody>
         </table>
     </div>
     <hr>
-    <div class="table row">
+    <div class="table row" *ngxPermissionsOnly="['USER', 'ADMIN']">
         <div *ngIf="showEdit" class="row edit" id="detail">
             <div class="col-2"></div>
-            <app-usuario-edit class="col-10" [usuario]="this.usuarioDetail" (cancel)="showHideEdit()"
-                (update)="ngOnInit()">
+            <app-usuario-edit  class="col-10" [usuario]="this.usuarioDetail" (cancel)="showHideEdit()"
+                (update)="ngOnInit()" *ngxPermissionsOnly="['USER', 'ADMIN']">
             </app-usuario-edit>
             <div class="col-2"></div>
         </div>
-        <div class="col" id="detail">
+        <div  class="col" id="detail">
             <div *ngIf="showMap && carga" id="detail">
-                <app-usuario-map (cerrar)="showHideMap()" [carga]="this.carga"></app-usuario-map>
+                <app-usuario-map  (cerrar)="showHideMap()" [carga]="this.carga"></app-usuario-map>
                 <hr>
             </div>
             <br>
@@ -39,35 +44,31 @@
             <hr>
             <br>
             <div *ngIf="usuarioDetail.login">
-                <app-carga [login]="usuarioDetail.login" (selectedCarga)="setCarga($event)"
-                    (showMap)="showHideMap()"></app-carga>
+                <app-carga  [login]="usuarioDetail.login" (selectedCarga)="setCarga($event)" (showMap)="showHideMap()" *ngxPermissionsOnly="['USER', 'ADMIN']">
+                </app-carga>
             </div>
         </div>
-        <div class="col" id="detail">
+        <div  class="col" id="detail">
             <div *ngIf="showOferta && subasta" id="detail">
-                <app-oferta (cerrar)="showHideOferta()" [id]="this.subasta.id"></app-oferta>
+                <app-oferta  (cerrar)="showHideOferta()" [id]="this.subasta.id" *ngxPermissionsOnly="['USER', 'ADMIN']"></app-oferta>
                 <hr>
             </div>
-            <br>
-
-            <br>
-
             <p id="tituloSub"><b>Subastas activas: </b></p>
             <hr>
             <br>
             <div *ngIf="usuarioDetail.login">
-                <app-subasta [login]="usuarioDetail.login" (selectedSubasta)="setSubasta($event)"
-                (showOferta)="showHideOferta()"></app-subasta>
+                <app-subasta  [login]="usuarioDetail.login" (selectedSubasta)="setSubasta($event)"
+                    (showOferta)="showHideOferta()" *ngxPermissionsOnly="['USER', 'ADMIN']"></app-subasta>
             </div>
         </div>
     </div>
-    <div class="table row" id="perfil" id="detail">
+    <div *ngxPermissionsOnly="['USER', 'ADMIN']" class="table row" id="perfil" id="detail">
         <div class="col">
             <p id="tituloSub"><b>Tarjetas De Credito: </b></p>
             <hr>
             <br>
             <div *ngIf="usuarioDetail.login">
-                <app-tarjeta [login]="usuarioDetail.login"></app-tarjeta>
+                <app-tarjeta  [login]="usuarioDetail.login" *ngxPermissionsOnly="['USER', 'ADMIN']"></app-tarjeta>
             </div>
         </div>
     </div>

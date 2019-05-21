@@ -15,6 +15,9 @@ import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail
 import { ViajeDetailComponent } from '../viaje/viaje-detail/viaje-detail.component';
 import { ConductorDetailComponent } from '../conductor/conductor-detail/conductor-detail.component';
 import { VehiculoDetailComponent } from '../vehiculo/vehiculo-detail/vehiculo-detail.component';
+import { UsuarioEditComponent } from '../usuario/usuario-edit/usuario-edit.component';
+
+import { HomePageComponent } from '../home/home-page/home-page.component';
 
 
 const routes: Routes = [
@@ -44,26 +47,34 @@ const routes: Routes = [
             }
         ]
     },
-    /**{
-        path: 'home',
-        component: UsuarioListComponent
-        //AuthLoginComponent
-    },**/
     {
-        path: '**',
-        redirectTo: 'home',
+        path: 'home',
+        component: HomePageComponent
+    },
+    {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
     },
     {
         path: 'usuarios',
         children: [
             {
                 path: 'list',
-                component: UsuarioListComponent
+                component: UsuarioListComponent,
+                canActivate: [NgxPermissionsGuard],
+                
             },
             {
                 path: ':login',
-                component: UsuarioDetailComponent
+                component: UsuarioDetailComponent,
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'USER', 'PROVIDER']
+                    }
+                }
             }
+            
         ]
     },
     {
@@ -75,28 +86,21 @@ const routes: Routes = [
             },
             {
                 path: ':login',
-
-                component: ProveedorDetailComponent
+                component: ProveedorDetailComponent,
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'USER', 'PROVIDER']
+                    }
+                }
             },
             {
                 path: ':login/conductores/:id',
                 component: ConductorDetailComponent,
-
-            }
-        ]
-    },
-
-    {
-        path: 'proveedores',
-        children: [
-            {
-                path: 'list',
-                component: ProveedorListComponent
-            },
-            {
-                path: ':login',
-
-                component: ProveedorDetailComponent
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'USER', 'PROVIDER']
+                    }
+                }
             },
             {
                 path: ':login/vehiculos/:placa',
@@ -104,7 +108,7 @@ const routes: Routes = [
 
             }
         ]
-    },
+    }
     
 ];
 

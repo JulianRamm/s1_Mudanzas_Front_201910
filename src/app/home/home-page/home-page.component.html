@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <div *ngIf="this.loginPage" class="row align-items-center" id="home-container">
+    <div class="col-4"></div>
+    <div class="col-4 card">
+      <app-auth-sign-up *ngIf="!this.check" (cancel)="toggleLogin()" (create)="toggleLogin()"></app-auth-sign-up>
+      <app-auth-login *ngIf="this.check"></app-auth-login>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <div class="row">
+            <div *ngIf="this.check"><b>Sign-up  </b></div>
+            <div *ngIf="!this.check"><b>Log-in  </b></div>
+            <input type="checkbox" (change)="checkear()" id="switch" /><label for="switch">Toggle</label>
+          </div>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+    <div class="col-4"></div>
+  </div>
+  <div *ngIf="this.landingPage" class="row align-items-center" id="home-container">
+    <div class="col"></div>
+    <div class="col-5" id="inner">
+      <img class="slide-in-top" id="logo" src="https://dl.dropbox.com/s/qpeqdwcyn28s83m/logotextder.png?dl=0">
+      <h1 class="slide-in-left" id="ache1">Mudanza + Rapida = moveasy</h1>
+      <p class="subtitulo swirl-in-bl-fwd">Mudarse nunca fue tan facil!</p>
+
+      <button type="button" class="btn cta slide-in-bottom" (click)="toggleLogin()">Unirse o entrar</button>
+    </div>
+    <div class="col-5" id="animacion">
+      <div class="row">
+        <img class="col animaciones slide-in-top" src="https://dl.dropbox.com/s/7095w82i83penqt/casa.png?dl=0"
+          id="casa1">
+        <img class="col animaciones slide-in-left1" src="https://dl.dropbox.com/s/3pw7120c2q232xn/camion.png?dl=0"
+          id="camion">
+        <img class="col animaciones slide-in-right" src="https://dl.dropbox.com/s/5iz8xrz0motnoia/carrito.png?dl=0"
+          id="carrito">
+        <img class="col animaciones slide-in-bottom" src="https://dl.dropbox.com/s/7095w82i83penqt/casa.png?dl=0"
+          id="casa2">
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

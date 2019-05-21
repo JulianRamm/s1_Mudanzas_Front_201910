@@ -46,8 +46,11 @@ export class ConductorService {
     }
 
     getConductorDetail(login: string, idConductor: number): Observable<ConductorDetail> {
-        console.log(login)
         return this.http.get<ConductorDetail>(API_URL + proveedores + '/' + login + conductores + '/' + idConductor);
 
+    }
+
+    deleteConductor(login: string, idConductor:number ):Observable<void>{
+        return this.http.delete<void>(API_URL + proveedores + '/' + login + conductores + '/'+ idConductor )
     }
 }

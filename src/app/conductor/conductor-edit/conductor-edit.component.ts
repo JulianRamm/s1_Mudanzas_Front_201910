@@ -37,7 +37,7 @@ export class ConductorEditComponent implements OnInit {
       .subscribe(conductor => {
         this.conductor = conductor;
         this.edit.emit();
-        this.toastrService.success("La conductor fue creada", "Creacion de conductor");
+        this.toastrService.success("El conductor fue actualizado", "Actualización de conductor");
       });
 
     return this.conductor;

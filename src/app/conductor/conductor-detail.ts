@@ -1,5 +1,6 @@
 import { Conductor } from './conductor';
 import { ViajeDetail } from '../viaje/viaje-detail';
+import { VehiculoDetail } from '../vehiculo/vehiculo-detail';
 
 /**
 * This class represents a usuario of the moveasy. 
@@ -7,6 +8,6 @@ import { ViajeDetail } from '../viaje/viaje-detail';
 */
 export class ConductorDetail extends Conductor {
 
-    viaje: ViajeDetail;
+   vehiculos:VehiculoDetail[];
 
 }

@@ -35,7 +35,7 @@ export class ProveedorEditComponent implements OnInit {
    editProveedor(): void {
     this.proveedorService.updateProveedor(this.proveedor)
         .subscribe(() => {
-            this.toastrService.success("The proveedor's information was updated", "Usuario edition");
+            this.toastrService.success("The proveedor's information was updated", "Proveedor edition");
         });
     this.update.emit();
 }

@@ -1,0 +1,15 @@
+<span *ngIf="confirmDelete">
+    <div class="row justify-content-center">
+      <br>
+        <span>¿Eliminar viaje con id: {{this.viajeId}}? </span>
+        <button type="col button" class="btn btn btn-danger a-btn-slide-text" (click)="deleteViaje()">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"><strong>Si</strong></span>
+        </button>
+        <button type="col button" class="btn btn btn-primary a-btn-slide-text" (click)="confirmDelete=false">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"><strong>No</strong></span>
+        </button>
+    </div>
+  </span>
+  <button *ngIf="!confirmDelete" class="btn btn-danger" id="add" style="width: 27rem;" (click)="confirmDelete=true">
+      <span class="justify-content-center align-self-center" aria-hidden="true"><strong class="justify-content-center align-self-center">Eliminar</strong></span>
+  </button>

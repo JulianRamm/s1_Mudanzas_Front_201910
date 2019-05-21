@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ViajeService } from '../viaje.service';
 import { ToastrService } from 'ngx-toastr';
 import { Viaje } from '../viaje';
+import { ViajeDetail } from '../viaje-detail';
 
 @Component({
   selector: 'app-viaje-create',
@@ -30,15 +31,12 @@ export class ViajeCreateComponent implements OnInit {
    * that the user created a new Viaje
    */
    @Output() create = new EventEmitter();
-
-  
   createViaje(): Viaje {
     this.ViajeService.createViaje(this.conductorId,this.viaje, this.loginP)
-      .subscribe(viaje => {
+      .subscribe((viaje:ViajeDetail)=> {
         this.viaje = viaje;
         this.create.emit();
         this.toastrService.success("El Viaje fue creado", "Creacion de Viaje");
-
       });
     return this.viaje;
   }

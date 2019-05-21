@@ -63,6 +63,14 @@ export class ProveedorListComponent implements OnInit {
             .subscribe(proveedores => this.proveedores = proveedores);
     }
 
+    deleteProveedor(proveedorLogin): void {
+        this.proveedorService.deleteProveedor(proveedorLogin)
+        .subscribe(() =>
+        alert("Proveedor login: " + proveedorLogin + " eliminado.")
+        );
+        this.ngOnInit();
+    }
+
     /**
      * This will initialize the component by retrieving the list of proveedores from the service
      * This method will be called when the component is created
