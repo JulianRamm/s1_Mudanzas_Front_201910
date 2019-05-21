@@ -59,7 +59,8 @@ import { HomeModule } from './home/home.module';
         AgmDirectionModule,
         AngularWeatherWidgetModule,
         MDBBootstrapModule,
-        HomeModule
+        HomeModule,
+        NgxPermissionsModule.forRoot()
     ],
     bootstrap: [AppComponent],
     providers: [

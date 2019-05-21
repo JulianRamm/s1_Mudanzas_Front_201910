@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Router} from '@angular/router';
-import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions'
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgxRolesService, NgxPermissionsService } from 'ngx-permissions'
 import 'rxjs/add/operator/catch';
 
 /**
@@ -15,40 +15,130 @@ export class AuthService {
      * @param roleService NgxRolesService to manage authentication roles
      * @param permissionsService NgxPermissionsService to manage authentication permissions
      */
-    constructor (private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService) { }
+    constructor(private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService) { }
 
-    start (): void {
+    start(): void {
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
-        this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review']);
+        this.permissionsService.loadPermissions([
+            'detail_usuario_permission',
+            'create_usuario_permission',
+            'edit_usuario_permission',
+            'delete_usuario_permission',
+            'detail_provider_permission',
+            'create_provider_permission',
+            'edit_provider_permission',
+            'delete_provider_permission',
+            'create_tarjeta_permission',
+            'delete_tarjeta_permission',
+            'create_carga_permission',
+            'delete_carga_permission',
+            'edit_carga_permission',
+            'create_subastas_permission',
+            'edit_subasta_permission',
+            'delete_subasta_permission',
+            'create_oferta_permission',
+            'edit_oferta_permission',
+            'delete_oferta_permission',
+            'create_vehiculo_permission',
+            'edit_vehiculo_permission',
+            'delete_vehiculo_permission',
+            'create_conductor_permission',
+            'edit_conductor_permission',
+            'delete_conductor_permission'
+        ]);
         const role = localStorage.getItem('role');
         if (!role) {
             this.setGuestRole();
         } else if (role === 'ADMIN') {
             this.setAdministratorRole();
+        } else if (role === 'USER') {
+            this.setUserRole();
         } else {
-            this.setClientRole();
+            this.setProviderRole();
         }
     }
 
-    setGuestRole (): void {
+    setGuestRole(): void {
         this.roleService.flushRoles();
         this.roleService.addRole('GUEST', ['']);
     }
 
-    setClientRole (): void {
+    setUserRole(): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('CLIENT', ['leave_review']);
-        localStorage.setItem('role', 'CLIENT');
+        this.roleService.addRole('USER',
+            [
+                'detail_usuario_permission',
+                'create_usuario_permission',
+                'edit_usuario_permission',
+                'detail_provider_permission',
+                'create_tarjeta_permission',
+                'delete_tarjeta_permission',
+                'create_carga_permission',
+                'delete_carga_permission',
+                'edit_carga_permission',
+                'create_subastas_permission',
+                'edit_subasta_permission',
+                'delete_subasta_permission'
+            ]);
+        localStorage.setItem('role', 'USER');
     }
 
-    setAdministratorRole (): void {
+    setProviderRole(): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
+        this.roleService.addRole('PROVIDER',
+            [
+                'detail_usuario_permission',
+                'detail_provider_permission',
+                'create_provider_permission',
+                'edit_provider_permission',
+                'create_oferta_permission',
+                'edit_oferta_permission',
+                'delete_oferta_permission',
+                'create_vehiculo_permission',
+                'edit_vehiculo_permission',
+                'delete_vehiculo_permission',
+                'create_conductor_permission',
+                'edit_conductor_permission',
+                'delete_conductor_permission'
+            ]);
+        localStorage.setItem('role', 'PROVIDER');
+    }
+
+    setAdministratorRole(): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('ADMIN',
+            [
+                'detail_usuario_permission',
+                'create_usuario_permission',
+                'edit_usuario_permission',
+                'delete_usuario_permission',
+                'detail_provider_permission',
+                'create_provider_permission',
+                'edit_provider_permission',
+                'delete_provider_permission',
+                'create_tarjeta_permission',
+                'delete_tarjeta_permission',
+                'create_carga_permission',
+                'delete_carga_permission',
+                'edit_carga_permission',
+                'create_subastas_permission',
+                'edit_subasta_permission',
+                'delete_subasta_permission',
+                'create_oferta_permission',
+                'edit_oferta_permission',
+                'delete_oferta_permission',
+                'create_vehiculo_permission',
+                'edit_vehiculo_permission',
+                'delete_vehiculo_permission',
+                'create_conductor_permission',
+                'edit_conductor_permission',
+                'delete_conductor_permission'
+            ]);
         localStorage.setItem('role', 'ADMIN');
     }
 
-    printRole (): void {
+    printRole(): void {
         console.log(this.roleService.getRoles());
     }
 
@@ -56,19 +146,35 @@ export class AuthService {
      * Logs the user in with the desired role
      * @param role The desired role to set to the user
      */
-    login (role): void {
-        if (role === 'Administrator') {
-            this.setAdministratorRole();
-        } else {
-            this.setClientRole()
-        }
+    login(role: String): void {
+        switch(role) { 
+            case 'ADMIN': { 
+                this.setAdministratorRole();
+                console.log("Soy administrador");
+                break;
+            } 
+            case 'USER': { 
+                this.setUserRole();
+                console.log("Soy usuario");
+                break;
+            } 
+            case 'PROVIDER': { 
+                this.setProviderRole();
+                console.log("Soy proveedor");
+                break;
+             } 
+            default: { 
+               this.setGuestRole();
+               break;
+            } 
+         } 
         this.router.navigateByUrl('/');
     }
 
     /**
      * Logs the user out
      */
-    logout (): void {
+    logout(): void {
         this.roleService.flushRoles();
         this.setGuestRole();
         localStorage.removeItem('role');

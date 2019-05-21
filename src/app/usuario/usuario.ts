@@ -3,7 +3,6 @@
  * Contiene toda la informacion relevante para un usuario
  */
 export class Usuario {
-
     /**
      * El id del usuario
      */
@@ -38,5 +37,4 @@ export class Usuario {
      * La ciudad de origen del usuario
      */
     ciudadDeOrigen: string;
-
 }

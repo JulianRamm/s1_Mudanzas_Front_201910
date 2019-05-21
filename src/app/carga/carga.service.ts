@@ -26,4 +26,7 @@ export class CargaService {
   deleteCarga(login: string, idCarga:number ):Observable<void>{
     return this.http.delete<void>(API_URL + usuarios + '/' + login + '/' + cargas + '/'+ idCarga )
   }
+  upddateCarga(login: string, idCarga:number,carga:Carga):Observable<Carga>{
+    return this.http.put<Carga>(API_URL + usuarios + '/' + login + '/' + cargas + '/' + idCarga, carga);
+  }
 }
