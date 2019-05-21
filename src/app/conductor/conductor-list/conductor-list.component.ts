@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import { Conductor } from '../conductor';
 import { ConductorService } from '../conductor.service';
 import { ConductorDetail } from '../conductor-detail';
@@ -12,6 +12,7 @@ export class ConductorListComponent implements OnInit {
 
     @Input()conductor_Id: number;
     @Input()proveedor_login: string;
+    @Output() conductorEliminado: EventEmitter<Conductor> = new EventEmitter<Conductor>();
     selectedConductor: Conductor;
     idConductor:number;
 

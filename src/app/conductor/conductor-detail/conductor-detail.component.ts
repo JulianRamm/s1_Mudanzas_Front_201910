@@ -16,6 +16,9 @@ export class ConductorDetailComponent implements OnInit {
   conductorDetail: ConductorDetail;
   showEdit: boolean;
 
+  @Output() conductorE: EventEmitter<Conductor> = new EventEmitter<Conductor>();
+
+
   constructor(private conductorService: ConductorService,
     private route: ActivatedRoute, ) { }
 
