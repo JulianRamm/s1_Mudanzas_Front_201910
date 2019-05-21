@@ -11,14 +11,16 @@ import { splitClasses } from '@angular/compiler';
 })
 export class CargaListComponent implements OnInit {
 
-  @Output() selectedCarga:  EventEmitter<Carga> = new EventEmitter<Carga>();
+  @Output() selectedCarga: EventEmitter<Carga> = new EventEmitter<Carga>();
   cargaSeleccionada: Carga;
-  
+
   @Output() showMap: EventEmitter<any> = new EventEmitter();
 
   idCarga: number;
 
   showCreate: boolean;
+  selectedImage: File = null;
+  defaultImage: string = "../../assets/defaultImage.jpg";
   /**
      * Constructor for the component
      * @param CargaService The author's services provider
@@ -55,7 +57,7 @@ export class CargaListComponent implements OnInit {
   }
 
   onSelectedClick(idCarga: number): void {
-    if(this.cargaSeleccionada) {
+    if (this.cargaSeleccionada) {
       this.cargaSeleccionada = null;
     }
     this.idCarga = idCarga;
@@ -69,24 +71,41 @@ export class CargaListComponent implements OnInit {
 
   getCarga(): void {
     this.cargaService.getCargaDetail(this.idCarga, this.login)
-    .subscribe(seleccionado => {
-      this.cargaSeleccionada = seleccionado;
-      this.selectedCarga.emit(this.cargaSeleccionada);
-    });
+      .subscribe(seleccionado => {
+        this.cargaSeleccionada = seleccionado;
+        this.selectedCarga.emit(this.cargaSeleccionada);
+      });
   }
 
-  cargaEliminada(idCarga:number):void{
-    let c =this.cargas.find(function(element){return element.id===idCarga});
-    this.cargas.splice(this.cargas.indexOf(c),1);
+  cargaEliminada(idCarga: number): void {
+    let c = this.cargas.find(function (element) { return element.id === idCarga });
+    this.cargas.splice(this.cargas.indexOf(c), 1);
   }
 
-  buscarCarga(){
-    if(this.idCarga==undefined){
+  buscarCarga() {
+    if (this.idCarga == undefined) {
       this.ngOnInit();
     }
-    this.cargas=this.cargas.filter((element)=>
-    {return element.id.toLocaleString().match(this.idCarga.toLocaleString())});
+    this.cargas = this.cargas.filter((element) => { return element.id.toLocaleString().match(this.idCarga.toLocaleString()) });
   }
+
+  readImage(file,carga){
+    var reader=new FileReader();
+    reader.onload = (ev: any) => {
+      carga.imagenes = ev.target.result;
+    }
+    reader.readAsDataURL(file);
+  }
+  onSelectedFile(event, id) {
+    var file = <File>event.target.files[0];
+    var found = this.cargas.find((el) => el.id === id);
+    this.readImage(file,found);
+    found.imagenes=file;
+    this.cargaService.upddateCarga(this.login, id, found).subscribe((carga)=>{
+      this.cargas[this.cargas.indexOf(found)]=carga;
+    })
+  }
+  
   /**
    * This will initialize the component by retrieving the list of cargas from the service
    * This method will be called when the component is created

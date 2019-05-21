@@ -11,5 +11,6 @@ export class Carga{
     fechaEnvio:any;
     observaciones:string;
     viaje:Viaje;
+    imagenes:any;
     usuario:Usuario;
 }
