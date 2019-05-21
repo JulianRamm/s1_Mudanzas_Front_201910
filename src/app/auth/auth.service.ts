@@ -146,15 +146,28 @@ export class AuthService {
      * Logs the user in with the desired role
      * @param role The desired role to set to the user
      */
-    login(role): void {
-        if (role === 'ADMIN') {
-            this.setAdministratorRole();
-        } else if (role = 'USER') {
-            this.setUserRole();
-        }
-        else {
-            this.setProviderRole();
-        }
+    login(role: String): void {
+        switch(role) { 
+            case 'ADMIN': { 
+                this.setAdministratorRole();
+                console.log("Soy administrador");
+                break;
+            } 
+            case 'USER': { 
+                this.setUserRole();
+                console.log("Soy usuario");
+                break;
+            } 
+            case 'PROVIDER': { 
+                this.setProviderRole();
+                console.log("Soy proveedor");
+                break;
+             } 
+            default: { 
+               this.setGuestRole();
+               break;
+            } 
+         } 
         this.router.navigateByUrl('/');
     }
 

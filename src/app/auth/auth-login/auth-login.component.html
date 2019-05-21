@@ -4,8 +4,7 @@
             <br>
             <h3 class="text-center">Log-in</h3>
             <br>
-            <form name="usuario" (ngSubmit)="f.form.valid && login()"
-                #f="ngForm" novalidate>
+            <form name="usuario" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">@</span>
@@ -30,8 +29,10 @@
                         </div>
                     </div>
                 </div>
-                <div>
-                    <label for="role"><b>Rol: </b></label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Rol</div>
+                    </div>
                     <select class="custom-select" name="role" id="role" [(ngModel)]="this.rolSeleccionado" required>
                         <option [value]="role" *ngFor="let role of roles">{{role}}</option>
                     </select>

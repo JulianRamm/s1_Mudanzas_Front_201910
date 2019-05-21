@@ -6,7 +6,13 @@
       <app-auth-login *ngIf="this.check"></app-auth-login>
       <div class="row">
         <div class="col"></div>
-        <div class="col"><input type="checkbox" (change)="checkear()" id="switch" /><label for="switch">Toggle</label></div>
+        <div class="col">
+          <div class="row">
+            <div *ngIf="this.check"><b>Sign-up  </b></div>
+            <div *ngIf="!this.check"><b>Log-in  </b></div>
+            <input type="checkbox" (change)="checkear()" id="switch" /><label for="switch">Toggle</label>
+          </div>
+        </div>
         <div class="col"></div>
       </div>
     </div>

@@ -39,10 +39,13 @@ export class AuthLoginComponent implements OnInit {
     login(): void {
         if (this.rolSeleccionado == 'USER') {
             this.authService.login(this.rolSeleccionado);
+            console.log(this.rolSeleccionado);
             this.router.navigate([`/usuarios/${this.usuario.login}`]);
         }
         else if (this.rolSeleccionado == 'PROVIDER') {
             this.authService.login(this.rolSeleccionado);
+            console.log(this.rolSeleccionado);
+            console.log(this.authService);
             this.router.navigate([`/proveedores/${this.usuario.login}`]);
         }
         else {
