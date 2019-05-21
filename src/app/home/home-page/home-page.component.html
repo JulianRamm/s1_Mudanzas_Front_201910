@@ -1,10 +1,22 @@
 <div class="container-fluid">
   <div *ngIf="this.loginPage" class="row align-items-center" id="home-container">
-    <div class="col"></div>
-    <div class="col-5 card">
-      <app-usuario-create (cancel)="toggleLogin()" (create)="toggleLogin()"></app-usuario-create>
+    <div class="col-4"></div>
+    <div class="col-4 card">
+      <app-auth-sign-up *ngIf="!this.check" (cancel)="toggleLogin()" (create)="toggleLogin()"></app-auth-sign-up>
+      <app-auth-login *ngIf="this.check"></app-auth-login>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <div class="row">
+            <div *ngIf="this.check"><b>Sign-up  </b></div>
+            <div *ngIf="!this.check"><b>Log-in  </b></div>
+            <input type="checkbox" (change)="checkear()" id="switch" /><label for="switch">Toggle</label>
+          </div>
+        </div>
+        <div class="col"></div>
+      </div>
     </div>
-    <div class="col"></div>
+    <div class="col-4"></div>
   </div>
   <div *ngIf="this.landingPage" class="row align-items-center" id="home-container">
     <div class="col"></div>
