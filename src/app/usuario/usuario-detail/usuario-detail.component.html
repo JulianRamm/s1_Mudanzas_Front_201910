@@ -4,8 +4,13 @@
 <br>
 <div *ngIf="this.usuarioDetail" class='container-fluid row justify-content-center'>
     <div class="row" id="detail">
-        <img class="img-fluid" alt="Responsive image"
-            src="https://dl.dropbox.com/s/x4bvrlzf5h0nlny/userprofile.png?dl=0">
+            <ng-container *ngIf="usuarioDetail.imagen; else elseTemplate">
+                    <img class="img-fluid" [src]="usuarioDetail.imagen" alt="Card image cap" style="margin: 10px; width: 256px ; height:256px; border-radius: 50px;"   >            
+                </ng-container>
+                <ng-template #elseTemplate>
+                    <img class="img-fluid" src="https://dl.dropbox.com/s/x4bvrlzf5h0nlny/userprofile.png?dl=0" alt="Card image cap">
+                </ng-template>   
+
         <table class='table col'>
             <tbody>
                 <br>
@@ -19,9 +24,19 @@
                 <tr> <a href="mailto:{{usuarioDetail.correoElectronico}}"> {{ usuarioDetail.correoElectronico }}
                     </a></tr>
                 <tr> {{ "Ubicacion: " + usuarioDetail.ciudadDeOrigen + ", Colombia" }} </tr>
-                <tr><button type="button" class="btn btn-light"
-                        [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
-                        (click)="showHideEdit()">Cambiar mi perfil</button></tr>
+                <tr>
+                    <div class="row">
+                        <div class="col-md">
+                                <button type="button" class="btn btn-light"
+                                [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
+                                (click)="showHideEdit()">Cambiar mi perfil</button>
+                        </div>
+                        <div class="col-md">
+                            <input style="display:none" type="file" #imageC (change)="onSelectedFile($event)">
+                            <button type="button" class="btn btn-primary" (click)="imageC.click()">Cargar imagen</button>
+                    </div>
+                    </div>
+                    </tr>
             </tbody>
         </table>
     </div>

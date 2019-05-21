@@ -96,25 +96,12 @@ export class CargaListComponent implements OnInit {
     this.cargas = this.cargas.filter((element) => { return element.id.toLocaleString().match(this.idCarga.toLocaleString()) });
   }
 
-  readImage(carga: Carga) {
-    var base64data;
-    var reader = new FileReader();
-    var san = this.sanitizer;
-    reader.onloadend = function () {
-      base64data = reader.result;
-      console.log(base64data);
-      carga.imagenes = base64data;
-    }
-    reader.readAsDataURL(<Blob>carga.imagenes);
-    console.log(carga.imagenes);
-  }
   onSelectedFile(event, id) {
     var file = <File>event.target.files[0];
     var found = this.cargas.find((el) => el.id === id);
     var reader = new FileReader();
     reader.onload = (ev: any) => {
       found.imagenes = ev.target.result;
-      console.log(found.imagenes);
       this.cargaService.upddateCarga(this.login, id, found).subscribe((carga) => {
       })
     }

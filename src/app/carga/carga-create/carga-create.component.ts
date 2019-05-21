@@ -32,13 +32,16 @@ export class CargaCreateComponent implements OnInit {
   @Output() create = new EventEmitter();
 
   createCarga(): Carga {
+    console.log(this.carga);
     this.cargaService.createCarga(this.loginUsuario, this.carga)
-      .subscribe(carga => {
+      .subscribe((carga: Carga) => {
         this.carga = carga;
+        console.log(this.carga);
         this.create.emit(carga);
         this.toastrService.success("La carga fue creada", "Creacion de carga");
-      });
-      console.log(this.carga);
+      }
+      );
+    console.log(this.carga);
     return this.carga;
   }
 
