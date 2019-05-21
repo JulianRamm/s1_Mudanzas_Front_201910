@@ -12,7 +12,6 @@ export class ConductorListComponent implements OnInit {
 
     @Input()conductor_Id: number;
     @Input()proveedor_login: string;
-    @Output() conductorEliminado: EventEmitter<Conductor> = new EventEmitter<Conductor>();
     selectedConductor: Conductor;
     idConductor:number;
 

@@ -21,8 +21,7 @@ export class ConductorDeleteComponent implements OnInit {
         ).
             subscribe(() =>
                 console.log(`conductor
- con id = ${this.idconductor
-                    } eliminado`),
+                         con id = ${this.idconductor} eliminado`),
                 (err) => console.log(err)
             );
         this.notifyDelete.emit(this.idconductor

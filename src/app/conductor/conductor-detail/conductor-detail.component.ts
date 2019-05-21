@@ -31,6 +31,7 @@ export class ConductorDetailComponent implements OnInit {
 
   conductorEliminado(): void {
     this.conductorDetail = null;
+    this.conductorE.emit()
   }
 
 
