@@ -30,8 +30,6 @@ export class ViajeCreateComponent implements OnInit {
    * that the user created a new Viaje
    */
    @Output() create = new EventEmitter();
-
-  
   createViaje(): Viaje {
     this.ViajeService.createViaje(this.conductorId,this.viaje, this.loginP)
       .subscribe(viaje => {

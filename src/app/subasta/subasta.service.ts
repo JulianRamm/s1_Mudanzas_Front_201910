@@ -21,6 +21,11 @@ export class SubastaService {
     */
     constructor(private http: HttpClient) {}
 
+
+
+    getAllSubastas(): Observable<Subasta[]> {
+        return this.http.get<Subasta[]>(API_URL  + subastas);
+    }
     /**
     * Returns the Observable object containing the list of tarjetas retrieved from the API
     * @returns The list of books in real time

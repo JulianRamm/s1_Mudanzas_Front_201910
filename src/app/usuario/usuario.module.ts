@@ -44,7 +44,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
           MDBBootstrapModule
     ],
     schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
-    declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioEditComponent, UsuarioMapComponent],
+    declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioEditComponent, UsuarioMapComponent],
     providers: [UsuarioService],
     bootstrap: [UsuarioListComponent]
 })

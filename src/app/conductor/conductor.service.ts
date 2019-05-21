@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { HttpClientModule } from "@angular/common/http";
 
 import { Conductor } from './conductor';
 import { ConductorDetail } from './conductor-detail';
@@ -47,7 +46,6 @@ export class ConductorService {
     }
 
     getConductorDetail(login: string, idConductor: number): Observable<ConductorDetail> {
-        console.log(login)
         return this.http.get<ConductorDetail>(API_URL + proveedores + '/' + login + conductores + '/' + idConductor);
 
     }

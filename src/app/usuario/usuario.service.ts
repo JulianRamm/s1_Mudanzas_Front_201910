@@ -37,12 +37,15 @@ export class UsuarioService {
     * @returns The usuario details
     */
     getUsuarioDetail(usuarioLogin): Observable<UsuarioDetail> {
-       
         return this.http.get<UsuarioDetail>(API_URL + usuarios + '/' + usuarioLogin);
     }
 
     createUsuario(usuario): Observable<Usuario> {
         return this.http.post<Usuario>(API_URL + usuarios, usuario);
+    }
+
+    deleteUser(usuarioLogin): Observable<void> {
+        return this.http.delete<void>(API_URL + usuarios + '/' + usuarioLogin);
     }
 
     /**

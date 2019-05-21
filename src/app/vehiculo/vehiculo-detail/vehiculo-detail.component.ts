@@ -13,32 +13,31 @@ import { Agenda } from '../../agenda/agenda';
   styleUrls: ['./vehiculo-detail.component.scss']
 })
 export class VehiculoDetailComponent implements OnInit {
-
   constructor(
     private vehiculoService: VehiculoService,
     private route: ActivatedRoute,) { }
- /**
-    * The usuario's login retrieved from the path
-    */
-  placaVehiculo: string;
-
-  /**
-  * The usuario whose details are shown
-  */
-  vehiculoDetail: VehiculoDetail;
-
-  agenda: Agenda;
-
-  showEdit: boolean;
-  
-  showAgenda:boolean;
-  
+    /**
+     * The usuario's login retrieved from the path
+     */
+    placaVehiculo: string;
+    
+    /**
+     * The usuario whose details are shown
+     */
+    vehiculoDetail: VehiculoDetail;
+    
+    agenda: Agenda;
+    
+    showEdit: boolean;
+    
+    showAgenda:boolean;
+    /*
   getVehiculoDetail(): void {
     this.vehiculoService.getVehiculoDetail(this.placaVehiculo)
       .subscribe(vehiculoDetail => {
         this.vehiculoDetail = vehiculoDetail;
       });
-  }
+  }*/
 
   showHideEdit(): void {
     this.showEdit = !this.showEdit;
@@ -53,7 +52,6 @@ export class VehiculoDetailComponent implements OnInit {
     this.showEdit = false;
     this.showAgenda = false;
     this.vehiculoDetail = new VehiculoDetail();
-    this.getVehiculoDetail();
+   // this.getVehiculoDetail();
   }
-
 }

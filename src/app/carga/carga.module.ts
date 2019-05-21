@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { CargaCreateComponent } from './carga-create/carga-create.component';
+import { CargaDeleteComponent } from './carga-delete/carga-delete.component';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { CargaCreateComponent } from './carga-create/carga-create.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [CargaListComponent, CargaCreateComponent],
+  declarations: [CargaListComponent, CargaCreateComponent, CargaDeleteComponent],
   providers: [CargaService],
   bootstrap: [CargaListComponent, CargaCreateComponent],
   exports: [CargaListComponent,CargaCreateComponent ]

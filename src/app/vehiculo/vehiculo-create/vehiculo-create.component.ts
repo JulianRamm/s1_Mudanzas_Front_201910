@@ -1,11 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { VehiculoService } from '../vehiculo.service';
 import { ToastrService } from 'ngx-toastr';
 import { Vehiculo } from '../vehiculo';
 
 @Component({
     selector: 'app-vehiculo-create',
-    templateUrl:'./vehiculo.create.component.html',
+    templateUrl:'./vehiculo-create.component.html',
     styleUrls:['./vehiculo-create.component.css']
     })
 export class VehiculoCreateComponent implements OnInit {
@@ -14,6 +14,8 @@ export class VehiculoCreateComponent implements OnInit {
     private vehiculoService: VehiculoService,
     private toastrService: ToastrService
   ) { }
+
+  @Input() loginProveedor: string;
 
   vehiculo: Vehiculo;
 
@@ -32,8 +34,8 @@ export class VehiculoCreateComponent implements OnInit {
   /**
   * Creates an usuario
   */
-  createUsuario(): Vehiculo {
-    this.vehiculoService.createVehiculo(this.vehiculo)
+  createVehiculo(): Vehiculo {
+    this.vehiculoService.createVehiculo(this.loginProveedor ,this.vehiculo)
       .subscribe(vehiculo => {
         this.vehiculo = vehiculo;
         this.create.emit();
@@ -52,6 +54,7 @@ export class VehiculoCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.loginProveedor);
     this.vehiculo = new Vehiculo();
   }
 

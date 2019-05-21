@@ -10,13 +10,11 @@ import { ViajeDetail } from '../viaje-detail';
 })
 export class ViajeDetailComponent implements OnInit {
 
-  @Output() selectedViaje: EventEmitter<ViajeDetail> = new EventEmitter<ViajeDetail>();
-  viajeSeleccionado: ViajeDetail;
   @Input() loginP: string;
   @Input() conductorId: number;
   viajeId: number;
   showCreate: boolean;
-
+  showEdit: boolean;
   viajeDetail: ViajeDetail;
 
   constructor(
@@ -24,39 +22,24 @@ export class ViajeDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) { }
 
-  getViajeDetail(): void {
-    this.service.getViajeDetail(this.loginP, this.conductorId, this.viajeId).subscribe(viaje => { this.viajeDetail = viaje;});
-
-
-  }
   getViaje(): void{
     this.service.getViaje(this.loginP, this.conductorId)
     .subscribe(viaje => {
        this.viajeDetail = viaje; this.viajeId=viaje.id;
-       console.log(this.viajeDetail.id);
       });
   }
   showHideCreate(): void {
     this.showCreate = !this.showCreate;
   }
-
-  onSelectedClick(viajeId: number): void {
-    if (this.viajeSeleccionado) {
-      this.viajeSeleccionado = null;
-    }
-    this.viajeId = viajeId;
-    this.getViaje();
-    window.scrollTo({
-      top: 250,
-      behavior: 'smooth',
-    });
+  viajeEliminado(){
+    this.viajeDetail=null;
+  }
+  showHideEdit(): void {
+    this.showEdit = !this.showEdit;
   }
   ngOnInit() {
-    this.showCreate = false;
-    this.viajeDetail = new ViajeDetail();
-
+    this.showEdit = false;
+    this.showCreate = false; 
     this.getViaje();
-
   }
-
 }
