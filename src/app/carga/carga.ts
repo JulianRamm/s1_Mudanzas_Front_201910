@@ -1,3 +1,6 @@
+import { Viaje } from "../viaje/viaje";
+import { Usuario } from "../usuario/usuario";
+
 export class Carga{
     id:number;
     datosEnvio:string;
@@ -7,4 +10,7 @@ export class Carga{
     fechaEstimadaLlegada:any;
     fechaEnvio:any;
     observaciones:string;
+    viaje:Viaje;
+    imagenes:any;
+    usuario:Usuario;
 }
