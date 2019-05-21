@@ -59,11 +59,18 @@ const routes: Routes = [
         children: [
             {
                 path: 'list',
-                component: UsuarioListComponent
+                component: UsuarioListComponent,
+                canActivate: [NgxPermissionsGuard],
+                
             },
             {
                 path: ':login',
-                component: UsuarioDetailComponent
+                component: UsuarioDetailComponent,
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'USER', 'PROVIDER']
+                    }
+                }
             }
         ]
     },
@@ -76,28 +83,21 @@ const routes: Routes = [
             },
             {
                 path: ':login',
-
-                component: ProveedorDetailComponent
+                component: ProveedorDetailComponent,
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'USER', 'PROVIDER']
+                    }
+                }
             },
             {
                 path: ':login/conductores/:id',
                 component: ConductorDetailComponent,
-
-            }
-        ]
-    },
-
-    {
-        path: 'proveedores',
-        children: [
-            {
-                path: 'list',
-                component: ProveedorListComponent
-            },
-            {
-                path: ':login',
-
-                component: ProveedorDetailComponent
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'USER', 'PROVIDER']
+                    }
+                }
             },
             {
                 path: ':login/vehiculos/:placa',
@@ -105,7 +105,7 @@ const routes: Routes = [
 
             }
         ]
-    },
+    }
     
 ];
 

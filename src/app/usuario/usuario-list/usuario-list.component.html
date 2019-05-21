@@ -24,7 +24,7 @@
                             <td routerLink="/usuarios/{{usuario.login}}" style="cursor: pointer;">{{ usuario.nombre }}</td>
                             <td routerLink="/usuarios/{{usuario.login}}" style="cursor: pointer;">{{ usuario.ciudadDeOrigen }}</td>
                             <td routerLink="/usuarios/{{usuario.login}}" style="cursor: pointer;"><a href="mailto:{{usuario.correoElectronico}}">{{usuario.correoElectronico}}</a></td>
-                            <td><button type="button" class="btn btn-labeled btn-danger" (click)="this.deleteUser(usuario.login)" routerLink="/usuarios/list">ELIMINAR</button></td>
+                            <td><button type="button" class="btn btn-labeled btn-danger" (click)="this.deleteUser(usuario.login)" routerLink="/usuarios/list" *ngxPermissionsOnly="['ADMIN']">ELIMINAR</button></td>
                         </tr>
                     </tbody>
                 </table>
