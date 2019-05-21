@@ -26,7 +26,7 @@ export class CargaListComponent implements OnInit {
      * Constructor for the component
      * @param CargaService The author's services provider
      */
-  constructor(private cargaService: CargaService, private route: ActivatedRoute, private sanitizer : DomSanitizer) { }
+  constructor(private cargaService: CargaService, private route: ActivatedRoute, private sanitizer: DomSanitizer) { }
 
   @Input() login: string;
 
@@ -41,9 +41,9 @@ export class CargaListComponent implements OnInit {
         this.cargas = cargas;
         cargas.forEach((carga) => {
           if (carga.imagenes) {
-            var baina="data:image/jpeg;base64,";
-            var str=carga.imagenes.substring(20,carga.imagenes.lenght);
-            carga.imagenes=baina+str;
+            var baina = "data:image/jpeg;base64,";
+            var str = carga.imagenes.substring(20, carga.imagenes.lenght);
+            carga.imagenes = baina + str;
           }
         })
       });
@@ -89,27 +89,22 @@ export class CargaListComponent implements OnInit {
     let c = this.cargas.find(function (element) { return element.id === idCarga });
     this.cargas.splice(this.cargas.indexOf(c), 1);
   }
-
   buscarCarga() {
     if (this.idCarga == undefined) {
       this.ngOnInit();
     }
     this.cargas = this.cargas.filter((element) => { return element.id.toLocaleString().match(this.idCarga.toLocaleString()) });
   }
-  
-  hardCode(imagen){
-    var strs=imagen.split("/", )
-  }
 
   readImage(carga: Carga) {
     var base64data;
     var reader = new FileReader();
-    var san=this.sanitizer;
+    var san = this.sanitizer;
     reader.onloadend = function () {
       base64data = reader.result;
       console.log(base64data);
-      carga.imagenes=base64data;
-      }
+      carga.imagenes = base64data;
+    }
     reader.readAsDataURL(<Blob>carga.imagenes);
     console.log(carga.imagenes);
   }
@@ -118,7 +113,7 @@ export class CargaListComponent implements OnInit {
     var found = this.cargas.find((el) => el.id === id);
     var reader = new FileReader();
     reader.onload = (ev: any) => {
-      found.imagenes=ev.target.result;
+      found.imagenes = ev.target.result;
       console.log(found.imagenes);
       this.cargaService.upddateCarga(this.login, id, found).subscribe((carga) => {
       })
