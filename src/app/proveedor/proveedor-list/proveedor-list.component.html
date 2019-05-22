@@ -15,6 +15,15 @@
                             <th>Ciudad</th>
                             <th>Correo Electronico</th>
                             <th>Telefono</th>
+                            <th>
+                                    <div class="input-group">
+                                            <input #esto class="form-control py-2 border-right-0 border" type="text" name="proveedor_login" [(ngModel)]="proveedor_login" 
+                                             id="example-search-input" placeholder="buscar proveedor con login..." (keyup.enter)="buscarProveedor()">
+                                            <span class="input-group-append">
+                                                <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+                                            </span>
+                                        </div>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,19 +35,11 @@
                             <td>{{ proveedor.ciudadOrigen }}</td>
                             <td>{{ proveedor.correoElectronico }}</td>
                             <td>{{ proveedor.numeroTelefono }}</td>
-
+                            <td><button type="button" class="btn btn-labeled btn-danger" (click)="this.deleteProveedor(proveedor.login)" routerLink="/proveedores/list" *ngxPermissionsOnly="['ADMIN']">ELIMINAR</button></td>
                         </tr>
                     </tbody>
                 </table>
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Agregar un nuevo Prvoeedor</button>
             </div>
         </div>
-    </div>
-    <div class="row" *ngIf="showCreate" id="detail">
-        <div class="col-2"></div>
-        <app-proveedor-create class="col-10" (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
-        <div class="col-2"></div>
-
     </div>
 </div>

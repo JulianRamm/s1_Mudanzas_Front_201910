@@ -19,7 +19,7 @@ export class UsuarioListComponent implements OnInit {
      */
     constructor(private usuarioService: UsuarioService) { }
 
-    /**
+    /** 
      * The list of usuarios which belong to the BookStore
      */
     usuarios: Usuario[];
@@ -50,6 +50,13 @@ export class UsuarioListComponent implements OnInit {
         );
         this.ngOnInit();
     }
+
+    buscarUsuario() {
+        if (this.usuario_login == '') {
+          this.ngOnInit();
+        }
+        this.usuarios = this.usuarios.filter((element) => { return element.login.match(this.usuario_login)});
+      }
 
     /**
      * This will initialize the component by retrieving the list of usuarios from the service

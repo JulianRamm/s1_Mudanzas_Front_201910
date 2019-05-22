@@ -33,6 +33,7 @@ export class ConductorCreateComponent implements OnInit {
 
   createConductor(): Conductor {
     this.conductor.calificacion = 5;
+    this.conductor.id = 0;
 
     this.conductorService.createConductor( this.conductor ,this.loginProveedor)
       .subscribe(conductor => {
@@ -40,7 +41,6 @@ export class ConductorCreateComponent implements OnInit {
         this.create.emit();
         this.toastrService.success("La conductor fue creada", "Creacion de conductor");
       });
-      
     return this.conductor;
   }
 

@@ -48,6 +48,11 @@ export class UsuarioDetailComponent implements OnInit {
     this.usuarioService.getUsuarioDetail(this.usuario_login)
       .subscribe(usuarioDetail => {
         this.usuarioDetail = usuarioDetail;
+        if(usuarioDetail){
+          var baina = "data:image/jpeg;base64,";
+            var str = this.usuarioDetail.imagen.substring(20, this.usuarioDetail.imagen.lenght);
+            this.usuarioDetail.imagen = baina + str;
+        }
       });
   }
 
@@ -76,7 +81,16 @@ export class UsuarioDetailComponent implements OnInit {
   setSubasta(sub: Subasta): void {
     this.subasta = sub;
   }
-
+  onSelectedFile(event) {
+    var file = <File>event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = (ev: any) => {
+      this.usuarioDetail.imagen = ev.target.result;
+      this.usuarioService.updateUsuario(this.usuarioDetail).subscribe((usuario) => {
+      })
+    }
+    reader.readAsDataURL(file);
+  }
   /**
   * The method which initilizes the component
   * We need to initialize the usuario and its tarjetas so that

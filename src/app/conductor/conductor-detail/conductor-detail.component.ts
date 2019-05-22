@@ -3,6 +3,7 @@ import { ConductorService } from '../conductor.service';
 import { ConductorDetail } from '../conductor-detail';
 import { ActivatedRoute } from '@angular/router';
 import { Conductor } from '../conductor';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-conductor-detail',
@@ -15,9 +16,12 @@ export class ConductorDetailComponent implements OnInit {
   conductor_Id: number;
   conductorDetail: ConductorDetail;
   showEdit: boolean;
+  
+
 
   constructor(private conductorService: ConductorService,
-    private route: ActivatedRoute, ) { }
+    private route: ActivatedRoute,
+    private location: Location ) { }
 
   private async getConductorDetail() {
     this.conductorService.getConductorDetail(this.proveedor_login, this.conductor_Id)
@@ -25,6 +29,11 @@ export class ConductorDetailComponent implements OnInit {
         this.conductorDetail = conductorDetail;
       });
   }
+
+  conductorEliminado(): void {
+    this.location.back()
+  }
+
 
   showHideEdit(): void {
     this.showEdit = !this.showEdit;
