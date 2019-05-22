@@ -16,7 +16,7 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><b>Telefono: </b>{{conductorDetail.telefono}}</li>
             <li class="list-group-item"><b>Calificacion: </b>{{conductorDetail.calificacion}}</li>
-            <div class="card" id="add" style="width: 28rem;">
+            <div class="row justify-content-center align-self-center" >
               <button type="button" class="btn btn-light"
                 [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }" (click)="showHideEdit()">Cambiar mi
                 conductor</button>

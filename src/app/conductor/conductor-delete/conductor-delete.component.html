@@ -1,15 +1,17 @@
-<span *ngIf="confirmDelete" >
-    <div class="col-md row justify-content-center">
-        <span>¿Eliminar conductor con id: {{this.idconductor}}? </span>
-        <button type="col button" class="btn btn btn-danger a-btn-slide-text" (click)="deleteConductor()">
-          <span class="glyphicon glyphicon-trash" aria-hidden="true"><strong>Si</strong></span>
-        </button>
-        <button type="col button" class="btn btn btn-primary a-btn-slide-text" (click)="confirmDelete=false">
-          <span class="glyphicon glyphicon-remove" aria-hidden="true"><strong>No</strong></span>
-        </button>
+<span *ngIf="confirmDelete">
+  <div class="col-md row justify-content-center">
+    <span>¿Eliminar conductor con id: {{this.idconductor}}? </span>
+    <div class="row justify-content-center align-self-center">
+      <button type="col button" class="btn btn btn-danger a-btn-slide-text" (click)="deleteConductor()">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"><strong>Si</strong></span>
+      </button>
+      <button type="col button" class="btn btn btn-primary a-btn-slide-text" (click)="confirmDelete=false">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"><strong>No</strong></span>
+      </button>
     </div>
-    
-  </span>
-  <button *ngIf="!confirmDelete" class="btn btn-danger" (click)="confirmDelete=true">
-      <span class="glyphicon glyphicon-trash" aria-hidden="true"><strong>Eliminar</strong></span>
-  </button>
+  </div>
+
+</span>
+<button *ngIf="!confirmDelete" class="btn btn-danger" (click)="confirmDelete=true">
+  <span class="glyphicon glyphicon-trash" aria-hidden="true"><strong>Eliminar</strong></span>
+</button>

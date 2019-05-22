@@ -3,6 +3,7 @@ import { ConductorService } from '../conductor.service';
 import { ConductorDetail } from '../conductor-detail';
 import { ActivatedRoute } from '@angular/router';
 import { Conductor } from '../conductor';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-conductor-detail',
@@ -15,12 +16,12 @@ export class ConductorDetailComponent implements OnInit {
   conductor_Id: number;
   conductorDetail: ConductorDetail;
   showEdit: boolean;
-
-  @Output() conductorE: EventEmitter<Conductor> = new EventEmitter<Conductor>();
+  
 
 
   constructor(private conductorService: ConductorService,
-    private route: ActivatedRoute, ) { }
+    private route: ActivatedRoute,
+    private location: Location ) { }
 
   private async getConductorDetail() {
     this.conductorService.getConductorDetail(this.proveedor_login, this.conductor_Id)
@@ -30,8 +31,7 @@ export class ConductorDetailComponent implements OnInit {
   }
 
   conductorEliminado(): void {
-    this.conductorDetail = null;
-    this.conductorE.emit()
+    this.location.back()
   }
 
 

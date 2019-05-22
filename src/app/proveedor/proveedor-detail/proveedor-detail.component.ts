@@ -44,6 +44,7 @@ export class ProveedorDetailComponent implements OnInit {
       .subscribe(proveedorDetail => {
         this.proveedorDetail = proveedorDetail;
       });
+      
   }
 
   showHideEdit(): void {
