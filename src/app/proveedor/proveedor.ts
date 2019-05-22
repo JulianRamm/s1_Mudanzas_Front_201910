@@ -28,7 +28,7 @@ export class Proveedor {
     /**
      * El logotipo del proveedor
      */
-    logotipo: string;
+    logotipo: any;
 
     /**
      * La ciudad de origen del proveedor

@@ -52,5 +52,14 @@ export class ProveedorService {
         return this.http.put<ProveedorDetail>(API_URL + proveedores + '/' + proveedor.login, proveedor);
     }
 
+    /**
+    * Delete an proveedor
+    * @param proveedor The proveedor's  deleted
+    * @returns The confirmation that the proveedor was deleted
+    */
+    deleteProveedor(proveedorLogin): Observable<void> {
+        return this.http.delete<void>(API_URL + proveedores + '/' + proveedorLogin);
+    }
+
 
 }

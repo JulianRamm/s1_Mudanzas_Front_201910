@@ -14,7 +14,15 @@
                             <th>Nombre Completo</th>
                             <th>Ciudad</th>
                             <th>Correo Electronico</th>
-                            <th></th>
+                            <th>
+                                    <div class="input-group">
+                                            <input #esto class="form-control py-2 border-right-0 border" type="text" name="usuario_login" [(ngModel)]="usuario_login" 
+                                             id="example-search-input" placeholder="buscar usuario con login..." (keyup.enter)="buscarUsuario()">
+                                            <span class="input-group-append">
+                                                <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+                                            </span>
+                                        </div>
+                            </th> 
                         </tr>
                     </thead>
                     <tbody>
