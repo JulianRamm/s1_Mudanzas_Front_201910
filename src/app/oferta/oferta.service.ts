@@ -27,9 +27,7 @@ export class OfertaService {
     getOfertas(id: number): Observable<Oferta[]> {
         return this.http.get<Oferta[]>(API_URL + subastas + '/' + id + ofertas);
     }
-    createOferta(login: string, subasta: Subasta) {
-        return this.http.post<Subasta>(API_URL + usuarios + '/' + login + subastas + '/', subasta);
-    }
+    
 
 
 

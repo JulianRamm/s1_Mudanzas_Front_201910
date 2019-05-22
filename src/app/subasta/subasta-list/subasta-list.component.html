@@ -1,3 +1,11 @@
+<div class="input-group">
+  <input #esto class="form-control py-2 border-right-0 border" type="number" name="idSubasta" [(ngModel)]="idSubasta" 
+   id="example-search-input" placeholder="buscar subasta con id..." (keyup.enter)="buscarSubasta()">
+  <span class="input-group-append">
+      <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+  </span>
+</div>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col" *ngFor="let subasta of subastas">
