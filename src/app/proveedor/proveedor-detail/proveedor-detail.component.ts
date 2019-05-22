@@ -43,6 +43,11 @@ export class ProveedorDetailComponent implements OnInit {
     this.proveedorService.getProveedorDetail(this.proveedor_login)
       .subscribe(proveedorDetail => {
         this.proveedorDetail = proveedorDetail;
+        if (proveedorDetail.logotipo) {
+          var baina = "data:image/jpeg;base64,";
+          var str = proveedorDetail.logotipo.substring(20, proveedorDetail.logotipo.lenght);
+          proveedorDetail.logotipo = baina + str;
+        }
       });
       
   }

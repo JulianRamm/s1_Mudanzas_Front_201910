@@ -1,3 +1,10 @@
+<div class="input-group">
+    <input #esto class="form-control py-2 border-right-0 border" type="number" name="idConductor" [(ngModel)]="idConductor" 
+     id="example-search-input" placeholder="buscar conductor con id..." (keyup.enter)="buscarConductor()">
+    <span class="input-group-append">
+        <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+    </span>
+</div>
 <div class="container-fluid">
   <div class="row">
     <div class="col" *ngFor="let conductor of conductores" style="cursor: pointer;"
@@ -33,4 +40,4 @@
       <hr>
       <br>
     </div>
-  </div>
+  </div> 

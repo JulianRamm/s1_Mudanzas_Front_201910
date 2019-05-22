@@ -71,6 +71,13 @@ export class ConductorListComponent implements OnInit {
             .subscribe(conductores => this.conductores = conductores);
     }
 
+    buscarConductor() {
+        if (this.idConductor == undefined) {
+          this.ngOnInit();
+        }
+        this.conductores = this.conductores.filter((element) => { return element.id.toLocaleString().match(this.idConductor.toLocaleString()) });
+      }
+
     /**
      * This will initialize the component by retrieving the list of conductores from the service
      * This method will be called when the component is created

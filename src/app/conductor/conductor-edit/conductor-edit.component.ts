@@ -17,6 +17,12 @@ export class ConductorEditComponent implements OnInit {
 
   @Input() loginProveedor: string;
 
+  /**
+  * The output which tells the parent component
+  * that the user updated a new usuario
+  */
+  @Output() update = new EventEmitter();
+
   conductor: Conductor;
 
   /**
@@ -31,16 +37,12 @@ export class ConductorEditComponent implements OnInit {
   */
   @Output() edit = new EventEmitter();
 
-  editConductor(): Conductor {
-    this.conductor.calificacion = 5;
+  editConductor(): void {
     this.conductorService.updateConductor(this.conductor, this.loginProveedor)
-      .subscribe(conductor => {
-        this.conductor = conductor;
-        this.edit.emit();
-        this.toastrService.success("El conductor fue actualizado", "Actualización de conductor");
+      .subscribe(() => {
+        this.toastrService.success("The usuario's information was updated", "Usuario edition");
       });
-
-    return this.conductor;
+    this.update.emit();
   }
 
   /**
