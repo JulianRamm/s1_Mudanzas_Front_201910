@@ -50,7 +50,7 @@ export class UsuarioDetailComponent implements OnInit {
         this.usuarioDetail = usuarioDetail;
         if(usuarioDetail){
           var baina = "data:image/jpeg;base64,";
-            var str = this.usuarioDetail.imagen.substring(20, this.usuarioDetail.imagen.lenght);
+            var str = this.usuarioDetail.imagen.substring(20, this.usuarioDetail.imagen.length());
             this.usuarioDetail.imagen = baina + str;
         }
       });
