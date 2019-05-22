@@ -4,13 +4,14 @@
             <br>
             <h3 class="text-center">Sign-up</h3>
             <br>
-            <div>
-                <label for="role"><b>Rol: </b></label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Rol</div>
+                </div>
                 <select class="custom-select" name="role" id="role" [(ngModel)]="this.rolSeleccionado" required>
                     <option [value]="role" *ngFor="let role of roles">{{role}}</option>
                 </select>
             </div>
-            <br>
             <form name="usuario" *ngIf="this.rolSeleccionado == 'USER'" (ngSubmit)="f.form.valid && createUsuario()" #f="ngForm" novalidate>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
