@@ -7,6 +7,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 
 import { OfertaService } from './oferta.service';
 import { OfertaListComponent } from '../oferta/oferta-list/oferta-list.component';
+import { OfertaCreateComponent } from './oferta-create/oferta-create.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { OfertaListComponent } from '../oferta/oferta-list/oferta-list.component
     CommonModule,
     FormsModule
   ],
-  declarations: [OfertaListComponent],
+  declarations: [OfertaListComponent, OfertaCreateComponent],
   providers: [OfertaService],
   bootstrap: [OfertaListComponent],
   exports: [OfertaListComponent]})

@@ -43,7 +43,13 @@ export class ProveedorDetailComponent implements OnInit {
     this.proveedorService.getProveedorDetail(this.proveedor_login)
       .subscribe(proveedorDetail => {
         this.proveedorDetail = proveedorDetail;
+        if (proveedorDetail.logotipo) {
+          var baina = "data:image/jpeg;base64,";
+          var str = proveedorDetail.logotipo.substring(20, proveedorDetail.logotipo.lenght);
+          proveedorDetail.logotipo = baina + str;
+        }
       });
+      
   }
 
   showHideEdit(): void {
@@ -53,6 +59,17 @@ export class ProveedorDetailComponent implements OnInit {
   setVehiculo(v: Vehiculo)
   {
     this.selectedVehiculo = v;
+  }
+
+  onSelectedFile(event) {
+    var file = <File>event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = (ev: any) => {
+      this.proveedorDetail.logotipo = ev.target.result;
+      this.proveedorService.updateProveedor(this.proveedorDetail).subscribe((proveedor) => {
+      })
+    }
+    reader.readAsDataURL(file);
   }
 
 

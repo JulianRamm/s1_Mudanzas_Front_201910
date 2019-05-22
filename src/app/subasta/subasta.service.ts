@@ -40,6 +40,6 @@ export class SubastaService {
 
     createSubasta(login: string, subasta:Subasta ){
         return this.http.post<Subasta>(API_URL + usuarios + '/' + login + subastas +'/', subasta);
-      }
+    }
 
 }

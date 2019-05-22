@@ -71,6 +71,13 @@ export class ProveedorListComponent implements OnInit {
         this.ngOnInit();
     }
 
+    buscarProveedor() {
+        if (this.proveedor_login == '') {
+          this.ngOnInit();
+        }
+        this.proveedores = this.proveedores.filter((element) => { return element.login.match(this.proveedor_login)});
+      }
+
     /**
      * This will initialize the component by retrieving the list of proveedores from the service
      * This method will be called when the component is created
