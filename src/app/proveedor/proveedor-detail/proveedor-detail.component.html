@@ -89,7 +89,7 @@
             <hr>
             <br>
             <div *ngIf="proveedorDetail.login">
-                <app-subasta *ngxPermissionsOnly="['ADMIN', 'PROVIDER']"></app-subasta>
+                <app-subasta *ngxPermissionsOnly="['ADMIN', 'PROVIDER']" [login]="this.proveedor_login" [todo]="true"></app-subasta>
             </div>
         </div>
     </div>

@@ -24,7 +24,7 @@
         <div *ngIf="login; else elseBlock">
         <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
         (click)="onSelectedClick(subasta.id)">Ver ofertas</button></div>
-        <ng-template #elseBlock><button>algo</button></ng-template> 
+        <button type="button" class="btn btn-success" *ngxPermissionsOnly="['ADMIN', 'PROVIDER']" (click)="crearOferta(subasta.id)">Hacer Oferta!</button>
         
       </div>
     </div>

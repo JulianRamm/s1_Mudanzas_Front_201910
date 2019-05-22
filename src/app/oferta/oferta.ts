@@ -20,4 +20,11 @@ export class Oferta {
      */
     comentario: String;
 
+    /**
+     * Una subasta con solo un id
+     */
+    subasta: {
+        id: number
+    }
+
 }

@@ -9,6 +9,8 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { SubastaService } from './subasta.service';
 import { SubastaListComponent } from './subasta-list/subasta-list.component';
 import { SubastaCreateComponent } from '../subasta/subasta-create/subasta-create.component';
+import { NgxPermission } from 'ngx-permissions/model/permission.model';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   imports: [
@@ -16,7 +18,8 @@ import { SubastaCreateComponent } from '../subasta/subasta-create/subasta-create
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgxPermissionsModule
   ],
   declarations: [SubastaListComponent, SubastaCreateComponent],
   providers: [SubastaService],
