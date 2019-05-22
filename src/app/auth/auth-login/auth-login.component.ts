@@ -50,7 +50,7 @@ export class AuthLoginComponent implements OnInit {
         }
         else {
             this.authService.login(this.rolSeleccionado);
-            this.router.navigate(['/usuarios/']);
+            this.router.navigate(['/usuarios/list']);
         }
         this.toastrService.success('Logged in')
     }
