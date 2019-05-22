@@ -20,7 +20,7 @@ export class CargaService {
   getCargaDetail(idCarga: number, login: string): Observable<Carga> {
     return this.http.get<Carga>(API_URL + usuarios + '/' + login + '/' + cargas + '/' + idCarga);
   }
-  createCarga(login: string, carga:Carga ):Observable<Carga>{
+  createCarga(login: string, carga:Carga ): Observable<Carga>{
     return this.http.post<Carga>(API_URL + usuarios + '/' + login + '/' + cargas, carga);
   }
   deleteCarga(login: string, idCarga:number ):Observable<void>{

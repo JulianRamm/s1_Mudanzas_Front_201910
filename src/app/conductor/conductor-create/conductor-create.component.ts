@@ -40,7 +40,6 @@ export class ConductorCreateComponent implements OnInit {
         this.create.emit();
         this.toastrService.success("La conductor fue creada", "Creacion de conductor");
       });
-      
     return this.conductor;
   }
 
