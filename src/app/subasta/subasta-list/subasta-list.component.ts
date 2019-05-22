@@ -2,6 +2,8 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Subasta } from '../subasta';
 import { SubastaService } from '../subasta.service';
 import { ActivatedRoute } from '@angular/router';
+import { OfertaService } from '../../oferta/oferta.service';
+import { Oferta } from '../../oferta/oferta';
 
 @Component({
   selector: 'app-subasta',
@@ -13,9 +15,10 @@ export class SubastaListComponent implements OnInit {
       * Constructor for the component
       * @param subastaService The author's services provider
       */
-  constructor(private subastaService: SubastaService, private route: ActivatedRoute) { }
+  constructor(private subastaService: SubastaService, private route: ActivatedRoute, private ofertaService: OfertaService) { }
 
   @Input() login: string;
+  @Input() todo: boolean;
 
   subastaSeleccionada: Subasta;
   @Output() selectedSubasta: EventEmitter<Subasta> = new EventEmitter<Subasta>();
@@ -53,7 +56,19 @@ export class SubastaListComponent implements OnInit {
     this.showCreate = !this.showCreate;
   }
 
-
+  crearOferta(idSubasta: number): void
+  {
+    let valor = prompt("Ingrese el valor por el cual va a generar la oferta: ", "2200000");
+    let comentario = prompt("Ingrese un comentario para su oferta: ", "Brindaré el mejor servicio!");
+    let dummy = new Oferta();
+    dummy.id = 1;
+    dummy.comentario = comentario;
+    dummy.valor = parseInt(valor);
+    dummy.subasta = {};
+    dummy.subasta.id = idSubasta;
+    console.log(dummy);
+    this.ofertaService.createOfertaProveedor(this.login, dummy);
+  }
 
   onSelectedClick(idSubasta: number): void {
     if (this.subastaSeleccionada) {
@@ -82,7 +97,7 @@ export class SubastaListComponent implements OnInit {
   ngOnInit() {
     this.showCreate = false;
     this.subastaSeleccionada = new Subasta();
-    if(this.login !=null)
+    if(this.login !=null && !this.todo)
     this.getSubastas();
     else{
       this.getAllSubastas();
