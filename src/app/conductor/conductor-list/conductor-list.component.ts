@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import { Conductor } from '../conductor';
 import { ConductorService } from '../conductor.service';
 import { ConductorDetail } from '../conductor-detail';
@@ -70,6 +70,13 @@ export class ConductorListComponent implements OnInit {
 
             .subscribe(conductores => this.conductores = conductores);
     }
+
+    buscarConductor() {
+        if (this.idConductor == undefined) {
+          this.ngOnInit();
+        }
+        this.conductores = this.conductores.filter((element) => { return element.id.toLocaleString().match(this.idConductor.toLocaleString()) });
+      }
 
     /**
      * This will initialize the component by retrieving the list of conductores from the service

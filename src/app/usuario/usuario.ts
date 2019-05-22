@@ -37,4 +37,6 @@ export class Usuario {
      * La ciudad de origen del usuario
      */
     ciudadDeOrigen: string;
+
+    imagen:any;
 }

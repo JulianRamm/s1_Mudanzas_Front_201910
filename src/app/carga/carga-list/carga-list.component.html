@@ -11,7 +11,9 @@
       <div class="col" *ngFor="let carga of cargas ">
         <div class="card" style="width: 18rem;">
             <ng-container *ngIf="carga.imagenes; else elseTemplate">
-                <img class="card-img-top" src="{{carga.imagenes}}" alt="Card image cap">
+                <img class="card-img-top" [src]="carga.imagenes" alt="Card image cap">
+                <input style="display:none" type="file" #imageC (change)="onSelectedFile($event, carga.id)">
+                <button type="button" class="btn btn-primary" (click)="imageC.click()">Cargar imagen</button>
             </ng-container>
             <ng-template #elseTemplate>
                 <img class="card-img-top" [src]="this.defaultImage" alt="Card image cap">

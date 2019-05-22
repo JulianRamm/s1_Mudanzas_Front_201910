@@ -70,6 +70,7 @@ export class SubastaListComponent implements OnInit {
     this.ofertaService.createOfertaProveedor(this.login, dummy);
   }
 
+
   onSelectedClick(idSubasta: number): void {
     if (this.subastaSeleccionada) {
       this.subastaSeleccionada = null;
@@ -90,6 +91,15 @@ export class SubastaListComponent implements OnInit {
       this.selectedSubasta.emit(this.subastaSeleccionada)
     })
   }
+
+
+  buscarUsuario() {
+    if (this.idSubasta == undefined) {
+      this.ngOnInit();
+    }
+    this.subastas = this.subastas.filter((element) => { return element.id.toLocaleString().match(this.idSubasta.toLocaleString())});
+  }
+
   /**
    * This will initialize the component by retrieving the list of tarjetas from the service
    * This method will be called when the component is created

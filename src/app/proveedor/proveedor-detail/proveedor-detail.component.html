@@ -4,7 +4,14 @@
 <br>
 <div *ngIf="this.proveedorDetail" class='container-fluid row justify-content-center'>
     <div class="row" id="detail" *ngxPermissionsOnly="['USER', 'ADMIN', 'PROVIDER']">
-        <img class="img-fluid" alt="Responsive image" src="https://dl.dropbox.com/s/x4bvrlzf5h0nlny/userprofile.png?dl=0">
+        <ng-container *ngIf="proveedorDetail.logotipo; else elseTemplate">
+            <img class="img-fluid" [src]="proveedorDetail.logotipo" alt="Card image cap"
+                style="margin: 10px; width: 256px ; height:256px; border-radius: 50px;">
+        </ng-container>
+        <ng-template #elseTemplate>
+            <img class="img-fluid" src="https://dl.dropbox.com/s/x4bvrlzf5h0nlny/userprofile.png?dl=0"
+                alt="Card image cap">
+        </ng-template>
         <table class='table col'>
             <tbody>
                 <br>
@@ -20,14 +27,24 @@
                 <tr> {{ "Ubicacion: " + proveedorDetail.ciudadOrigen + ", Colombia" }} </tr>
                 <tr>{{ "Telefono: " + proveedorDetail.numeroTelefono  }}</tr>
                 <tr>{{ "Numero de Vehiculos: " + proveedorDetail.numeroVehiculos  }}</tr>
-                <tr>{{ "Calificación: " + proveedorDetail.clasificacion  }}</tr>  
-                <tr><button type="button" class="btn btn-light"
-                    [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }"
-                    (click)="showHideEdit()" *ngxPermissionsOnly="['ADMIN', 'PROVIDER']">Cambiar mi perfil</button></tr>
-                
+                <tr>{{ "Calificación: " + proveedorDetail.clasificacion  }}</tr>
+                <tr>
+                    <div class="row justify-content-center align-self-center">
+
+                        <button type="button" class="btn btn-light"
+                        [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }" (click)="showHideEdit()"
+                        *ngxPermissionsOnly="['ADMIN', 'PROVIDER']">Cambiar mi perfil</button>
+                        <div class="col-md">
+                                <input style="display:none" type="file" #imageC (change)="onSelectedFile($event)">
+                                <button type="button" class="btn btn-primary" (click)="imageC.click()" *ngxPermissionsOnly="['ADMIN', 'PROVIDER']">Cargar Logotipo</button>
+                        </div>
+                    </div>    
+
+                </tr>
+
             </tbody>
         </table>
-    </div> 
+    </div>
     <hr>
     <div class="table row" *ngxPermissionsOnly="['ADMIN', 'PROVIDER']">
         <div *ngIf="showEdit" class="row edit" id="detail">
@@ -37,7 +54,7 @@
             </app-proveedor-edit>
             <div class="col-2"></div>
         </div>
-                
+
     </div>
     <hr>
     <div class="table row" *ngxPermissionsOnly="['ADMIN', 'PROVIDER']">
@@ -46,7 +63,8 @@
             <hr>
             <br>
             <div *ngIf="proveedorDetail.login">
-                <app-conductor [proveedor_login]="proveedorDetail.login" *ngxPermissionsOnly="['ADMIN', 'PROVIDER']"></app-conductor>
+                <app-conductor [proveedor_login]="proveedorDetail.login" *ngxPermissionsOnly="['ADMIN', 'PROVIDER']">
+                </app-conductor>
 
             </div>
         </div>
@@ -55,11 +73,13 @@
             <hr>
             <br>
             <div *ngIf="this.proveedor_login">
-                <app-vehiculo [login]="this.proveedor_login" (selectedVehiculo)="setVehiculo($event)" *ngxPermissionsOnly="['ADMIN', 'PROVIDER']">
+                <app-vehiculo [login]="this.proveedor_login" (selectedVehiculo)="setVehiculo($event)"
+                    *ngxPermissionsOnly="['ADMIN', 'PROVIDER']">
                 </app-vehiculo>
             </div>
         </div>
     </div>
+    <app-vehiculo-detail *ngxPermissionsOnly="['ADMIN', 'PROVIDER']"></app-vehiculo-detail>
     <hr>
     <hr>
 
@@ -72,7 +92,7 @@
                 <app-subasta *ngxPermissionsOnly="['ADMIN', 'PROVIDER']" [login]="this.proveedor_login" [todo]="true"></app-subasta>
             </div>
         </div>
-    </div>   
+    </div>
     <hr>
     <hr>
 </div>
