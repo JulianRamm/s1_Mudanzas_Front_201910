@@ -26,6 +26,7 @@ export class ConductorDetailComponent implements OnInit {
       });
   }
 
+
   showHideEdit(): void {
     this.showEdit = !this.showEdit;
   }

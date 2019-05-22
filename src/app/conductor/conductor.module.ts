@@ -10,6 +10,7 @@ import { ConductorCreateComponent } from './conductor-create/conductor-create.co
 import { ConductorDetailComponent } from './conductor-detail/conductor-detail.component';
 import { ViajeModule } from '../viaje/viaje.module';
 import { ConductorEditComponent } from '../conductor/conductor-edit/conductor-edit.component';
+import { ConductorDeleteComponent } from './conductor-delete/conductor-delete.component';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { ConductorEditComponent } from '../conductor/conductor-edit/conductor-ed
     FormsModule,
     ViajeModule
   ],
-  declarations: [ConductorListComponent, ConductorCreateComponent, ConductorDetailComponent, ConductorEditComponent],
+  declarations: [ConductorListComponent, ConductorCreateComponent, ConductorDetailComponent, ConductorEditComponent,ConductorDeleteComponent],
   providers: [ConductorService],
   bootstrap: [ConductorListComponent, ConductorCreateComponent],
   exports: [ConductorListComponent]

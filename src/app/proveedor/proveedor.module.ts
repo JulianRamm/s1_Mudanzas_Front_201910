@@ -13,6 +13,9 @@ import { ProveedorCreateComponent } from './proveedor-create/proveedor-create.co
 import { ProveedorEditComponent } from './proveedor-edit/proveedor-edit.component';
 import { VehiculoModule } from '../vehiculo/vehiculo.module';
 import { SubastaModule } from '../subasta/subasta.module';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxPermissionsModule } from 'ngx-permissions';
+import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
     imports: [
@@ -23,7 +26,10 @@ import { SubastaModule } from '../subasta/subasta.module';
         CommonModule,
         FormsModule,
         VehiculoModule,
-        SubastaModule
+        SubastaModule,
+        NgxPaginationModule,
+        NgxPermissionsModule.forRoot(),
+        AuthModule
     ],
     declarations: [ProveedorListComponent,  ProveedorDetailComponent, ProveedorCreateComponent, ProveedorEditComponent],
     providers: [ProveedorService],
