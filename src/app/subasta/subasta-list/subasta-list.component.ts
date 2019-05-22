@@ -64,8 +64,7 @@ export class SubastaListComponent implements OnInit {
     dummy.id = 1;
     dummy.comentario = comentario;
     dummy.valor = parseInt(valor);
-    dummy.subasta = {};
-    dummy.subasta.id = idSubasta;
+    dummy.subasta = {id: idSubasta};
     console.log(dummy);
     this.ofertaService.createOfertaProveedor(this.login, dummy);
   }
