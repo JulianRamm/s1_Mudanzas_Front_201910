@@ -56,6 +56,17 @@ export class ProveedorDetailComponent implements OnInit {
     this.selectedVehiculo = v;
   }
 
+  onSelectedFile(event) {
+    var file = <File>event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = (ev: any) => {
+      this.proveedorDetail.logotipo = ev.target.result;
+      this.proveedorService.updateProveedor(this.proveedorDetail).subscribe((proveedor) => {
+      })
+    }
+    reader.readAsDataURL(file);
+  }
+
 
   /**
   * The method which initilizes the component
